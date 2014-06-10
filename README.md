@@ -8,3 +8,4 @@ Learning Swift by Example.
 3. Variables
 4. Constants
 5. For Loops
+6. If/Else
