@@ -10,3 +10,4 @@ Learning Swift by Example.
 5. For Loops
 6. If/Else
 7. Switch
+8. Arrays
