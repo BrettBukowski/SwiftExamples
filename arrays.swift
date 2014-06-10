@@ -34,7 +34,8 @@ strings[0] = "a"
 // Slices.
 strings[0..1] = ["a"]                       // basically the same as the previous assignment
 strings[0...1] = ["a", "b"]
-strings[0...3]
+strings[0...3]                              // ["a", "b", "c", "d"]
+strings[0..strings.endIndex]                // ["a", "b", "c", "d", "e", "f", "g"]
 
 // Methods.
 
@@ -48,7 +49,7 @@ println(strings.removeAtIndex(0))          // a
 strings.map({
     (str: String) -> String in
     return str + "0"
-})
+})                                         // ["a0", "b0", "c0", "d0", "e0", "f0", "g0"]
 strings.removeLast()
 
 // Clearing.
