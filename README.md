@@ -9,3 +9,4 @@ Learning Swift by Example.
 4. Constants
 5. For Loops
 6. If/Else
+7. Switch
