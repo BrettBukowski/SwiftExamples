@@ -11,3 +11,4 @@ Learning Swift by Example.
 6. If/Else
 7. Switch
 8. Arrays
+9. Dictionaries
