@@ -54,3 +54,10 @@ strings.removeLast()
 // Clearing.
 strings.removeAll(keepCapacity: false)
 strings = []
+
+// Using a loop to create a multidimensional array.
+var rows = 10, cols = 10
+var dimensional = Array<Array<Int>>()
+for col in 0..10 {
+    dimensional.append(Array(count: rows, repeatedValue:Int()))
+}
