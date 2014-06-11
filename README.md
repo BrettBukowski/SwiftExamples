@@ -13,4 +13,5 @@ Learning Swift by Example.
 8. Arrays
 9. Dictionaries
 10. Tuples
-11. Functions
+11. Optionals
+12. Functions
