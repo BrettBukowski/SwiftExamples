@@ -1,4 +1,4 @@
-let emptyDictionary = Dictionary<String, Float>()
+var emptyDictionary = Dictionary<String, Float>()
 
 // Type intference allows you to initialize without declaring types:
 var strings = [
@@ -24,3 +24,30 @@ strings["a"] = nil
 // but returns the value that was removed (or nil if
 // the key-val didn't exist)
 strings.removeValueForKey("nope")
+
+// Updating.
+strings.updateValue("A", forKey: "a")
+strings["a"] = "A"
+
+// Iterating.
+
+for (key, val) in strings {
+    println("\(key): \(val)")
+}
+
+for key in strings.keys {
+    println("KEY: \(key)")
+}
+
+for val in strings.values {
+    print("VAL: \(val)")                      // VAL: A VAL: B
+}
+
+// Getting all keys & values.
+let keys = Array(strings.keys)
+let vals = Array(strings.values)
+
+// Clearing everything.
+strings = [:]
+
+println(strings.count)                         // 0
