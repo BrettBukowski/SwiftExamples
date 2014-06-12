@@ -139,3 +139,21 @@ func choose(which: String) -> (Double...) -> Double {
 choose("sum")(1.0, 2.0)            // 3.0
 choose("mean")(1.0, 2.0)           // 1.5
 
+
+// # Nested Functions
+
+// Nested functions cannot be referenced outside of their parent function.
+
+func summer(var num: Double) -> (Double...) -> Double {
+    // Closure: the nested function is able to close over `num`.
+    func internal (numbers: Double...) -> Double {
+        for i in numbers {
+            num += i
+        }
+        return num
+    }
+
+    return internal
+}
+
+summer(1.0)(2.0, 3.0)              // 6.0
