@@ -1,0 +1,55 @@
+    <!doctype html>
+    <html lang="en">
+        <head>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
+            <title>Swift by example: optionals</title>
+            <link rel="stylesheet" href="../site.css"></link>
+        </head>
+        <body>
+            <h1>Swift by example: optionals</h1>
+            <table>
+              <tbody>
+                <tr><td class='docs'></td><td class='code'><pre>&nbsp;</pre></td></tr>
+<tr><td class='docs'> As an alternative to multiple return values (Go)
+</td><td class='code'><pre>&nbsp;</pre></td></tr>
+<tr><td class='docs'> Or Exceptions (every other language)
+</td><td class='code'><pre>&nbsp;</pre></td></tr>
+<tr><td class='docs'> Optionals are used to handle failure cases when
+</td><td class='code'><pre>&nbsp;</pre></td></tr>
+<tr><td class='docs'> you're good and ready. Sorta like a lightweight
+</td><td class='code'><pre>&nbsp;</pre></td></tr>
+<tr><td class='docs'> Maybe monad, without the FP hoity-toity.
+</td><td class='code'><pre>
+var one = "1"
+var intVal = one.toInt()
+
+</pre></td></tr>
+<tr><td class='docs'> Use a if-check to determine if there's an underlying value.
+</td><td class='code'><pre>if intVal {
+    // And then access the underlying value with !
+    println(intVal!)                                             // 1
+}
+
+var nope = "please"
+var nopeIntVal = nope.toInt()
+
+if !nopeIntVal {
+    println("Couldn't convert the string to an int")
+}
+
+</pre></td></tr>
+<tr><td class='docs'> Creating optionals.
+</td><td class='code'><pre>var maybe:String? = nil
+
+println(maybe)                                                  // nil
+println(maybe == nil)                                           // true
+
+maybe = "yep"
+
+println(maybe)                                                  // yep
+</pre></td></tr>
+              </tbody>
+            </table>
+        </body>
+    </html>

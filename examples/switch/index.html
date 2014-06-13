@@ -1,0 +1,31 @@
+    <!doctype html>
+    <html lang="en">
+        <head>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
+            <title>Swift by example: switch</title>
+            <link rel="stylesheet" href="../site.css"></link>
+        </head>
+        <body>
+            <h1>Swift by example: switch</h1>
+            <table>
+              <tbody>
+                <tr><td class='docs'></td><td class='code'><pre>let i = 2
+
+switch i {
+case 1:
+    println("one")
+case 2:
+    println("two")
+case 3, 4:
+    // Comma-separate multiple expressions in the same case statement.
+    println("three or four")
+default:
+    // Default is required.
+    println("huh")
+}
+</pre></td></tr>
+              </tbody>
+            </table>
+        </body>
+    </html>

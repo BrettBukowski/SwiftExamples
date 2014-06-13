@@ -1,0 +1,47 @@
+    <!doctype html>
+    <html lang="en">
+        <head>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
+            <title>Swift by example: variables</title>
+            <link rel="stylesheet" href="../site.css"></link>
+        </head>
+        <body>
+            <h1>Swift by example: variables</h1>
+            <table>
+              <tbody>
+                <tr><td class='docs'></td><td class='code'><pre>var yo = 1.0
+yo++
+yo += 1
+println(yo)                      // 3.0
+
+</pre></td></tr>
+<tr><td class='docs'> Cannot redeclare variables
+</td><td class='code'><pre>&nbsp;</pre></td></tr>
+<tr><td class='docs'>var yo = 2.0  'yo' previously declared here
+</td><td class='code'><pre>&nbsp;</pre></td></tr>
+<tr><td class='docs'> Cannot change its type
+</td><td class='code'><pre>&nbsp;</pre></td></tr>
+<tr><td class='docs'>yo = "yo"  cannot convert the expression's tyoe '()' to type 'Double'
+</td><td class='code'><pre>&nbsp;</pre></td></tr>
+<tr><td class='docs'> Declare multiple variables on one line, separated by commas
+</td><td class='code'><pre>var a = 1.0, b = 2.0, c = 3.0
+println(a + b + c)              // 6.0
+
+</pre></td></tr>
+<tr><td class='docs'> Declare the var's type if not immediately assigning a value.
+</td><td class='code'><pre>var hey: String
+</pre></td></tr>
+<tr><td class='docs'>println(hey)                   variable 'hey' used before being initialized
+</td><td class='code'><pre>hey = "there"
+println(hey)                    // there
+
+</pre></td></tr>
+<tr><td class='docs'> Emoji var names
+</td><td class='code'><pre>var 🐮 = "ridiculous"
+println(🐮)                    // ridiculous
+</pre></td></tr>
+              </tbody>
+            </table>
+        </body>
+    </html>

@@ -1,0 +1,59 @@
+    <!doctype html>
+    <html lang="en">
+        <head>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
+            <title>Swift by example: if-else</title>
+            <link rel="stylesheet" href="../site.css"></link>
+        </head>
+        <body>
+            <h1>Swift by example: if-else</h1>
+            <table>
+              <tbody>
+                <tr><td class='docs'></td><td class='code'><pre>let num = 9
+
+</pre></td></tr>
+<tr><td class='docs'> Parens are optional.
+</td><td class='code'><pre>if (num < 0) {
+    println("num is negative")
+} else if num < 10 {
+    println("num is single-digit") // num is single-digit
+} else {
+    println("num is multi-digit")
+}
+
+</pre></td></tr>
+<tr><td class='docs'> There are no 'truthy' conditionals.
+</td><td class='code'><pre>&nbsp;</pre></td></tr>
+<tr><td class='docs'> The condition must be a boolean expression...
+</td><td class='code'><pre>
+if 7 % 2 == 2 {
+    println("7 is even")     // IDE helpfully notes, "Will never be executed"
+} else {
+    println("7 is odd")      // 7 is odd
+}
+
+
+</pre></td></tr>
+<tr><td class='docs'> ...But optionals allow for shorthand
+</td><td class='code'><pre>&nbsp;</pre></td></tr>
+<tr><td class='docs'> non-nil + assignment conditionals
+</td><td class='code'><pre>
+var optionalString:String? = "Hello?"
+
+if let a = optionalString {
+    println(a)               // Hello?
+}
+
+optionalString = nil
+
+if let b = optionalString {
+    println("yep")
+} else {
+    println("nope")         // nope
+}
+</pre></td></tr>
+              </tbody>
+            </table>
+        </body>
+    </html>

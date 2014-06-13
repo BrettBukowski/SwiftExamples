@@ -1,0 +1,94 @@
+    <!doctype html>
+    <html lang="en">
+        <head>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
+            <title>Swift by example: arrays</title>
+            <link rel="stylesheet" href="../site.css"></link>
+        </head>
+        <body>
+            <h1>Swift by example: arrays</h1>
+            <table>
+              <tbody>
+                <tr><td class='docs'></td><td class='code'><pre>&nbsp;</pre></td></tr>
+<tr><td class='docs'> Type inference FTW.
+</td><td class='code'><pre>var strings = ["a", "b", "c"]
+
+</pre></td></tr>
+<tr><td class='docs'> Declare the type of contained elements.
+</td><td class='code'><pre>var strings2: String[] = ["d", "e", "f"]
+
+</pre></td></tr>
+<tr><td class='docs'> Declare an empty array.
+</td><td class='code'><pre>var strings3 = String[]()
+
+</pre></td></tr>
+<tr><td class='docs'> Fill an array.
+</td><td class='code'><pre>var strings4 = String[](count: 3, repeatedValue: "hey")
+
+
+</pre></td></tr>
+<tr><td class='docs'> Arrays must contain values of a single type.
+</td><td class='code'><pre>&nbsp;</pre></td></tr>
+<tr><td class='docs'> Appending.
+</td><td class='code'><pre>strings += "d"
+strings.append("e")
+strings += ["f", "g"]
+
+</pre></td></tr>
+<tr><td class='docs'> Joining.
+</td><td class='code'><pre>strings3 = strings + strings2
+
+</pre></td></tr>
+<tr><td class='docs'> Checking length.
+</td><td class='code'><pre>println(strings.count)                      // 7
+
+</pre></td></tr>
+<tr><td class='docs'> Accessing elements.
+</td><td class='code'><pre>println(strings[0])                         // a
+println(strings[strings.endIndex - 1])      // g
+
+</pre></td></tr>
+<tr><td class='docs'> Assigning elements.
+</td><td class='code'><pre>strings[0] = "a"
+
+</pre></td></tr>
+<tr><td class='docs'> Slices.
+</td><td class='code'><pre>strings[0..1] = ["a"]                       // basically the same as the previous assignment
+strings[0...1] = ["a", "b"]
+strings[0...3]                              // ["a", "b", "c", "d"]
+strings[0..strings.endIndex]                // ["a", "b", "c", "d", "e", "f", "g"]
+
+</pre></td></tr>
+<tr><td class='docs'> Methods.
+</td><td class='code'><pre>
+if strings.isEmpty {
+    println("empty")
+} else {
+    println("populated")                   // populated
+}
+strings.insert("a", atIndex: 0)            // Insert, not replace
+println(strings.removeAtIndex(0))          // a
+strings.map({
+    (str: String) -> String in
+    return str + "0"
+})                                         // ["a0", "b0", "c0", "d0", "e0", "f0", "g0"]
+strings.removeLast()
+
+</pre></td></tr>
+<tr><td class='docs'> Clearing.
+</td><td class='code'><pre>strings.removeAll(keepCapacity: false)
+strings = []
+
+</pre></td></tr>
+<tr><td class='docs'> Using a loop to create a multidimensional array.
+</td><td class='code'><pre>var rows = 10, cols = 10
+var dimensional = Array<Array<Int>>()
+for col in 0..10 {
+    dimensional.append(Array(count: rows, repeatedValue:Int()))
+}
+</pre></td></tr>
+              </tbody>
+            </table>
+        </body>
+    </html>

@@ -1,0 +1,42 @@
+    <!doctype html>
+    <html lang="en">
+        <head>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
+            <title>Swift by example: tuples</title>
+            <link rel="stylesheet" href="../site.css"></link>
+        </head>
+        <body>
+            <h1>Swift by example: tuples</h1>
+            <table>
+              <tbody>
+                <tr><td class='docs'></td><td class='code'><pre>var letters = ("a", "b")
+
+</pre></td></tr>
+<tr><td class='docs'> Decomposing.
+</td><td class='code'><pre>let (first, second) = letters
+
+println(first)                      // a
+println(second)                     // b
+
+</pre></td></tr>
+<tr><td class='docs'> Underscore to ignore, just like Go.
+</td><td class='code'><pre>var (a, _) = letters
+
+println(a)                         // a
+
+</pre></td></tr>
+<tr><td class='docs'> Or access values via index.
+</td><td class='code'><pre>println(letters.0)                 // a
+println(letters.1)                 // b
+
+</pre></td></tr>
+<tr><td class='docs'> Naming elements.
+</td><td class='code'><pre>var letters2 = (first: "a", second: "b")
+println(letters2.first)            // a
+println(letters2.second)           // b
+</pre></td></tr>
+              </tbody>
+            </table>
+        </body>
+    </html>

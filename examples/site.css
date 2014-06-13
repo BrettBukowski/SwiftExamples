@@ -1,0 +1,40 @@
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  padding: 0 10% 2em;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+td {
+  padding: 0;
+}
+.docs {
+  padding-right: 20px;
+  vertical-align: top;
+}
+.code {
+  vertical-align: baseline;
+}
+h1 {
+  font-weight: normal;
+}
+pre {
+  background: #EEE;
+  margin: 0;
+  padding: 0 4px;
+}
+@media screen and (max-width: 1090px) {
+  body {
+    padding: 0;
+  }
+}
+@media screen and (max-width: 700px) {
+  td {
+    display: block;
+    padding: 4px;
+  }
+  pre {
+    white-space: pre-line;
+  }
+}
