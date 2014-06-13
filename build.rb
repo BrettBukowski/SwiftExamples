@@ -7,20 +7,28 @@ class HTML
     <<-HTML
     <!doctype html>
     <html lang="en">
-        <head>
-            <meta charset="utf-8">
-            <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
-            <title>Swift by example: #{name}</title>
-            <link rel="stylesheet" href="#{path}site.css"></link>
-        </head>
-        <body>
+      <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
+        <title>Swift by example: #{name}</title>
+        <link rel="stylesheet" href="#{path}site.css"></link>
+      </head>
+      <body>
+        <div id="container">
+          <main>
             <h1>Swift by example: #{name}</h1>
             <table>
               <tbody>
                 #{content}
               </tbody>
             </table>
-        </body>
+          <main>
+          <footer>
+            by <a href="https://twitter.com/BrettBukowski">@BrettBukowski</a>
+            <a href="https://github.com/BrettBukowski/SwiftExamples">source</a>
+          </footer>
+        </div>
+      </body>
     </html>
     HTML
   end
@@ -139,7 +147,4 @@ class Builder
   end
 end
 
-builder = Builder.new('examples')
-builder.build!(Dir["*.swift"])
-
-
+Builder.new('examples').build!(Dir["*.swift"])

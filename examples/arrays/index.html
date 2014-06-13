@@ -1,12 +1,14 @@
     <!doctype html>
     <html lang="en">
-        <head>
-            <meta charset="utf-8">
-            <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
-            <title>Swift by example: arrays</title>
-            <link rel="stylesheet" href="../site.css"></link>
-        </head>
-        <body>
+      <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
+        <title>Swift by example: arrays</title>
+        <link rel="stylesheet" href="../site.css"></link>
+      </head>
+      <body>
+        <div id="container">
+          <main>
             <h1>Swift by example: arrays</h1>
             <table>
               <tbody>
@@ -44,24 +46,27 @@ strings += ["f", "g"]
 </td><td class='code'><pre>println(strings.count)                      // 7
 
 </pre></td></tr>
-<tr><td class='docs'> Accessing elements.
-</td><td class='code'><pre>println(strings[0])                         // a
+<tr><td class='docs'><h2> # Accessing elements
+</h2></td><td class='code'><pre>
+println(strings[0])                         // a
 println(strings[strings.endIndex - 1])      // g
 
 </pre></td></tr>
-<tr><td class='docs'> Assigning elements.
-</td><td class='code'><pre>strings[0] = "a"
+<tr><td class='docs'><h2> # Assigning elements
+</h2></td><td class='code'><pre>
+strings[0] = "a"
 
 </pre></td></tr>
-<tr><td class='docs'> Slices.
-</td><td class='code'><pre>strings[0..1] = ["a"]                       // basically the same as the previous assignment
+<tr><td class='docs'><h2> # Slices
+</h2></td><td class='code'><pre>
+strings[0..1] = ["a"]                       // basically the same as the previous assignment
 strings[0...1] = ["a", "b"]
 strings[0...3]                              // ["a", "b", "c", "d"]
 strings[0..strings.endIndex]                // ["a", "b", "c", "d", "e", "f", "g"]
 
 </pre></td></tr>
-<tr><td class='docs'> Methods.
-</td><td class='code'><pre>
+<tr><td class='docs'><h2> # Methods
+</h2></td><td class='code'><pre>
 if strings.isEmpty {
     println("empty")
 } else {
@@ -76,13 +81,13 @@ strings.map({
 strings.removeLast()
 
 </pre></td></tr>
-<tr><td class='docs'> Clearing.
-</td><td class='code'><pre>strings.removeAll(keepCapacity: false)
+<tr><td class='docs'><h2> # Clearing
+</h2></td><td class='code'><pre>strings.removeAll(keepCapacity: false)
 strings = []
 
 </pre></td></tr>
-<tr><td class='docs'> Using a loop to create a multidimensional array.
-</td><td class='code'><pre>var rows = 10, cols = 10
+<tr><td class='docs'><h2> # Using a loop to create a multidimensional array
+</h2></td><td class='code'><pre>var rows = 10, cols = 10
 var dimensional = Array<Array<Int>>()
 for col in 0..10 {
     dimensional.append(Array(count: rows, repeatedValue:Int()))
@@ -90,5 +95,11 @@ for col in 0..10 {
 </pre></td></tr>
               </tbody>
             </table>
-        </body>
+          <main>
+          <footer>
+            by <a href="https://twitter.com/BrettBukowski">@BrettBukowski</a>
+            <a href="https://github.com/BrettBukowski/SwiftExamples">source</a>
+          </footer>
+        </div>
+      </body>
     </html>

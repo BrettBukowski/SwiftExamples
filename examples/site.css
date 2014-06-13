@@ -1,6 +1,14 @@
+* {
+  box-sizing: border-box;
+}
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
 body {
   font-family: Helvetica, Arial, sans-serif;
-  padding: 0 10% 2em;
+  padding: 1em 10% 0;
 }
 table {
   border-collapse: collapse;
@@ -9,20 +17,46 @@ table {
 td {
   padding: 0;
 }
-.docs {
-  padding-right: 20px;
-  vertical-align: top;
+main {
+  padding-bottom: 2em;
 }
-.code {
-  vertical-align: baseline;
+footer {
+  position: absolute;
+  bottom: 0;
+  height: 2em;
+  width: 100%;
+}
+footer a:after {
+  content: "|";
+  margin: 0 2px 0 4px;
+  color: #222;
+}
+footer a:last-child:after {
+  content: "";
+}
+#container {
+  min-height: 100%;
+  position: relative;
 }
 h1 {
+  font-weight: normal;
+  margin-top: 0;
+}
+h2 {
+  font-size: 1.2em;
   font-weight: normal;
 }
 pre {
   background: #EEE;
   margin: 0;
   padding: 0 4px;
+}
+.docs {
+  padding-right: 20px;
+  vertical-align: top;
+}
+.code {
+  vertical-align: baseline;
 }
 @media screen and (max-width: 1090px) {
   body {

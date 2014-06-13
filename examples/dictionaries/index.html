@@ -1,12 +1,14 @@
     <!doctype html>
     <html lang="en">
-        <head>
-            <meta charset="utf-8">
-            <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
-            <title>Swift by example: dictionaries</title>
-            <link rel="stylesheet" href="../site.css"></link>
-        </head>
-        <body>
+      <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
+        <title>Swift by example: dictionaries</title>
+        <link rel="stylesheet" href="../site.css"></link>
+      </head>
+      <body>
+        <div id="container">
+          <main>
             <h1>Swift by example: dictionaries</h1>
             <table>
               <tbody>
@@ -20,8 +22,8 @@
 ]
 
 </pre></td></tr>
-<tr><td class='docs'> Accessing and assigning elements.
-</td><td class='code'><pre>println(strings["a"])                           // A
+<tr><td class='docs'><h2> # Accessing and assigning elements
+</h2></td><td class='code'><pre>println(strings["a"])                           // A
 strings["a"] = "AZ"                             // Returns an optional string (new value that was assigned)
 strings.updateValue("AX", forKey: "a")          // Returns an optional string (old value that was overwritten)
 
@@ -32,8 +34,8 @@ strings.updateValue("AX", forKey: "a")          // Returns an optional string (o
 }
 
 </pre></td></tr>
-<tr><td class='docs'> Removing.
-</td><td class='code'><pre>&nbsp;</pre></td></tr>
+<tr><td class='docs'><h2> # Removing
+</h2></td><td class='code'><pre>&nbsp;</pre></td></tr>
 <tr><td class='docs'> Setting the value to nil also removes the key.
 </td><td class='code'><pre>strings["a"] = nil
 </pre></td></tr>
@@ -45,13 +47,13 @@ strings.updateValue("AX", forKey: "a")          // Returns an optional string (o
 </td><td class='code'><pre>strings.removeValueForKey("nope")
 
 </pre></td></tr>
-<tr><td class='docs'> Updating.
-</td><td class='code'><pre>strings.updateValue("A", forKey: "a")
+<tr><td class='docs'><h2> # Updating
+</h2></td><td class='code'><pre>strings.updateValue("A", forKey: "a")
 strings["a"] = "A"
 
 </pre></td></tr>
-<tr><td class='docs'> Iterating.
-</td><td class='code'><pre>
+<tr><td class='docs'><h2> # Iterating
+</h2></td><td class='code'><pre>
 for (key, val) in strings {
     println("\(key): \(val)")
 }
@@ -65,17 +67,25 @@ for val in strings.values {
 }
 
 </pre></td></tr>
-<tr><td class='docs'> Getting all keys & values.
-</td><td class='code'><pre>let keys = Array(strings.keys)
+<tr><td class='docs'><h2> # Getting all keys & values
+</h2></td><td class='code'><pre>
+let keys = Array(strings.keys)
 let vals = Array(strings.values)
 
 </pre></td></tr>
-<tr><td class='docs'> Clearing everything.
-</td><td class='code'><pre>strings = [:]
+<tr><td class='docs'><h2> # Clearing everything
+</h2></td><td class='code'><pre>
+strings = [:]
 
 println(strings.count)                         // 0
 </pre></td></tr>
               </tbody>
             </table>
-        </body>
+          <main>
+          <footer>
+            by <a href="https://twitter.com/BrettBukowski">@BrettBukowski</a>
+            <a href="https://github.com/BrettBukowski/SwiftExamples">source</a>
+          </footer>
+        </div>
+      </body>
     </html>
