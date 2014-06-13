@@ -1,0 +1,57 @@
+    <!doctype html>
+    <html lang="en">
+      <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
+        <title>Swift by example: closures</title>
+        <link rel="stylesheet" href="../site.css"></link>
+      </head>
+      <body>
+        <div id="container">
+          <main>
+            <h1>Swift by example: closures</h1>
+            <table>
+              <tbody>
+                <tr><td class='docs'></td><td class='code'><pre>&nbsp;</pre></td></tr>
+<tr><td class='docs'> Closures have the syntax of:
+</td><td class='code'><pre>
+/*
+ { (parameters) -> return type in
+   body
+ }
+*/
+
+var letters = ["a", "b", "c", "d"]
+
+var reversed = sort(letters, {(a: String, b: String) -> Bool in
+    return a > b;
+})
+
+</pre></td></tr>
+<tr><td class='docs'> But type inference allows us to omit the types
+</td><td class='code'><pre>&nbsp;</pre></td></tr>
+<tr><td class='docs'> and write something more succinct...
+</td><td class='code'><pre>reversed = sort(letters, { a, b in return a > b })
+
+</pre></td></tr>
+<tr><td class='docs'> ...And single-expression closures can even omit the return keyword.
+</td><td class='code'><pre>reversed = sort(letters, { a, b in a > b })
+
+</pre></td></tr>
+<tr><td class='docs'> ...And even the param names can be omitted.
+</td><td class='code'><pre>reversed = sort(letters, { $0 > $1 })
+
+</pre></td></tr>
+<tr><td class='docs'> ...But why stop there? Greater-than is an operator function!
+</td><td class='code'><pre>reversed = sort(letters, >)
+</pre></td></tr>
+              </tbody>
+            </table>
+          <main>
+          <footer>
+            by <a href="https://twitter.com/BrettBukowski">@BrettBukowski</a>
+            <a href="https://github.com/BrettBukowski/SwiftExamples">source</a>
+          </footer>
+        </div>
+      </body>
+    </html>

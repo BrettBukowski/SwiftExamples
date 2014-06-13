@@ -15,3 +15,4 @@ Learning Swift by Example.
 10. Tuples
 11. Optionals
 12. Functions
+13. Closures
