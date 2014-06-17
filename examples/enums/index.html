@@ -1,0 +1,127 @@
+    <!doctype html>
+    <html lang="en">
+      <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
+        <title>Swift by example: enums</title>
+        <link rel="stylesheet" href="../site.css"></link>
+      </head>
+      <body>
+        <div id="container">
+          <main>
+            <h1>Swift by example: enums</h1>
+            <table>
+              <tbody>
+                <tr><td class='docs'></td><td class='code'><pre>enum Example {
+    case A
+    case B
+    case C
+    case D
+}
+
+</pre></td></tr>
+<tr><td class='docs'> Unlike enums in other languages, the named labels
+</td><td class='code'><pre>&nbsp;</pre></td></tr>
+<tr><td class='docs'> do not implicitly map to 0, 1.. etc. enum members
+</td><td class='code'><pre>&nbsp;</pre></td></tr>
+<tr><td class='docs'> are their own values of the type specified by the
+</td><td class='code'><pre>&nbsp;</pre></td></tr>
+<tr><td class='docs'> enum's name.
+</td><td class='code'><pre>
+var example = Example.A          // (Enum Value)
+
+</pre></td></tr>
+<tr><td class='docs'> Once you assign to an enum value, you can reassign
+</td><td class='code'><pre>&nbsp;</pre></td></tr>
+<tr><td class='docs'> to another value without respecifying the the enum
+</td><td class='code'><pre>&nbsp;</pre></td></tr>
+<tr><td class='docs'> name.
+</td><td class='code'><pre>
+example = .B
+
+</pre></td></tr>
+<tr><td class='docs'> Switch statements must be exhaustive or declare
+</td><td class='code'><pre>&nbsp;</pre></td></tr>
+<tr><td class='docs'> a default case.
+</td><td class='code'><pre>
+switch example {
+case .A:
+    println("A")
+case .B:
+    println("B")                               // B
+case .C:
+    println("C")
+case .D:
+    println("D")
+}
+
+</pre></td></tr>
+<tr><td class='docs'> Enumerations can store values of any type, and
+</td><td class='code'><pre>&nbsp;</pre></td></tr>
+<tr><td class='docs'> type values can be different for every enum member.
+</td><td class='code'><pre>
+enum Types {
+    case Str(String)
+    case Num(Double)
+}
+
+</pre></td></tr>
+<tr><td class='docs'> A variable can be reassigned a different type of the
+</td><td class='code'><pre>&nbsp;</pre></td></tr>
+<tr><td class='docs'> enum.
+</td><td class='code'><pre>var a = Types.Str("hello")
+a = .Num(1.0)
+
+</pre></td></tr>
+<tr><td class='docs'> Associated values can be extracted as part of a switch.
+</td><td class='code'><pre>switch a {
+case .Str(let val):
+    println(val)
+case .Num(let val):
+    println(val)                             // 1.0
+}
+
+</pre></td></tr>
+<tr><td class='docs'><h2> # Raw Values
+</h2></td><td class='code'><pre>&nbsp;</pre></td></tr>
+<tr><td class='docs'> Enums can prepopulate with "raw" values, similar to other
+</td><td class='code'><pre>&nbsp;</pre></td></tr>
+<tr><td class='docs'> languages.
+</td><td class='code'><pre>enum Letters: Character {
+    case a = "A"
+    case b = "B"
+    case c = "C"
+}
+
+</pre></td></tr>
+<tr><td class='docs'> When integers are used for raw values, they
+</td><td class='code'><pre>&nbsp;</pre></td></tr>
+<tr><td class='docs'> auto-increment if no value is specified.
+</td><td class='code'><pre>enum Numbers: Int {
+    case One = 1, Two, Three, Four, Five
+}
+
+</pre></td></tr>
+<tr><td class='docs'> Access raw values with `toRaw`
+</td><td class='code'><pre>
+var five = Numbers.Five
+println(five.toRaw())                      // 5
+
+</pre></td></tr>
+<tr><td class='docs'> `fromRaw` tries to find an enum member with a raw value.
+</td><td class='code'><pre>&nbsp;</pre></td></tr>
+<tr><td class='docs'> An optional is returned.
+</td><td class='code'><pre>
+var possibleNum = Numbers.fromRaw(2)!
+println(possibleNum == Numbers.Two)       // true
+</pre></td></tr>
+              </tbody>
+            </table>
+          <main>
+          <footer>
+            by <a href="https://twitter.com/BrettBukowski">@BrettBukowski</a>
+            <a href="https://github.com/BrettBukowski/SwiftExamples">source</a>
+          </footer>
+        </div>
+      </body>
+    </html>
