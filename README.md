@@ -16,3 +16,4 @@ Learning Swift by Example.
 11. Optionals
 12. Functions
 13. Closures
+14. Enums
