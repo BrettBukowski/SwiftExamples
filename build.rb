@@ -12,6 +12,7 @@ class HTML
         <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
         <title>Swift by example: #{name}</title>
         <link rel="stylesheet" href="#{path}site.css"></link>
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.min.css"></link>
       </head>
       <body>
         <div id="container">
@@ -28,6 +29,7 @@ class HTML
             <a href="https://github.com/BrettBukowski/SwiftExamples">source</a>
           </footer>
         </div>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.min.js"></script>
       </body>
     </html>
     HTML

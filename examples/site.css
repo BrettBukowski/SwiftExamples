@@ -47,8 +47,6 @@ h2 {
   font-weight: normal;
 }
 pre {
-  background: #EEE;
-  font-family: Consolas, Monaco, 'Andale Mono', 'Lucida Console', monospace;
   margin: 0;
   padding: 0 4px;
 }
@@ -57,7 +55,12 @@ pre {
   vertical-align: top;
 }
 .code {
+  background: #EEE;
+  padding: 0 4px;
   vertical-align: baseline;
+}
+tr:last-child .code {
+  padding-bottom: 1em;
 }
 @media screen and (max-width: 1090px) {
   body {
