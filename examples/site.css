@@ -9,10 +9,17 @@ html, body {
 body {
   font-family: Helvetica, Arial, sans-serif;
   padding: 1em 10% 0;
+  background: #ebeef1;
 }
 table {
-  border-collapse: collapse;
   border-spacing: 0;
+}
+a {
+  color: #1594e0;
+  text-decoration: none;
+}
+a:hover, a:focus {
+  text-decoration: underline;
 }
 td {
   padding: 0;
@@ -50,12 +57,29 @@ pre {
   margin: 0;
   padding: 0 4px;
 }
+table {
+  border: 1px solid #EEE;
+}
+tbody tr:last-child td:first-child {
+  border-bottom-left-radius: 3px;
+}
+tbody tr:last-child td:last-child {
+  border-bottom-right-radius: 3px;
+}
+tbody tr:first-child td:first-child {
+  border-top-left-radius: 3px;
+}
+tbody tr:first-child td:last-child {
+  border-top-right-radius: 3px;
+}
 .docs {
-  padding-right: 20px;
+  background: #fafbfc;
+  padding: 0 20px;
   vertical-align: top;
 }
 .code {
-  background: #EEE;
+  background: #FFF;
+  /*background: #EEE;*/
   padding: 0 4px;
   vertical-align: baseline;
 }
