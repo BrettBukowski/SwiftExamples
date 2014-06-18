@@ -12,61 +12,61 @@
             <h1>Swift by example: arrays</h1>
             <table>
               <tbody>
-                <tr><td class='docs'></td><td class='code'><pre>&nbsp;</pre></td></tr>
+                <tr><td class='docs'></td><td class='code'><pre><code class='language-swift'>&nbsp;</code></pre></td></tr>
 <tr><td class='docs'> Type inference FTW.
-</td><td class='code'><pre>var strings = ["a", "b", "c"]
+</td><td class='code'><pre><code class='language-swift'>var strings = ["a", "b", "c"]
 
-</pre></td></tr>
+</code></pre></td></tr>
 <tr><td class='docs'> Declare the type of contained elements.
-</td><td class='code'><pre>var strings2: String[] = ["d", "e", "f"]
+</td><td class='code'><pre><code class='language-swift'>var strings2: String[] = ["d", "e", "f"]
 
-</pre></td></tr>
+</code></pre></td></tr>
 <tr><td class='docs'> Declare an empty array.
-</td><td class='code'><pre>var strings3 = String[]()
+</td><td class='code'><pre><code class='language-swift'>var strings3 = String[]()
 
-</pre></td></tr>
+</code></pre></td></tr>
 <tr><td class='docs'> Fill an array.
-</td><td class='code'><pre>var strings4 = String[](count: 3, repeatedValue: "hey")
+</td><td class='code'><pre><code class='language-swift'>var strings4 = String[](count: 3, repeatedValue: "hey")
 
 
-</pre></td></tr>
+</code></pre></td></tr>
 <tr><td class='docs'> Arrays must contain values of a single type.
-</td><td class='code'><pre>&nbsp;</pre></td></tr>
+</td><td class='code'><pre><code class='language-swift'>&nbsp;</code></pre></td></tr>
 <tr><td class='docs'> Appending.
-</td><td class='code'><pre>strings += "d"
+</td><td class='code'><pre><code class='language-swift'>strings += "d"
 strings.append("e")
 strings += ["f", "g"]
 
-</pre></td></tr>
+</code></pre></td></tr>
 <tr><td class='docs'> Joining.
-</td><td class='code'><pre>strings3 = strings + strings2
+</td><td class='code'><pre><code class='language-swift'>strings3 = strings + strings2
 
-</pre></td></tr>
+</code></pre></td></tr>
 <tr><td class='docs'> Checking length.
-</td><td class='code'><pre>println(strings.count)                      // 7
+</td><td class='code'><pre><code class='language-swift'>println(strings.count)                      // 7
 
-</pre></td></tr>
+</code></pre></td></tr>
 <tr><td class='docs'><h2> # Accessing elements
-</h2></td><td class='code'><pre>
+</h2></td><td class='code'><pre><code class='language-swift'>
 println(strings[0])                         // a
 println(strings[strings.endIndex - 1])      // g
 
-</pre></td></tr>
+</code></pre></td></tr>
 <tr><td class='docs'><h2> # Assigning elements
-</h2></td><td class='code'><pre>
+</h2></td><td class='code'><pre><code class='language-swift'>
 strings[0] = "a"
 
-</pre></td></tr>
+</code></pre></td></tr>
 <tr><td class='docs'><h2> # Slices
-</h2></td><td class='code'><pre>
+</h2></td><td class='code'><pre><code class='language-swift'>
 strings[0..1] = ["a"]                       // basically the same as the previous assignment
 strings[0...1] = ["a", "b"]
 strings[0...3]                              // ["a", "b", "c", "d"]
 strings[0..strings.endIndex]                // ["a", "b", "c", "d", "e", "f", "g"]
 
-</pre></td></tr>
+</code></pre></td></tr>
 <tr><td class='docs'><h2> # Methods
-</h2></td><td class='code'><pre>
+</h2></td><td class='code'><pre><code class='language-swift'>
 if strings.isEmpty {
     println("empty")
 } else {
@@ -80,19 +80,19 @@ strings.map({
 })                                         // ["a0", "b0", "c0", "d0", "e0", "f0", "g0"]
 strings.removeLast()
 
-</pre></td></tr>
+</code></pre></td></tr>
 <tr><td class='docs'><h2> # Clearing
-</h2></td><td class='code'><pre>strings.removeAll(keepCapacity: false)
+</h2></td><td class='code'><pre><code class='language-swift'>strings.removeAll(keepCapacity: false)
 strings = []
 
-</pre></td></tr>
+</code></pre></td></tr>
 <tr><td class='docs'><h2> # Using a loop to create a multidimensional array
-</h2></td><td class='code'><pre>var rows = 10, cols = 10
+</h2></td><td class='code'><pre><code class='language-swift'>var rows = 10, cols = 10
 var dimensional = Array<Array<Int>>()
 for col in 0..10 {
     dimensional.append(Array(count: rows, repeatedValue:Int()))
 }
-</pre></td></tr>
+</code></pre></td></tr>
               </tbody>
             </table>
           <main>

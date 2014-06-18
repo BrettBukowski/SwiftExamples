@@ -12,48 +12,48 @@
             <h1>Swift by example: dictionaries</h1>
             <table>
               <tbody>
-                <tr><td class='docs'></td><td class='code'><pre>var emptyDictionary = Dictionary<String, Float>()
+                <tr><td class='docs'></td><td class='code'><pre><code class='language-swift'>var emptyDictionary = Dictionary<String, Float>()
 
-</pre></td></tr>
+</code></pre></td></tr>
 <tr><td class='docs'> Type intference allows you to initialize without declaring types:
-</td><td class='code'><pre>var strings = [
+</td><td class='code'><pre><code class='language-swift'>var strings = [
     "a": "A",
     "b": "B",
 ]
 
-</pre></td></tr>
+</code></pre></td></tr>
 <tr><td class='docs'><h2> # Accessing and assigning elements
-</h2></td><td class='code'><pre>println(strings["a"])                           // A
+</h2></td><td class='code'><pre><code class='language-swift'>println(strings["a"])                           // A
 strings["a"] = "AZ"                             // Returns an optional string (new value that was assigned)
 strings.updateValue("AX", forKey: "a")          // Returns an optional string (old value that was overwritten)
 
-</pre></td></tr>
+</code></pre></td></tr>
 <tr><td class='docs'> Optionals are returned for accessing keys.
-</td><td class='code'><pre>if let a = strings["a"] {
+</td><td class='code'><pre><code class='language-swift'>if let a = strings["a"] {
     println(a)                                  // AX
 }
 
-</pre></td></tr>
+</code></pre></td></tr>
 <tr><td class='docs'><h2> # Removing
-</h2></td><td class='code'><pre>&nbsp;</pre></td></tr>
+</h2></td><td class='code'><pre><code class='language-swift'>&nbsp;</code></pre></td></tr>
 <tr><td class='docs'> Setting the value to nil also removes the key.
-</td><td class='code'><pre>strings["a"] = nil
-</pre></td></tr>
+</td><td class='code'><pre><code class='language-swift'>strings["a"] = nil
+</code></pre></td></tr>
 <tr><td class='docs'> Using removeValueForKey removes the key-val pair
-</td><td class='code'><pre>&nbsp;</pre></td></tr>
+</td><td class='code'><pre><code class='language-swift'>&nbsp;</code></pre></td></tr>
 <tr><td class='docs'> but returns the value that was removed (or nil if
-</td><td class='code'><pre>&nbsp;</pre></td></tr>
+</td><td class='code'><pre><code class='language-swift'>&nbsp;</code></pre></td></tr>
 <tr><td class='docs'> the key-val didn't exist)
-</td><td class='code'><pre>strings.removeValueForKey("nope")
+</td><td class='code'><pre><code class='language-swift'>strings.removeValueForKey("nope")
 
-</pre></td></tr>
+</code></pre></td></tr>
 <tr><td class='docs'><h2> # Updating
-</h2></td><td class='code'><pre>strings.updateValue("A", forKey: "a")
+</h2></td><td class='code'><pre><code class='language-swift'>strings.updateValue("A", forKey: "a")
 strings["a"] = "A"
 
-</pre></td></tr>
+</code></pre></td></tr>
 <tr><td class='docs'><h2> # Iterating
-</h2></td><td class='code'><pre>
+</h2></td><td class='code'><pre><code class='language-swift'>
 for (key, val) in strings {
     println("\(key): \(val)")
 }
@@ -66,19 +66,19 @@ for val in strings.values {
     print("VAL: \(val)")                      // VAL: A VAL: B
 }
 
-</pre></td></tr>
+</code></pre></td></tr>
 <tr><td class='docs'><h2> # Getting all keys & values
-</h2></td><td class='code'><pre>
+</h2></td><td class='code'><pre><code class='language-swift'>
 let keys = Array(strings.keys)
 let vals = Array(strings.values)
 
-</pre></td></tr>
+</code></pre></td></tr>
 <tr><td class='docs'><h2> # Clearing everything
-</h2></td><td class='code'><pre>
+</h2></td><td class='code'><pre><code class='language-swift'>
 strings = [:]
 
 println(strings.count)                         // 0
-</pre></td></tr>
+</code></pre></td></tr>
               </tbody>
             </table>
           <main>

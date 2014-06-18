@@ -48,6 +48,7 @@ h2 {
 }
 pre {
   background: #EEE;
+  font-family: Consolas, Monaco, 'Andale Mono', 'Lucida Console', monospace;
   margin: 0;
   padding: 0 4px;
 }

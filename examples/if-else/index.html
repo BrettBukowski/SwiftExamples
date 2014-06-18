@@ -12,11 +12,11 @@
             <h1>Swift by example: if-else</h1>
             <table>
               <tbody>
-                <tr><td class='docs'></td><td class='code'><pre>let num = 9
+                <tr><td class='docs'></td><td class='code'><pre><code class='language-swift'>let num = 9
 
-</pre></td></tr>
+</code></pre></td></tr>
 <tr><td class='docs'> Parens are optional.
-</td><td class='code'><pre>if (num < 0) {
+</td><td class='code'><pre><code class='language-swift'>if (num < 0) {
     println("num is negative")
 } else if num < 10 {
     println("num is single-digit") // num is single-digit
@@ -24,11 +24,11 @@
     println("num is multi-digit")
 }
 
-</pre></td></tr>
+</code></pre></td></tr>
 <tr><td class='docs'> There are no 'truthy' conditionals.
-</td><td class='code'><pre>&nbsp;</pre></td></tr>
+</td><td class='code'><pre><code class='language-swift'>&nbsp;</code></pre></td></tr>
 <tr><td class='docs'> The condition must be a boolean expression...
-</td><td class='code'><pre>
+</td><td class='code'><pre><code class='language-swift'>
 if 7 % 2 == 2 {
     println("7 is even")     // IDE helpfully notes, "Will never be executed"
 } else {
@@ -36,11 +36,11 @@ if 7 % 2 == 2 {
 }
 
 
-</pre></td></tr>
+</code></pre></td></tr>
 <tr><td class='docs'> ...But optionals allow for shorthand
-</td><td class='code'><pre>&nbsp;</pre></td></tr>
+</td><td class='code'><pre><code class='language-swift'>&nbsp;</code></pre></td></tr>
 <tr><td class='docs'> non-nil + assignment conditionals
-</td><td class='code'><pre>
+</td><td class='code'><pre><code class='language-swift'>
 var optionalString:String? = "Hello?"
 
 if let a = optionalString {
@@ -54,7 +54,7 @@ if let b = optionalString {
 } else {
     println("nope")         // nope
 }
-</pre></td></tr>
+</code></pre></td></tr>
               </tbody>
             </table>
           <main>

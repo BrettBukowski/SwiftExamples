@@ -12,23 +12,23 @@
             <h1>Swift by example: optionals</h1>
             <table>
               <tbody>
-                <tr><td class='docs'></td><td class='code'><pre>&nbsp;</pre></td></tr>
+                <tr><td class='docs'></td><td class='code'><pre><code class='language-swift'>&nbsp;</code></pre></td></tr>
 <tr><td class='docs'> As an alternative to multiple return values (Go)
-</td><td class='code'><pre>&nbsp;</pre></td></tr>
+</td><td class='code'><pre><code class='language-swift'>&nbsp;</code></pre></td></tr>
 <tr><td class='docs'> Or Exceptions (every other language)
-</td><td class='code'><pre>&nbsp;</pre></td></tr>
+</td><td class='code'><pre><code class='language-swift'>&nbsp;</code></pre></td></tr>
 <tr><td class='docs'> Optionals are used to handle failure cases when
-</td><td class='code'><pre>&nbsp;</pre></td></tr>
+</td><td class='code'><pre><code class='language-swift'>&nbsp;</code></pre></td></tr>
 <tr><td class='docs'> you're good and ready. Sorta like a lightweight
-</td><td class='code'><pre>&nbsp;</pre></td></tr>
+</td><td class='code'><pre><code class='language-swift'>&nbsp;</code></pre></td></tr>
 <tr><td class='docs'> Maybe monad, without the FP hoity-toity.
-</td><td class='code'><pre>
+</td><td class='code'><pre><code class='language-swift'>
 var one = "1"
 var intVal = one.toInt()
 
-</pre></td></tr>
+</code></pre></td></tr>
 <tr><td class='docs'> Use a if-check to determine if there's an underlying value.
-</td><td class='code'><pre>if intVal {
+</td><td class='code'><pre><code class='language-swift'>if intVal {
     // And then access the underlying value with !
     println(intVal!)                                             // 1
 }
@@ -40,9 +40,9 @@ if !nopeIntVal {
     println("Couldn't convert the string to an int")
 }
 
-</pre></td></tr>
+</code></pre></td></tr>
 <tr><td class='docs'> Creating optionals.
-</td><td class='code'><pre>var maybe:String? = nil
+</td><td class='code'><pre><code class='language-swift'>var maybe:String? = nil
 
 println(maybe)                                                  // nil
 println(maybe == nil)                                           // true
@@ -50,7 +50,7 @@ println(maybe == nil)                                           // true
 maybe = "yep"
 
 println(maybe)                                                  // yep
-</pre></td></tr>
+</code></pre></td></tr>
               </tbody>
             </table>
           <main>

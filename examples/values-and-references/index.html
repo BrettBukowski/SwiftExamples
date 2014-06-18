@@ -12,9 +12,9 @@
             <h1>Swift by example: values-and-references</h1>
             <table>
               <tbody>
-                <tr><td class='docs'></td><td class='code'><pre>&nbsp;</pre></td></tr>
+                <tr><td class='docs'></td><td class='code'><pre><code class='language-swift'>&nbsp;</code></pre></td></tr>
 <tr><td class='docs'><h2> # Classes are reference types
-</h2></td><td class='code'><pre>
+</h2></td><td class='code'><pre><code class='language-swift'>
 class Job {
     var title = ""
 }
@@ -24,24 +24,24 @@ var job2 = job1
 job1.title = "singer"
 println(job2.title)                   // singer
 
-</pre></td></tr>
+</code></pre></td></tr>
 <tr><td class='docs'> Triple equals checks identity.
-</td><td class='code'><pre>println(job1 === job2)                // true
+</td><td class='code'><pre><code class='language-swift'>println(job1 === job2)                // true
 
-</pre></td></tr>
+</code></pre></td></tr>
 <tr><td class='docs'><h2> # Dictionaries are copied at the point of assignment
-</h2></td><td class='code'><pre>
+</h2></td><td class='code'><pre><code class='language-swift'>
 var band1 = ["bob": "singer", "dan": "guitarist"]
 var band2 = band1
 
 band2["bob"] = "drummer"
 println(band1["bob"])                // singer
 
-</pre></td></tr>
+</code></pre></td></tr>
 <tr><td class='docs'><h2> # Arrays
-</h2></td><td class='code'><pre>&nbsp;</pre></td></tr>
+</h2></td><td class='code'><pre><code class='language-swift'>&nbsp;</code></pre></td></tr>
 <tr><td class='docs'> Arrays are not copied immediately...
-</td><td class='code'><pre>
+</td><td class='code'><pre><code class='language-swift'>
 var bands1 = ["radiohead", "telekinesis", "nada surf"]
 var bands2 = bands1
 println(bands1 === bands2)          // true
@@ -49,15 +49,15 @@ println(bands1 === bands2)          // true
 bands1[0] = "the orwells"
 println(bands2[0])                  // the orwells
 
-</pre></td></tr>
+</code></pre></td></tr>
 <tr><td class='docs'> ...Until one of the references modifies the length of the array
-</td><td class='code'><pre>bands1.append("cut copy")
+</td><td class='code'><pre><code class='language-swift'>bands1.append("cut copy")
 bands1[0] = "carla morrison"
 println(bands2[0])                  // the orwells
 
-</pre></td></tr>
+</code></pre></td></tr>
 <tr><td class='docs'> Or the original reference can call `unshare`
-</td><td class='code'><pre>var wiBands = ["phox", "bon iver"]
+</td><td class='code'><pre><code class='language-swift'>var wiBands = ["phox", "bon iver"]
 var coBands = wiBands
 
 wiBands.unshare()
@@ -69,14 +69,14 @@ coBands[1] = "the lumineers"
 println(wiBands)                   // [PHOX, bon iver]
 println(coBands)                   // [DeVotchKa, the lumineers]
 
-</pre></td></tr>
+</code></pre></td></tr>
 <tr><td class='docs'> Or `copy` will create a copy
-</td><td class='code'><pre>var otherCOBands = coBands.copy()
+</td><td class='code'><pre><code class='language-swift'>var otherCOBands = coBands.copy()
 otherCOBands[0] = "paper bird"
 
 println(otherCOBands[0])          // paper bird
 println(coBands[0])               // DeVotchKa
-</pre></td></tr>
+</code></pre></td></tr>
               </tbody>
             </table>
           <main>

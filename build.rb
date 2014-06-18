@@ -52,7 +52,7 @@ class Example
 
   def to_html
     @code = '&nbsp;' if @code.strip.empty?
-    "<tr><td class='docs'>#{@explanation}</td><td class='code'><pre>#{@code}</pre></td></tr>"
+    "<tr><td class='docs'>#{@explanation}</td><td class='code'><pre><code class='language-swift'>#{@code}</code></pre></td></tr>"
   end
 end
 
