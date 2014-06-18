@@ -17,3 +17,6 @@ Learning Swift by Example.
 12. Functions
 13. Closures
 14. Enums
+15. Classes
+16. Structures
+15. Values and References

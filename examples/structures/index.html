@@ -1,0 +1,49 @@
+    <!doctype html>
+    <html lang="en">
+      <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
+        <title>Swift by example: structures</title>
+        <link rel="stylesheet" href="../site.css"></link>
+      </head>
+      <body>
+        <div id="container">
+          <main>
+            <h1>Swift by example: structures</h1>
+            <table>
+              <tbody>
+                <tr><td class='docs'></td><td class='code'><pre>&nbsp;</pre></td></tr>
+<tr><td class='docs'> Structs are copy by value, can't inherit, but can
+</td><td class='code'><pre>&nbsp;</pre></td></tr>
+<tr><td class='docs'> conform to protocols
+</td><td class='code'><pre>
+struct Work {
+  var location = ""
+  var units = String[]()
+  let length: Int
+
+  func last() -> String {
+    return units[units.count - 1]
+  }
+}
+
+</pre></td></tr>
+<tr><td class='docs'> Structs have handy memberwise initializers.
+</td><td class='code'><pre>&nbsp;</pre></td></tr>
+<tr><td class='docs'> All properties must be specified.
+</td><td class='code'><pre>var work = Work(location: "office", units: ["answer phone", "read book"], length: 8)
+
+println(work.location)                // office
+println(work.units[0])                // answer phone
+println(work.last())                  // read book
+</pre></td></tr>
+              </tbody>
+            </table>
+          <main>
+          <footer>
+            by <a href="https://twitter.com/BrettBukowski">@BrettBukowski</a>
+            <a href="https://github.com/BrettBukowski/SwiftExamples">source</a>
+          </footer>
+        </div>
+      </body>
+    </html>
