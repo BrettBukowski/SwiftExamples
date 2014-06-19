@@ -26,6 +26,63 @@
 <tr><td class='docs'> External param names are required here.
 </td><td class='code'><pre><code class='language-swift'>let eg = Example(a: 1)
 println(eg.a)              // 1
+
+</code></pre></td></tr>
+<tr><td class='docs'><h2> # Lazy properties
+</h2></td><td class='code'><pre><code class='language-swift'>&nbsp;</code></pre></td></tr>
+<tr><td class='docs'> Lazy properties' initial value isn't
+</td><td class='code'><pre><code class='language-swift'>&nbsp;</code></pre></td></tr>
+<tr><td class='docs'> initialized until the first time the
+</td><td class='code'><pre><code class='language-swift'>&nbsp;</code></pre></td></tr>
+<tr><td class='docs'> property is accessed.
+</td><td class='code'><pre><code class='language-swift'>
+class Podcast {
+    @lazy var episode = Episode() // `var` declaration is required.
+}
+
+class Episode {
+    var audio = ""
+}
+
+</code></pre></td></tr>
+<tr><td class='docs'><h2> # Computed properties
+</h2></td><td class='code'><pre><code class='language-swift'>&nbsp;</code></pre></td></tr>
+<tr><td class='docs'> Computed properties don't store a value. Instead, getters / setters
+</td><td class='code'><pre><code class='language-swift'>&nbsp;</code></pre></td></tr>
+<tr><td class='docs'> are provided to retrieve and set _other_ properties.
+</td><td class='code'><pre><code class='language-swift'>
+class Window {
+    var x = 0.0, y = 0.0
+    var width = 100.0, height = 100.0
+
+    var center: (Double, Double) {
+    get {
+        return (width / 2, height / 2)
+    }
+
+    set(newVal) {
+        x = newVal.0 - (width / 2)
+        y = newVal.1 - (height / 2)
+    }
+    }
+}
+
+var win = Window()
+println(win.center)               // (50.0, 50.0)
+win.center = (0.0, 10.0)
+println(win.x)                    // -50.0
+println(win.y)                    // -40.0
+
+</code></pre></td></tr>
+<tr><td class='docs'> The param to `set` can be omitted and a magic "newValue"
+</td><td class='code'><pre><code class='language-swift'>&nbsp;</code></pre></td></tr>
+<tr><td class='docs'> can be used to referenced the new value.
+</td><td class='code'><pre><code class='language-swift'>/*
+set {
+    x = newValue.0 - (width / 2)
+}
+*/
+
 </code></pre></td></tr>
               </tbody>
             </table>
