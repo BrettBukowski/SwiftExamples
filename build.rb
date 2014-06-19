@@ -11,19 +11,20 @@ class HTML
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
         <title>Swift by example: #{name}</title>
+        <link href='http://fonts.googleapis.com/css?family=Fira+Sans' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="#{path}site.css"></link>
         <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.min.css"></link>
       </head>
       <body>
         <div id="container">
+          <h1>Swift by example: #{name}</h1>
           <main>
-            <h1>Swift by example: #{name}</h1>
             <table>
               <tbody>
                 #{content}
               </tbody>
             </table>
-          <main>
+          </main>
           <footer>
             by <a href="https://twitter.com/BrettBukowski">@BrettBukowski</a>
             <a href="https://github.com/BrettBukowski/SwiftExamples">source</a>

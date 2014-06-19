@@ -7,8 +7,8 @@ html, body {
   height: 100%;
 }
 body {
-  font-family: Helvetica, Arial, sans-serif;
-  padding: 1em 10% 0;
+  font-family: 'Fira Sans', sans-serif;
+  padding: 0;
   background: #ebeef1;
 }
 table {
@@ -25,18 +25,19 @@ td {
   padding: 0;
 }
 main {
-  padding-bottom: 2em;
+  padding: 0 10% 2em;
 }
 footer {
-  position: absolute;
   bottom: 0;
+  color: #c2c3c4;
   height: 2em;
+  position: absolute;
+  padding: 0 10%;
   width: 100%;
 }
 footer a:after {
   content: "|";
   margin: 0 2px 0 4px;
-  color: #222;
 }
 footer a:last-child:after {
   content: "";
@@ -48,6 +49,8 @@ footer a:last-child:after {
 h1 {
   font-weight: normal;
   margin-top: 0;
+  background: #00b8c2;
+  padding: 10px 10%;
 }
 h2 {
   font-size: 1.2em;
@@ -79,7 +82,6 @@ tbody tr:first-child td:last-child {
 }
 .code {
   background: #FFF;
-  /*background: #EEE;*/
   padding: 0 4px;
   vertical-align: baseline;
 }
@@ -87,7 +89,7 @@ tr:last-child .code {
   padding-bottom: 1em;
 }
 @media screen and (max-width: 1090px) {
-  body {
+  footer, main {
     padding: 0;
   }
 }
