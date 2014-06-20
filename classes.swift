@@ -1,7 +1,7 @@
 class Example {
     var a = 0
 
-    init(a: Int) {
+    init(a: Int) { // Constructor
         self.a = a
     }
 }
@@ -12,7 +12,7 @@ println(eg.a)              // 1
 
 // # Lazy properties
 
-// Lazy properties' initial value isn't
+// Lazy properties' initial value aren't
 // initialized until the first time the
 // property is accessed.
 
@@ -21,8 +21,11 @@ class Podcast {
 }
 
 class Episode {
-    var audio = ""
+    var audio = "somefile.mp3"
 }
+
+var podcast = Podcast()          // episode has not been initialized yet.
+println(podcast.episode.audio)   // somefile.mp3
 
 // # Computed properties
 
@@ -59,3 +62,77 @@ set {
 }
 */
 
+// # Ready-only computed properties
+
+class Song {
+    var title = ""
+    var duration = 0.0
+    var metaInfo: Dictionary<String, String> {
+        return [
+            "title": title,
+            "duration": String(duration),
+        ]
+    }
+}
+
+var song = Song()
+song.title = "Rootshine Revival"
+song.duration = 2.01
+println(song.metaInfo["title"]!)    // Rootshine Revival
+println(song.metaInfo["duration"]!) // 2.01
+
+// # Property Observers
+
+// Property observers can be added onto any properties
+// (including inherited) except for lazy computed props.
+
+class Website {
+    var visitors: Int = 0 {             // An explicit type is required
+    willSet(newVisitorCount) {          // Called before the prop is set
+        visitors = newVisitorCount + 1  // Warning. Can't set within its own willSet
+    }
+    didSet {                            // Called after a new val is set
+        println(visitors - oldValue)    // oldValue is magically defined
+    }
+    }
+}
+
+var site = Website()
+site.visitors = 1
+println(site.visitors)                 // 1
+
+// # Type Properties
+// AKA class variables
+class Body {
+    /*    class var age = 0                 // error: class variables not yet supported */
+    // Computed type property
+    class var size: Int {
+        return 10
+    }
+}
+println(Body.size)                     // 10
+
+// # Type Methods
+// AKA class methods
+class Banana {
+    var color = "green"
+    class func genus() -> String {
+        return "Musa"
+    }
+}
+println(Banana.genus())                // Musa
+
+// # Instance methods
+
+class Month {
+    var name: String
+
+    init(name: String) {
+        self.name = name
+    }
+
+    func shortened() -> String {
+        return name.substringToIndex(3)
+    }
+}
+println(Month(name: "January").shortened())    // Jan

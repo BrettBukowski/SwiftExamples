@@ -38,6 +38,61 @@ struct Work {
 println(work.location)                // office
 println(work.units[0])                // answer phone
 println(work.last())                  // read book
+
+</code></pre></td></tr>
+<tr><td class='docs'><h2> # Type Properties
+</h2></td><td class='code'><pre><code class='language-swift'>&nbsp;</code></pre></td></tr>
+<tr><td class='docs'> AKA static variables
+</td><td class='code'><pre><code class='language-swift'>
+struct Play {
+    static var duration = 1
+    static var name: String { // Read-only computed type property
+        return String("named \(duration + 1)")
+    }
+    static var activity: String {
+        get {
+            return name + "stargaze"
+        }
+        mutating set {
+            duration = 2
+        }
+    }
+}
+println(Play.duration)               // 1
+println(Play.name)                   // named 2
+println(Play.activity)               // named 2stargaze
+
+</code></pre></td></tr>
+<tr><td class='docs'><h2> # Instance methods
+</h2></td><td class='code'><pre><code class='language-swift'>
+struct Mansion {
+    var rooms = 30
+    var garageDoors = 5
+
+    // Methods cannot modify value types without
+    // declaring so via the `mutating` keyword.
+    mutating func addGarage (newVal: Int) {
+        garageDoors += newVal
+    }
+}
+var mansion = Mansion()
+mansion.addGarage(5)
+println(mansion.garageDoors)         // 10
+
+</code></pre></td></tr>
+<tr><td class='docs'><h2> # Type Methods
+</h2></td><td class='code'><pre><code class='language-swift'>&nbsp;</code></pre></td></tr>
+<tr><td class='docs'> AKA static methods
+</td><td class='code'><pre><code class='language-swift'>
+struct Font {
+    static var size = 12
+    var typeface = ""
+
+    static func pointSize() -> String {
+        return "\(size)pt"
+    }
+}
+println(Font.pointSize())            // 12pt
 </code></pre></td></tr>
               </tbody>
             </table>

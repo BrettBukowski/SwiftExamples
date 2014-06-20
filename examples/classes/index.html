@@ -17,7 +17,7 @@
                 <tr><td class='docs'></td><td class='code'><pre><code class='language-swift'>class Example {
     var a = 0
 
-    init(a: Int) {
+    init(a: Int) { // Constructor
         self.a = a
     }
 }
@@ -30,7 +30,7 @@ println(eg.a)              // 1
 </code></pre></td></tr>
 <tr><td class='docs'><h2> # Lazy properties
 </h2></td><td class='code'><pre><code class='language-swift'>&nbsp;</code></pre></td></tr>
-<tr><td class='docs'> Lazy properties' initial value isn't
+<tr><td class='docs'> Lazy properties' initial value aren't
 </td><td class='code'><pre><code class='language-swift'>&nbsp;</code></pre></td></tr>
 <tr><td class='docs'> initialized until the first time the
 </td><td class='code'><pre><code class='language-swift'>&nbsp;</code></pre></td></tr>
@@ -41,8 +41,11 @@ class Podcast {
 }
 
 class Episode {
-    var audio = ""
+    var audio = "somefile.mp3"
 }
+
+var podcast = Podcast()          // episode has not been initialized yet.
+println(podcast.episode.audio)   // somefile.mp3
 
 </code></pre></td></tr>
 <tr><td class='docs'><h2> # Computed properties
@@ -83,6 +86,88 @@ set {
 }
 */
 
+</code></pre></td></tr>
+<tr><td class='docs'><h2> # Ready-only computed properties
+</h2></td><td class='code'><pre><code class='language-swift'>
+class Song {
+    var title = ""
+    var duration = 0.0
+    var metaInfo: Dictionary<String, String> {
+        return [
+            "title": title,
+            "duration": String(duration),
+        ]
+    }
+}
+
+var song = Song()
+song.title = "Rootshine Revival"
+song.duration = 2.01
+println(song.metaInfo["title"]!)    // Rootshine Revival
+println(song.metaInfo["duration"]!) // 2.01
+
+</code></pre></td></tr>
+<tr><td class='docs'><h2> # Property Observers
+</h2></td><td class='code'><pre><code class='language-swift'>&nbsp;</code></pre></td></tr>
+<tr><td class='docs'> Property observers can be added onto any properties
+</td><td class='code'><pre><code class='language-swift'>&nbsp;</code></pre></td></tr>
+<tr><td class='docs'> (including inherited) except for lazy computed props.
+</td><td class='code'><pre><code class='language-swift'>
+class Website {
+    var visitors: Int = 0 {             // An explicit type is required
+    willSet(newVisitorCount) {          // Called before the prop is set
+        visitors = newVisitorCount + 1  // Warning. Can't set within its own willSet
+    }
+    didSet {                            // Called after a new val is set
+        println(visitors - oldValue)    // oldValue is magically defined
+    }
+    }
+}
+
+var site = Website()
+site.visitors = 1
+println(site.visitors)                 // 1
+
+</code></pre></td></tr>
+<tr><td class='docs'><h2> # Type Properties
+</h2></td><td class='code'><pre><code class='language-swift'>&nbsp;</code></pre></td></tr>
+<tr><td class='docs'> AKA class variables
+</td><td class='code'><pre><code class='language-swift'>class Body {
+    /*    class var age = 0                 // error: class variables not yet supported */
+    // Computed type property
+    class var size: Int {
+        return 10
+    }
+}
+println(Body.size)                     // 10
+
+</code></pre></td></tr>
+<tr><td class='docs'><h2> # Type Methods
+</h2></td><td class='code'><pre><code class='language-swift'>&nbsp;</code></pre></td></tr>
+<tr><td class='docs'> AKA class methods
+</td><td class='code'><pre><code class='language-swift'>class Banana {
+    var color = "green"
+    class func genus() -> String {
+        return "Musa"
+    }
+}
+println(Banana.genus())                // Musa
+
+</code></pre></td></tr>
+<tr><td class='docs'><h2> # Instance methods
+</h2></td><td class='code'><pre><code class='language-swift'>
+class Month {
+    var name: String
+
+    init(name: String) {
+        self.name = name
+    }
+
+    func shortened() -> String {
+        return name.substringToIndex(3)
+    }
+}
+println(Month(name: "January").shortened())    // Jan
 </code></pre></td></tr>
               </tbody>
             </table>

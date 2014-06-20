@@ -79,3 +79,5 @@ println(five.toRaw())                      // 5
 
 var possibleNum = Numbers.fromRaw(2)!
 println(possibleNum == Numbers.Two)       // true
+
+// TK - type methods and mutating methods
