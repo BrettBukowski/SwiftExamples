@@ -14,6 +14,7 @@ class HTML
         <link href='http://fonts.googleapis.com/css?family=Fira+Sans' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="#{path}site.css"></link>
         <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.min.css"></link>
+        <link rel="shortcut icon" href="favicon.ico">
       </head>
       <body>
         <div id="container">
