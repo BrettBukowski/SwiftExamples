@@ -105,7 +105,7 @@ class IndexFile
 
   def to_html
     html = "<ol>" + steps_from_readme.map do |step|
-      "<li><a href='#{@docs_path}/#{step[:slug]}/index.html'>#{step[:title]}</a></li>"
+      "<li><a href='#{@docs_path}/#{step[:slug]}'>#{step[:title]}</a></li>"
     end.join("\n") + "</ol>"
 
     HTML.template('', 'examples/', html)
