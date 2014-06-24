@@ -1,8 +1,10 @@
 class Example {
     var a = 0
+    var b: String
 
     init(a: Int) { // Constructor
         self.a = a
+        b = "name"                  // An error if a declared property isn't initialized
     }
 }
 
@@ -136,3 +138,39 @@ class Month {
     }
 }
 println(Month(name: "January").shortened())    // Jan
+
+// # Inheritance
+
+// Swift classes do not inherit from a universal base class.
+
+class Bicycle {
+    var tireWidth: Double
+    var topSpeed: Double
+    var name: String
+    var gears: Int
+
+    init() {
+        tireWidth = 30.5
+        topSpeed = 10.0
+        name = "regular ol' bike"
+        gears = 3
+    }
+
+    func go(distance: Double) {
+        println("Went \(distance) at a top speed of \(topSpeed) in my \(name)")
+    }
+}
+
+class MountainBike : Bicycle {
+    /* var tireWidth = 64.0 // Cannot override property in the declaration */
+    init() {
+        super.init()
+
+        tireWidth = 64.0
+        name = "mountain bike"
+        gears = 12
+    }
+}
+
+var mountainBike = MountainBike()
+mountainBike.go(12.0)                          // Went 12.0 at a top speed of 10.0 in my mountain bike
