@@ -182,6 +182,8 @@ class Bicycle {
     var topSpeed: Double
     var name: String
     var gears: Int
+    // Marking a method/property with `@final` prevents it from being overridden
+    @final var color = "green"
 
     init() {
         tireWidth = 30.5
@@ -204,10 +206,35 @@ class MountainBike : Bicycle {
         name = "mountain bike"
         gears = 12
     }
+    // Override parent's methods via `override` keyword
+    override func go(distance: Double) {
+        super.go(distance)
+        println("Did \(distance) on a mountain bike")
+    }
+
+    // A getter/setter override can _any_ inherited property.
+    override var topSpeed: Double {
+    get {
+        return super.topSpeed - 4.0
+    }
+    set {
+        super.topSpeed = newValue
+    }
+    }
+
+    // Property observer
+    override var gears: Int {
+    didSet {
+        println("Gears was changed to \(gears)")
+    }
+    }
 }
 
-var mountainBike = MountainBike()
+var mountainBike = MountainBike()              // Gears was changed to 12
+mountainBike.topSpeed = 6.0
+println(mountainBike.topSpeed)                 // 2.0
 mountainBike.go(12.0)                          // Went 12.0 at a top speed of 10.0 in my mountain bike
+                                               // Did 12.0 on a mountain bike
 </code></pre></td></tr>
               </tbody>
             </table>
