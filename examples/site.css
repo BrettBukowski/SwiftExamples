@@ -98,6 +98,9 @@ tbody tr:first-child td:last-child {
   padding: 0 4px;
   vertical-align: baseline;
 }
+tr:first-child .code {
+  padding-top: 1em;
+}
 tr:last-child .code {
   padding-bottom: 1em;
 }
