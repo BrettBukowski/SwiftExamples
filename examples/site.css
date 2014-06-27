@@ -7,12 +7,14 @@ html, body {
   height: 100%;
 }
 body {
+  color: #222;
   font-family: 'Fira Sans', sans-serif;
   padding: 0;
   background: #ebeef1;
 }
 table {
   border-spacing: 0;
+  margin-bottom: 2em;
 }
 a {
   color: #1594e0;
@@ -52,6 +54,12 @@ h1 {
   background: #00b8c2;
   padding: 10px 10%;
 }
+h1 a {
+  color: #222;
+}
+h1 a:hover, h1 a:focus {
+  text-decoration: none;
+}
 h2 {
   font-size: 1.2em;
   font-weight: normal;
@@ -74,6 +82,11 @@ tbody tr:first-child td:first-child {
 }
 tbody tr:first-child td:last-child {
   border-top-right-radius: 3px;
+}
+.topic {
+  color: #FFF;
+  font-size: smaller;
+  padding-left: 6px;
 }
 .docs {
   background: #fafbfc;
