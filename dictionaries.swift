@@ -1,6 +1,6 @@
 var emptyDictionary = Dictionary<String, Float>()
 
-// Type intference allows you to initialize without declaring types:
+// Type inference allows you to initialize without declaring types:
 var strings = [
     "a": "A",
     "b": "B",
