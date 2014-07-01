@@ -201,3 +201,36 @@ mountainBike.topSpeed = 6.0
 println(mountainBike.topSpeed)                 // 2.0
 mountainBike.go(12.0)                          // Went 12.0 at a top speed of 10.0 in my mountain bike
                                                // Did 12.0 on a mountain bike
+
+// # Initializers
+
+// 'Convenience' initializers overload empty
+// initializers that populate the params
+// in 'designated' initializers.
+
+class iOS {
+    var version: String
+
+    init(version: String) {
+        self.version = version
+    }
+
+    convenience init() {
+        self.init(version: "8.0.0")
+    }
+}
+
+var os = iOS()
+println(os.version)                          // 8.0.0
+
+// # ARC and reference cycles
+
+// Strong reference cycles happen when two objects
+// hold strong references to each other so that neither
+// can be deallocated (à la memory leaks in garbage collected langs)
+
+// Strong references can be resolved by declaring
+// references as `weak` or `unowned`
+
+// Use a weak reference whenever it's valid for the reference
+// to be nil at any point. These are optional types.

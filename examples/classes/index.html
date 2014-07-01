@@ -235,7 +235,48 @@ mountainBike.topSpeed = 6.0
 println(mountainBike.topSpeed)                 // 2.0
 mountainBike.go(12.0)                          // Went 12.0 at a top speed of 10.0 in my mountain bike
                                                // Did 12.0 on a mountain bike
+
 </code></pre></td></tr>
+<tr><td class='docs'><h2> # Initializers
+</h2></td><td class='code'><pre><code class='language-swift'>&nbsp;</code></pre></td></tr>
+<tr><td class='docs'> 'Convenience' initializers overload empty
+</td><td class='code'><pre><code class='language-swift'>&nbsp;</code></pre></td></tr>
+<tr><td class='docs'> initializers that populate the params
+</td><td class='code'><pre><code class='language-swift'>&nbsp;</code></pre></td></tr>
+<tr><td class='docs'> in 'designated' initializers.
+</td><td class='code'><pre><code class='language-swift'>
+class iOS {
+    var version: String
+
+    init(version: String) {
+        self.version = version
+    }
+
+    convenience init() {
+        self.init(version: "8.0.0")
+    }
+}
+
+var os = iOS()
+println(os.version)                          // 8.0.0
+
+</code></pre></td></tr>
+<tr><td class='docs'><h2> # ARC and reference cycles
+</h2></td><td class='code'><pre><code class='language-swift'>&nbsp;</code></pre></td></tr>
+<tr><td class='docs'> Strong reference cycles happen when two objects
+</td><td class='code'><pre><code class='language-swift'>&nbsp;</code></pre></td></tr>
+<tr><td class='docs'> hold strong references to each other so that neither
+</td><td class='code'><pre><code class='language-swift'>&nbsp;</code></pre></td></tr>
+<tr><td class='docs'> can be deallocated (à la memory leaks in garbage collected langs)
+</td><td class='code'><pre><code class='language-swift'>&nbsp;</code></pre></td></tr>
+<tr><td class='docs'> Strong references can be resolved by declaring
+</td><td class='code'><pre><code class='language-swift'>&nbsp;</code></pre></td></tr>
+<tr><td class='docs'> references as `weak` or `unowned`
+</td><td class='code'><pre><code class='language-swift'>&nbsp;</code></pre></td></tr>
+<tr><td class='docs'> Use a weak reference whenever it's valid for the reference
+</td><td class='code'><pre><code class='language-swift'>&nbsp;</code></pre></td></tr>
+<tr><td class='docs'> to be nil at any point. These are optional types.
+</td><td class='code'><pre><code class='language-swift'>&nbsp;</code></pre></td></tr>
               </tbody>
             </table>
           </main>
