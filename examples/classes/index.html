@@ -276,7 +276,56 @@ println(os.version)                          // 8.0.0
 <tr><td class='docs'> Use a weak reference whenever it's valid for the reference
 </td><td class='code'><pre><code class='language-swift'>&nbsp;</code></pre></td></tr>
 <tr><td class='docs'> to be nil at any point. These are optional types.
+</td><td class='code'><pre><code class='language-swift'>
+class Driver {
+    weak var car: Car? // Strong reference to car.
+
+    deinit {
+        println("Driver deinitialized")
+    }
+}
+
+class Car {
+    weak var driver: Driver? // Weak reference to driver.
+
+    deinit {
+        println("Car deinitialized")
+    }
+}
+
+var driver: Driver?
+var car: Car?
+
+driver = Driver()
+car = Car()
+driver!.car = car
+car!.driver = driver
+
+driver = nil               // No more strong references to driver.
+car = nil                  // No more strong references to car.
+
+</code></pre></td></tr>
+<tr><td class='docs'> Unowned references are like weak references except they always
 </td><td class='code'><pre><code class='language-swift'>&nbsp;</code></pre></td></tr>
+<tr><td class='docs'> refer to a value, so they're non-nil.
+</td><td class='code'><pre><code class='language-swift'>
+class Artist {
+    var instrument: Instrument?  // Strong reference to instrument.
+}
+
+class Instrument {
+    unowned let artist: Artist   // Unowned reference to artist.
+    init (artist: Artist) {
+        self.artist = artist
+    }
+}
+
+var artist: Artist?
+artist = Artist()
+artist!.instrument = Instrument(artist: artist!)
+
+artist = nil        // Both objects are deallocated since there are no more strong references.
+</code></pre></td></tr>
               </tbody>
             </table>
           </main>
