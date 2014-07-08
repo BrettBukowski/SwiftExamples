@@ -1,0 +1,153 @@
+    <!doctype html>
+    <html lang="en">
+      <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
+        <title>Swift by example - type-casting</title>
+        <link href='http://fonts.googleapis.com/css?family=Fira+Sans' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="../site.css"></link>
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.min.css"></link>
+        <link rel="shortcut icon" href="favicon.ico">
+      </head>
+      <body>
+        <div id="container">
+          <h1><a href='#'>Swift by example</a> <span class='topic'>type-casting</span></h1>
+          <main>
+            <table>
+              <tbody>
+                <tr><td class='docs'></td><td class='code'><pre><code class='language-swift'>class Genre {
+    var name: String
+    init(name: String) { self.name = name }
+}
+
+class Classical : Genre {
+
+}
+
+class Pop : Genre {
+
+}
+
+var collection = [
+    Pop(name: "Hard Day's Night"),
+    Classical(name: "Canon in D"),
+]
+
+</code></pre></td></tr>
+<tr><td class='docs'> The type of `collection` is inferred to be `Genre`
+</td><td class='code'><pre><code class='language-swift'>&nbsp;</code></pre></td></tr>
+<tr><td class='docs'> Use `is` to check instance of.
+</td><td class='code'><pre><code class='language-swift'>
+for song in collection {
+    if song is Classical {
+        println("\(song.name) is classical!")
+    } else if song is Pop {
+        println("\(song.name) is poppy!")
+    }
+}
+
+/*
+ Hard Day's Night is poppy!
+ Canon in D is classical!
+*/
+
+
+</code></pre></td></tr>
+<tr><td class='docs'><h2> # Downcasting
+</h2></td><td class='code'><pre><code class='language-swift'>&nbsp;</code></pre></td></tr>
+<tr><td class='docs'> `as?` returns an optional (if you aren't sure the cast will succeed)
+</td><td class='code'><pre><code class='language-swift'>&nbsp;</code></pre></td></tr>
+<tr><td class='docs'> `as` throws a runtime error if the cast doesn't succeed
+</td><td class='code'><pre><code class='language-swift'>
+for song in collection {
+    if let popSong = song as? Pop {
+        println("pop song")
+    } else if let classicalSong = song as? Classical {
+        println("classical song")
+    }
+}
+
+/*
+ pop song
+ classical song
+*/
+
+</code></pre></td></tr>
+<tr><td class='docs'><h2> # AnyObject
+</h2></td><td class='code'><pre><code class='language-swift'>&nbsp;</code></pre></td></tr>
+<tr><td class='docs'> Tons of Cocoa APIs (dicts, arrays, etc.) return `AnyObject`, a generic
+</td><td class='code'><pre><code class='language-swift'>&nbsp;</code></pre></td></tr>
+<tr><td class='docs'> object wrapper. You have to use `as` to cast an `AnyObject` back to the
+</td><td class='code'><pre><code class='language-swift'>&nbsp;</code></pre></td></tr>
+<tr><td class='docs'> type you expect.
+</td><td class='code'><pre><code class='language-swift'>&nbsp;</code></pre></td></tr>
+<tr><td class='docs'> `AnyObject` doesn't allow primitives--only class-based objects.
+</td><td class='code'><pre><code class='language-swift'>
+var randomCollection: AnyObject[] = [
+    Pop(name: "Bishop Allen"),
+    Classical(name: "Bach"),
+]
+
+for item in randomCollection {
+    let songGenre = item as Genre
+    println("\(songGenre.self)")       // C11lldb_expr_03Pop (has 1 child) // C11lldb_expr_09Classical
+    println("\(songGenre.name)")
+}
+
+</code></pre></td></tr>
+<tr><td class='docs'> Every item can also be downcasted in the for-loop
+</td><td class='code'><pre><code class='language-swift'>
+for item in randomCollection as Genre[] {
+    println("\(item.name)")
+}
+
+/*
+ Bishop Allen
+ Bach
+*/
+
+</code></pre></td></tr>
+<tr><td class='docs'><h2> # Any
+</h2></td><td class='code'><pre><code class='language-swift'>&nbsp;</code></pre></td></tr>
+<tr><td class='docs'> `Any` allows primitives and class-based objects.
+</td><td class='code'><pre><code class='language-swift'>
+var groups = Any[]()
+groups.append(1.0)
+groups.append(1)
+groups.append("string")
+groups.append(Pop(name: "Long Winters"))
+
+for item in groups {
+    switch item {
+    case let anInt as Int:
+        println("\(item) is an int")
+    case let aDouble as Double:
+        println("\(item) is a double")
+    case let aString as String:
+        println("\(item) is a string")
+    case let aGenre as Genre:
+        println("\(item) is a Genre")
+    default:
+        println("dunno")
+    }
+}
+
+/*
+ 1.0 is a double
+ 1 is an int
+ string is a string
+ C11lldb_expr_13Pop (has 1 child) is a Genre
+*/
+</code></pre></td></tr>
+              </tbody>
+            </table>
+          </main>
+          <footer>
+            by <a href="https://twitter.com/BrettBukowski">@BrettBukowski</a>
+            <a href="https://github.com/BrettBukowski/SwiftExamples">source</a>
+          </footer>
+        </div>
+        <script async src="../site.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.min.js"></script>
+      </body>
+    </html>
