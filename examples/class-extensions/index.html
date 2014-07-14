@@ -15,28 +15,28 @@
           <main>
             <table>
               <tbody>
-                <tr><td class='docs'></td><td class='code'><pre><code class='language-swift'>&nbsp;</code></pre></td></tr>
+                <tr><td class='docs'></td><td class='code'><pre><code class='language-swift'> </code></pre></td></tr>
 <tr><td class='docs'> When you add an extension to an existing type,
-</td><td class='code'><pre><code class='language-swift'>&nbsp;</code></pre></td></tr>
+</td><td class='code'><pre><code class='language-swift'> </code></pre></td></tr>
 <tr><td class='docs'> the extension changes are available on existing
-</td><td class='code'><pre><code class='language-swift'>&nbsp;</code></pre></td></tr>
+</td><td class='code'><pre><code class='language-swift'> </code></pre></td></tr>
 <tr><td class='docs'> instances of that type, even if they were declared
-</td><td class='code'><pre><code class='language-swift'>&nbsp;</code></pre></td></tr>
+</td><td class='code'><pre><code class='language-swift'> </code></pre></td></tr>
 <tr><td class='docs'> before the extension.
 </td><td class='code'><pre><code class='language-swift'>
 var someInt = 3
 
 extension Int {
-    func isOdd () -> Bool{
+    func isOdd () -&gt; Bool{
         return self % 2 != 0
     }
 
-    func isEven() -> Bool {
+    func isEven() -&gt; Bool {
         return !isOdd()
     }
 
-    func times(task: (Int)->()) {
-        for i in 0..<self {
+    func times(task: (Int)-&gt;()) {
+        for i in 0..&lt;self {
             task(i)
         }
     }

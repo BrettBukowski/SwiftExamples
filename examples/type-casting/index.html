@@ -29,41 +29,41 @@ class Pop : Genre {
 }
 
 var collection = [
-    Pop(name: "Hard Day's Night"),
-    Classical(name: "Canon in D"),
+    Pop(name: &quot;Hard Day&#39;s Night&quot;),
+    Classical(name: &quot;Canon in D&quot;),
 ]
 
 </code></pre></td></tr>
 <tr><td class='docs'> The type of `collection` is inferred to be `Genre`
-</td><td class='code'><pre><code class='language-swift'>&nbsp;</code></pre></td></tr>
+</td><td class='code'><pre><code class='language-swift'> </code></pre></td></tr>
 <tr><td class='docs'> Use `is` to check instance of.
 </td><td class='code'><pre><code class='language-swift'>
 for song in collection {
     if song is Classical {
-        println("\(song.name) is classical!")
+        println(&quot;\(song.name) is classical!&quot;)
     } else if song is Pop {
-        println("\(song.name) is poppy!")
+        println(&quot;\(song.name) is poppy!&quot;)
     }
 }
 
 /*
- Hard Day's Night is poppy!
+ Hard Day&#39;s Night is poppy!
  Canon in D is classical!
 */
 
 
 </code></pre></td></tr>
 <tr><td class='docs'><h2> # Downcasting
-</h2></td><td class='code'><pre><code class='language-swift'>&nbsp;</code></pre></td></tr>
+</h2></td><td class='code'><pre><code class='language-swift'> </code></pre></td></tr>
 <tr><td class='docs'> `as?` returns an optional (if you aren't sure the cast will succeed)
-</td><td class='code'><pre><code class='language-swift'>&nbsp;</code></pre></td></tr>
+</td><td class='code'><pre><code class='language-swift'> </code></pre></td></tr>
 <tr><td class='docs'> `as` throws a runtime error if the cast doesn't succeed
 </td><td class='code'><pre><code class='language-swift'>
 for song in collection {
     if let popSong = song as? Pop {
-        println("pop song")
+        println(&quot;pop song&quot;)
     } else if let classicalSong = song as? Classical {
-        println("classical song")
+        println(&quot;classical song&quot;)
     }
 }
 
@@ -74,31 +74,31 @@ for song in collection {
 
 </code></pre></td></tr>
 <tr><td class='docs'><h2> # AnyObject
-</h2></td><td class='code'><pre><code class='language-swift'>&nbsp;</code></pre></td></tr>
+</h2></td><td class='code'><pre><code class='language-swift'> </code></pre></td></tr>
 <tr><td class='docs'> Tons of Cocoa APIs (dicts, arrays, etc.) return `AnyObject`, a generic
-</td><td class='code'><pre><code class='language-swift'>&nbsp;</code></pre></td></tr>
+</td><td class='code'><pre><code class='language-swift'> </code></pre></td></tr>
 <tr><td class='docs'> object wrapper. You have to use `as` to cast an `AnyObject` back to the
-</td><td class='code'><pre><code class='language-swift'>&nbsp;</code></pre></td></tr>
+</td><td class='code'><pre><code class='language-swift'> </code></pre></td></tr>
 <tr><td class='docs'> type you expect.
-</td><td class='code'><pre><code class='language-swift'>&nbsp;</code></pre></td></tr>
+</td><td class='code'><pre><code class='language-swift'> </code></pre></td></tr>
 <tr><td class='docs'> `AnyObject` doesn't allow primitives--only class-based objects.
 </td><td class='code'><pre><code class='language-swift'>
 var randomCollection: AnyObject[] = [
-    Pop(name: "Bishop Allen"),
-    Classical(name: "Bach"),
+    Pop(name: &quot;Bishop Allen&quot;),
+    Classical(name: &quot;Bach&quot;),
 ]
 
 for item in randomCollection {
     let songGenre = item as Genre
-    println("\(songGenre.self)")       // C11lldb_expr_03Pop (has 1 child) // C11lldb_expr_09Classical
-    println("\(songGenre.name)")
+    println(&quot;\(songGenre.self)&quot;)       // C11lldb_expr_03Pop (has 1 child) // C11lldb_expr_09Classical
+    println(&quot;\(songGenre.name)&quot;)
 }
 
 </code></pre></td></tr>
 <tr><td class='docs'> Every item can also be downcasted in the for-loop
 </td><td class='code'><pre><code class='language-swift'>
 for item in randomCollection as Genre[] {
-    println("\(item.name)")
+    println(&quot;\(item.name)&quot;)
 }
 
 /*
@@ -108,27 +108,27 @@ for item in randomCollection as Genre[] {
 
 </code></pre></td></tr>
 <tr><td class='docs'><h2> # Any
-</h2></td><td class='code'><pre><code class='language-swift'>&nbsp;</code></pre></td></tr>
+</h2></td><td class='code'><pre><code class='language-swift'> </code></pre></td></tr>
 <tr><td class='docs'> `Any` allows primitives and class-based objects.
 </td><td class='code'><pre><code class='language-swift'>
 var groups = Any[]()
 groups.append(1.0)
 groups.append(1)
-groups.append("string")
-groups.append(Pop(name: "Long Winters"))
+groups.append(&quot;string&quot;)
+groups.append(Pop(name: &quot;Long Winters&quot;))
 
 for item in groups {
     switch item {
     case let anInt as Int:
-        println("\(item) is an int")
+        println(&quot;\(item) is an int&quot;)
     case let aDouble as Double:
-        println("\(item) is a double")
+        println(&quot;\(item) is a double&quot;)
     case let aString as String:
-        println("\(item) is a string")
+        println(&quot;\(item) is a string&quot;)
     case let aGenre as Genre:
-        println("\(item) is a Genre")
+        println(&quot;\(item) is a Genre&quot;)
     default:
-        println("dunno")
+        println(&quot;dunno&quot;)
     }
 }
 

@@ -15,18 +15,18 @@
           <main>
             <table>
               <tbody>
-                <tr><td class='docs'></td><td class='code'><pre><code class='language-swift'>&nbsp;</code></pre></td></tr>
+                <tr><td class='docs'></td><td class='code'><pre><code class='language-swift'> </code></pre></td></tr>
 <tr><td class='docs'> As an alternative to multiple return values (Go)
-</td><td class='code'><pre><code class='language-swift'>&nbsp;</code></pre></td></tr>
+</td><td class='code'><pre><code class='language-swift'> </code></pre></td></tr>
 <tr><td class='docs'> Or Exceptions (every other language)
-</td><td class='code'><pre><code class='language-swift'>&nbsp;</code></pre></td></tr>
+</td><td class='code'><pre><code class='language-swift'> </code></pre></td></tr>
 <tr><td class='docs'> Optionals are used to handle failure cases when
-</td><td class='code'><pre><code class='language-swift'>&nbsp;</code></pre></td></tr>
+</td><td class='code'><pre><code class='language-swift'> </code></pre></td></tr>
 <tr><td class='docs'> you're good and ready. Sorta like a lightweight
-</td><td class='code'><pre><code class='language-swift'>&nbsp;</code></pre></td></tr>
+</td><td class='code'><pre><code class='language-swift'> </code></pre></td></tr>
 <tr><td class='docs'> Maybe monad, without the FP hoity-toity.
 </td><td class='code'><pre><code class='language-swift'>
-var one = "1"
+var one = &quot;1&quot;
 var intVal = one.toInt()
 
 </code></pre></td></tr>
@@ -36,11 +36,11 @@ var intVal = one.toInt()
     println(intVal!)                                             // 1
 }
 
-var nope = "please"
+var nope = &quot;please&quot;
 var nopeIntVal = nope.toInt()
 
 if !nopeIntVal {
-    println("Couldn't convert the string to an int")
+    println(&quot;Couldn&#39;t convert the string to an int&quot;)
 }
 
 </code></pre></td></tr>
@@ -50,7 +50,7 @@ if !nopeIntVal {
 println(maybe)                                                  // nil
 println(maybe == nil)                                           // true
 
-maybe = "yep"
+maybe = &quot;yep&quot;
 
 println(maybe)                                                  // yep
 </code></pre></td></tr>

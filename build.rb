@@ -1,5 +1,6 @@
 #!/usr/bin/ruby
 
+require 'cgi'
 require 'fileutils'
 
 class HTML
@@ -57,8 +58,8 @@ class Example
   end
 
   def to_html
-    @code = '&nbsp;' if @code.strip.empty?
-    "<tr><td class='docs'>#{@explanation}</td><td class='code'><pre><code class='language-swift'>#{@code}</code></pre></td></tr>"
+    @code = ' ' if @code.strip.empty?
+    "<tr><td class='docs'>#{@explanation}</td><td class='code'><pre><code class='language-swift'>#{CGI.escapeHTML(@code)}</code></pre></td></tr>"
   end
 end
 

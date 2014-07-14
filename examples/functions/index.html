@@ -16,7 +16,7 @@
             <table>
               <tbody>
                 <tr><td class='docs'></td><td class='code'><pre><code class='language-swift'>func simple() {
-    println("hi")
+    println(&quot;hi&quot;)
 }
 
 simple()                                // hi
@@ -24,11 +24,11 @@ simple()                                // hi
 
 </code></pre></td></tr>
 <tr><td class='docs'> Parameter types and the return type must be specified.
-</td><td class='code'><pre><code class='language-swift'>func plus(a: Int, b: Int) ->Int {
+</td><td class='code'><pre><code class='language-swift'>func plus(a: Int, b: Int) -&gt;Int {
     return a + b
 }
 
-func sum(numbers: Double[]) -> Double {
+func sum(numbers: Double[]) -&gt; Double {
     var sum: Double = 0.0
     for num in numbers {
         sum += num
@@ -38,14 +38,14 @@ func sum(numbers: Double[]) -> Double {
 
 </code></pre></td></tr>
 <tr><td class='docs'> Functions can return tuples.
-</td><td class='code'><pre><code class='language-swift'>func stats(numbers: Int[]) -> (min: Int, max: Int) {
+</td><td class='code'><pre><code class='language-swift'>func stats(numbers: Int[]) -&gt; (min: Int, max: Int) {
     var min = Int.max, max = Int.min
 
     for i in numbers {
-        if i < min {
+        if i &lt; min {
             min = i
         }
-        if i > max {
+        if i &gt; max {
             max = i
         }
     }
@@ -55,7 +55,7 @@ func sum(numbers: Double[]) -> Double {
 
 </code></pre></td></tr>
 <tr><td class='docs'> Functions that don't return anything return
-</td><td class='code'><pre><code class='language-swift'>&nbsp;</code></pre></td></tr>
+</td><td class='code'><pre><code class='language-swift'> </code></pre></td></tr>
 <tr><td class='docs'> `Void` (an empty tuple) by default.
 </td><td class='code'><pre><code class='language-swift'>func noop(){}
 noop()
@@ -66,9 +66,9 @@ println(result.max)                      // 4
 
 </code></pre></td></tr>
 <tr><td class='docs'> Named parameters use an 'external' name before the 'internal' name.
-</td><td class='code'><pre><code class='language-swift'>&nbsp;</code></pre></td></tr>
+</td><td class='code'><pre><code class='language-swift'> </code></pre></td></tr>
 <tr><td class='docs'> Kind of a kludgy holdover from Obj-C selectors...
-</td><td class='code'><pre><code class='language-swift'>func increment(number: Int, by incrementer: Int) -> Int {
+</td><td class='code'><pre><code class='language-swift'>func increment(number: Int, by incrementer: Int) -&gt; Int {
     return number + incrementer
 }
 
@@ -76,9 +76,9 @@ println(increment(1, by: 10))           // 11
 
 </code></pre></td></tr>
 <tr><td class='docs'> ...So fortunately there's a shorthand for re-using the same name.
-</td><td class='code'><pre><code class='language-swift'>&nbsp;</code></pre></td></tr>
+</td><td class='code'><pre><code class='language-swift'> </code></pre></td></tr>
 <tr><td class='docs'> (unfortunately it's ugly)
-</td><td class='code'><pre><code class='language-swift'>func incrementTakeTwo(number: Int, #by: Int) -> Int {
+</td><td class='code'><pre><code class='language-swift'>func incrementTakeTwo(number: Int, #by: Int) -&gt; Int {
     return number + by
 }
 
@@ -86,11 +86,11 @@ println(increment(1, by: 10))           // 11
 
 </code></pre></td></tr>
 <tr><td class='docs'> Parameter values aren't modifiable by default.
-</td><td class='code'><pre><code class='language-swift'>&nbsp;</code></pre></td></tr>
+</td><td class='code'><pre><code class='language-swift'> </code></pre></td></tr>
 <tr><td class='docs'> But you can declare that you want to change a parameter
-</td><td class='code'><pre><code class='language-swift'>&nbsp;</code></pre></td></tr>
+</td><td class='code'><pre><code class='language-swift'> </code></pre></td></tr>
 <tr><td class='docs'> value (within the function) with a var keyword.
-</td><td class='code'><pre><code class='language-swift'>func addOne(var num: Int) -> Int {
+</td><td class='code'><pre><code class='language-swift'>func addOne(var num: Int) -&gt; Int {
     num++
     return num
 }
@@ -98,13 +98,13 @@ addOne(1)                             // 2
 
 </code></pre></td></tr>
 <tr><td class='docs'><h2> # Default parameter values
-</h2></td><td class='code'><pre><code class='language-swift'>&nbsp;</code></pre></td></tr>
+</h2></td><td class='code'><pre><code class='language-swift'> </code></pre></td></tr>
 <tr><td class='docs'> Swift realizes that the verbosity is becoming a burden.
-</td><td class='code'><pre><code class='language-swift'>&nbsp;</code></pre></td></tr>
+</td><td class='code'><pre><code class='language-swift'> </code></pre></td></tr>
 <tr><td class='docs'> So default params' internal names are also auto-exposed
-</td><td class='code'><pre><code class='language-swift'>&nbsp;</code></pre></td></tr>
+</td><td class='code'><pre><code class='language-swift'> </code></pre></td></tr>
 <tr><td class='docs'> with the same external name.
-</td><td class='code'><pre><code class='language-swift'>func incrementTakeThree(number: Int, by: Int = 3) -> Int {
+</td><td class='code'><pre><code class='language-swift'>func incrementTakeThree(number: Int, by: Int = 3) -&gt; Int {
     return number + by
 }
 
@@ -114,9 +114,9 @@ println(incrementTakeThree(1, by:1))   // 2
 
 </code></pre></td></tr>
 <tr><td class='docs'><h2> # Variadic parameters
-</h2></td><td class='code'><pre><code class='language-swift'>&nbsp;</code></pre></td></tr>
+</h2></td><td class='code'><pre><code class='language-swift'> </code></pre></td></tr>
 <tr><td class='docs'> (Aside: functions can be overloaded since they're different types [more below])
-</td><td class='code'><pre><code class='language-swift'>func sum(nums: Double...) -> Double {
+</td><td class='code'><pre><code class='language-swift'>func sum(nums: Double...) -&gt; Double {
     var sum: Double = 0.0
     for num in nums {
         sum += num
@@ -126,18 +126,18 @@ println(incrementTakeThree(1, by:1))   // 2
 
 </code></pre></td></tr>
 <tr><td class='docs'> Unfortunately, splats aren't supported
-</td><td class='code'><pre><code class='language-swift'>&nbsp;</code></pre></td></tr>
+</td><td class='code'><pre><code class='language-swift'> </code></pre></td></tr>
 <tr><td class='docs'> <https:devforums.apple.com/message/970958#970958>
-</td><td class='code'><pre><code class='language-swift'>&nbsp;</code></pre></td></tr>
+</td><td class='code'><pre><code class='language-swift'> </code></pre></td></tr>
 <tr><td class='docs'> So you can't call a variadic function with an array of args.
-</td><td class='code'><pre><code class='language-swift'>func average(nums: Double...) -> Double {
+</td><td class='code'><pre><code class='language-swift'>func average(nums: Double...) -&gt; Double {
     return sum(nums) / Double(nums.count)
 }
 average(1.0, 2.0, 3.0, 4.0)            // 2.5
 
 </code></pre></td></tr>
 <tr><td class='docs'><h2> # In-Out (pass-by-reference) parameters
-</h2></td><td class='code'><pre><code class='language-swift'>&nbsp;</code></pre></td></tr>
+</h2></td><td class='code'><pre><code class='language-swift'> </code></pre></td></tr>
 <tr><td class='docs'> inout params cannot be declared as var or let.
 </td><td class='code'><pre><code class='language-swift'>func addOneSideEffect(inout num: Int) {
     num++
@@ -147,51 +147,51 @@ average(1.0, 2.0, 3.0, 4.0)            // 2.5
 </td><td class='code'><pre><code class='language-swift'>var num = 1
 </code></pre></td></tr>
 <tr><td class='docs'> Use an & before the var's name.
-</td><td class='code'><pre><code class='language-swift'>addOneSideEffect(&num)
+</td><td class='code'><pre><code class='language-swift'>addOneSideEffect(&amp;num)
 println(num)                         // 2
 
 </code></pre></td></tr>
 <tr><td class='docs'><h2> # Function Types
-</h2></td><td class='code'><pre><code class='language-swift'>&nbsp;</code></pre></td></tr>
+</h2></td><td class='code'><pre><code class='language-swift'> </code></pre></td></tr>
 <tr><td class='docs'> Assign functions to variables.
-</td><td class='code'><pre><code class='language-swift'>&nbsp;</code></pre></td></tr>
+</td><td class='code'><pre><code class='language-swift'> </code></pre></td></tr>
 <tr><td class='docs'> The function type (signature) of the function
-</td><td class='code'><pre><code class='language-swift'>&nbsp;</code></pre></td></tr>
+</td><td class='code'><pre><code class='language-swift'> </code></pre></td></tr>
 <tr><td class='docs'> must be repeated.
-</td><td class='code'><pre><code class='language-swift'>var mean: (Double...) -> Double = average
+</td><td class='code'><pre><code class='language-swift'>var mean: (Double...) -&gt; Double = average
 mean(1.0, 4.0)                      // 2.5
 
 </code></pre></td></tr>
 <tr><td class='docs'> The variable can be re-assigned to another function as
-</td><td class='code'><pre><code class='language-swift'>&nbsp;</code></pre></td></tr>
+</td><td class='code'><pre><code class='language-swift'> </code></pre></td></tr>
 <tr><td class='docs'> long as that function has the same type.
-</td><td class='code'><pre><code class='language-swift'>&nbsp;</code></pre></td></tr>
+</td><td class='code'><pre><code class='language-swift'> </code></pre></td></tr>
 <tr><td class='docs'> Function types can be used as parameters.
-</td><td class='code'><pre><code class='language-swift'>func skewedMean(mean: (Double...) -> Double, num1: Double, num2: Double) -> Double {
+</td><td class='code'><pre><code class='language-swift'>func skewedMean(mean: (Double...) -&gt; Double, num1: Double, num2: Double) -&gt; Double {
     return mean(num1, num2) + 1.0
 }
 skewedMean(mean, 1.0, 4.0)          // 3.5
 
 </code></pre></td></tr>
 <tr><td class='docs'> Function types can be returned from functions.
-</td><td class='code'><pre><code class='language-swift'>func choose(which: String) -> (Double...) -> Double {
-    if which == "sum" {
+</td><td class='code'><pre><code class='language-swift'>func choose(which: String) -&gt; (Double...) -&gt; Double {
+    if which == &quot;sum&quot; {
         return sum
     }
     return mean
 }
-choose("sum")(1.0, 2.0)            // 3.0
-choose("mean")(1.0, 2.0)           // 1.5
+choose(&quot;sum&quot;)(1.0, 2.0)            // 3.0
+choose(&quot;mean&quot;)(1.0, 2.0)           // 1.5
 
 
 </code></pre></td></tr>
 <tr><td class='docs'><h2> # Nested Functions
-</h2></td><td class='code'><pre><code class='language-swift'>&nbsp;</code></pre></td></tr>
+</h2></td><td class='code'><pre><code class='language-swift'> </code></pre></td></tr>
 <tr><td class='docs'> Nested functions cannot be referenced outside of their parent function.
 </td><td class='code'><pre><code class='language-swift'>
-func summer(var num: Double) -> (Double...) -> Double {
+func summer(var num: Double) -&gt; (Double...) -&gt; Double {
     // Closure: the nested function is able to close over `num`.
-    func internal (numbers: Double...) -> Double {
+    func internal (numbers: Double...) -&gt; Double {
         for i in numbers {
             num += i
         }

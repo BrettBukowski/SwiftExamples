@@ -15,58 +15,58 @@
           <main>
             <table>
               <tbody>
-                <tr><td class='docs'></td><td class='code'><pre><code class='language-swift'>var emptyDictionary = Dictionary<String, Float>()
+                <tr><td class='docs'></td><td class='code'><pre><code class='language-swift'>var emptyDictionary = Dictionary&lt;String, Float&gt;()
 
 </code></pre></td></tr>
 <tr><td class='docs'> Type inference allows you to initialize without declaring types:
 </td><td class='code'><pre><code class='language-swift'>var strings = [
-    "a": "A",
-    "b": "B",
+    &quot;a&quot;: &quot;A&quot;,
+    &quot;b&quot;: &quot;B&quot;,
 ]
 
 </code></pre></td></tr>
 <tr><td class='docs'><h2> # Accessing and assigning elements
-</h2></td><td class='code'><pre><code class='language-swift'>println(strings["a"])                           // A
-strings["a"] = "AZ"                             // Returns an optional string (new value that was assigned)
-strings.updateValue("AX", forKey: "a")          // Returns an optional string (old value that was overwritten)
+</h2></td><td class='code'><pre><code class='language-swift'>println(strings[&quot;a&quot;])                           // A
+strings[&quot;a&quot;] = &quot;AZ&quot;                             // Returns an optional string (new value that was assigned)
+strings.updateValue(&quot;AX&quot;, forKey: &quot;a&quot;)          // Returns an optional string (old value that was overwritten)
 
 </code></pre></td></tr>
 <tr><td class='docs'> Optionals are returned for accessing keys.
-</td><td class='code'><pre><code class='language-swift'>if let a = strings["a"] {
+</td><td class='code'><pre><code class='language-swift'>if let a = strings[&quot;a&quot;] {
     println(a)                                  // AX
 }
 
 </code></pre></td></tr>
 <tr><td class='docs'><h2> # Removing
-</h2></td><td class='code'><pre><code class='language-swift'>&nbsp;</code></pre></td></tr>
+</h2></td><td class='code'><pre><code class='language-swift'> </code></pre></td></tr>
 <tr><td class='docs'> Setting the value to nil also removes the key.
-</td><td class='code'><pre><code class='language-swift'>strings["a"] = nil
+</td><td class='code'><pre><code class='language-swift'>strings[&quot;a&quot;] = nil
 </code></pre></td></tr>
 <tr><td class='docs'> Using removeValueForKey removes the key-val pair
-</td><td class='code'><pre><code class='language-swift'>&nbsp;</code></pre></td></tr>
+</td><td class='code'><pre><code class='language-swift'> </code></pre></td></tr>
 <tr><td class='docs'> but returns the value that was removed (or nil if
-</td><td class='code'><pre><code class='language-swift'>&nbsp;</code></pre></td></tr>
+</td><td class='code'><pre><code class='language-swift'> </code></pre></td></tr>
 <tr><td class='docs'> the key-val didn't exist)
-</td><td class='code'><pre><code class='language-swift'>strings.removeValueForKey("nope")
+</td><td class='code'><pre><code class='language-swift'>strings.removeValueForKey(&quot;nope&quot;)
 
 </code></pre></td></tr>
 <tr><td class='docs'><h2> # Updating
-</h2></td><td class='code'><pre><code class='language-swift'>strings.updateValue("A", forKey: "a")
-strings["a"] = "A"
+</h2></td><td class='code'><pre><code class='language-swift'>strings.updateValue(&quot;A&quot;, forKey: &quot;a&quot;)
+strings[&quot;a&quot;] = &quot;A&quot;
 
 </code></pre></td></tr>
 <tr><td class='docs'><h2> # Iterating
 </h2></td><td class='code'><pre><code class='language-swift'>
 for (key, val) in strings {
-    println("\(key): \(val)")
+    println(&quot;\(key): \(val)&quot;)
 }
 
 for key in strings.keys {
-    println("KEY: \(key)")
+    println(&quot;KEY: \(key)&quot;)
 }
 
 for val in strings.values {
-    print("VAL: \(val)")                      // VAL: A VAL: B
+    print(&quot;VAL: \(val)&quot;)                      // VAL: A VAL: B
 }
 
 </code></pre></td></tr>

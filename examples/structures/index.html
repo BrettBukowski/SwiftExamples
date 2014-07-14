@@ -15,26 +15,26 @@
           <main>
             <table>
               <tbody>
-                <tr><td class='docs'></td><td class='code'><pre><code class='language-swift'>&nbsp;</code></pre></td></tr>
+                <tr><td class='docs'></td><td class='code'><pre><code class='language-swift'> </code></pre></td></tr>
 <tr><td class='docs'> Structs are copy by value, can't inherit, but can
-</td><td class='code'><pre><code class='language-swift'>&nbsp;</code></pre></td></tr>
+</td><td class='code'><pre><code class='language-swift'> </code></pre></td></tr>
 <tr><td class='docs'> conform to protocols
 </td><td class='code'><pre><code class='language-swift'>
 struct Work {
-  var location = ""
+  var location = &quot;&quot;
   var units = String[]()
   let length: Int
 
-  func last() -> String {
+  func last() -&gt; String {
     return units[units.count - 1]
   }
 }
 
 </code></pre></td></tr>
 <tr><td class='docs'> Structs have handy memberwise initializers.
-</td><td class='code'><pre><code class='language-swift'>&nbsp;</code></pre></td></tr>
+</td><td class='code'><pre><code class='language-swift'> </code></pre></td></tr>
 <tr><td class='docs'> All properties must be specified.
-</td><td class='code'><pre><code class='language-swift'>var work = Work(location: "office", units: ["answer phone", "read book"], length: 8)
+</td><td class='code'><pre><code class='language-swift'>var work = Work(location: &quot;office&quot;, units: [&quot;answer phone&quot;, &quot;read book&quot;], length: 8)
 
 println(work.location)                // office
 println(work.units[0])                // answer phone
@@ -42,17 +42,17 @@ println(work.last())                  // read book
 
 </code></pre></td></tr>
 <tr><td class='docs'><h2> # Type Properties
-</h2></td><td class='code'><pre><code class='language-swift'>&nbsp;</code></pre></td></tr>
+</h2></td><td class='code'><pre><code class='language-swift'> </code></pre></td></tr>
 <tr><td class='docs'> AKA static variables
 </td><td class='code'><pre><code class='language-swift'>
 struct Play {
     static var duration = 1
     static var name: String { // Read-only computed type property
-        return String("named \(duration + 1)")
+        return String(&quot;named \(duration + 1)&quot;)
     }
     static var activity: String {
         get {
-            return name + "stargaze"
+            return name + &quot;stargaze&quot;
         }
         mutating set {
             duration = 2
@@ -82,15 +82,15 @@ println(mansion.garageDoors)         // 10
 
 </code></pre></td></tr>
 <tr><td class='docs'><h2> # Type Methods
-</h2></td><td class='code'><pre><code class='language-swift'>&nbsp;</code></pre></td></tr>
+</h2></td><td class='code'><pre><code class='language-swift'> </code></pre></td></tr>
 <tr><td class='docs'> AKA static methods
 </td><td class='code'><pre><code class='language-swift'>
 struct Font {
     static var size = 12
-    var typeface = ""
+    var typeface = &quot;&quot;
 
-    static func pointSize() -> String {
-        return "\(size)pt"
+    static func pointSize() -&gt; String {
+        return &quot;\(size)pt&quot;
     }
 }
 println(Font.pointSize())            // 12pt
