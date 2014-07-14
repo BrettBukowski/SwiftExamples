@@ -21,3 +21,4 @@ Learning Swift by Example.
 16. Structures
 15. Values and References
 17. Type Casting
+18. Class Extensions

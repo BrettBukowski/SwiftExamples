@@ -1,0 +1,63 @@
+    <!doctype html>
+    <html lang="en">
+      <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
+        <title>Swift by example - class-extensions</title>
+        <link href='http://fonts.googleapis.com/css?family=Fira+Sans' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="../site.css"></link>
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.min.css"></link>
+        <link rel="shortcut icon" href="favicon.ico">
+      </head>
+      <body>
+        <div id="container">
+          <h1><a href='#'>Swift by example</a> <span class='topic'>class-extensions</span></h1>
+          <main>
+            <table>
+              <tbody>
+                <tr><td class='docs'></td><td class='code'><pre><code class='language-swift'>&nbsp;</code></pre></td></tr>
+<tr><td class='docs'> When you add an extension to an existing type,
+</td><td class='code'><pre><code class='language-swift'>&nbsp;</code></pre></td></tr>
+<tr><td class='docs'> the extension changes are available on existing
+</td><td class='code'><pre><code class='language-swift'>&nbsp;</code></pre></td></tr>
+<tr><td class='docs'> instances of that type, even if they were declared
+</td><td class='code'><pre><code class='language-swift'>&nbsp;</code></pre></td></tr>
+<tr><td class='docs'> before the extension.
+</td><td class='code'><pre><code class='language-swift'>
+var someInt = 3
+
+extension Int {
+    func isOdd () -> Bool{
+        return self % 2 != 0
+    }
+
+    func isEven() -> Bool {
+        return !isOdd()
+    }
+
+    func times(task: (Int)->()) {
+        for i in 0..<self {
+            task(i)
+        }
+    }
+}
+
+println(someInt.isOdd())                 // true
+println(2.isEven())                      // true
+
+2.times({(Int i) in
+    println(i)                           // 0, 1
+})
+</code></pre></td></tr>
+              </tbody>
+            </table>
+          </main>
+          <footer>
+            by <a href="https://twitter.com/BrettBukowski">@BrettBukowski</a>
+            <a href="https://github.com/BrettBukowski/SwiftExamples">source</a>
+          </footer>
+        </div>
+        <script async src="../site.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.min.js"></script>
+      </body>
+    </html>
