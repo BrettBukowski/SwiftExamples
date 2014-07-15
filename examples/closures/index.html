@@ -15,9 +15,22 @@
           <main>
             <table>
               <tbody>
-                <tr><td class='docs'></td><td class='code'><pre><code class='language-swift'> </code></pre></td></tr>
-<tr><td class='docs'> Closures have the syntax of:
-</td><td class='code'><pre><code class='language-swift'>
+                    <tr>
+      <td class='docs'>
+        
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'> </code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         Closures have the syntax of:
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'>
 /*
 { (parameters) -&gt; return type in
 body
@@ -30,29 +43,85 @@ var reversed = sort(letters, {(a: String, b: String) -&gt; Bool in
     return a &gt; b;
     })
 
-</code></pre></td></tr>
-<tr><td class='docs'> But type inference allows us to omit the types
-</td><td class='code'><pre><code class='language-swift'> </code></pre></td></tr>
-<tr><td class='docs'> and write something more succinct...
-</td><td class='code'><pre><code class='language-swift'>reversed = sort(letters, { a, b in return a &gt; b })
+</code></pre>
+      </td>
+    </tr>
 
-</code></pre></td></tr>
-<tr><td class='docs'> ...And single-expression closures can even omit the return keyword.
-</td><td class='code'><pre><code class='language-swift'>reversed = sort(letters, { a, b in a &gt; b })
+    <tr>
+      <td class='docs'>
+         But type inference allows us to omit the types
 
-</code></pre></td></tr>
-<tr><td class='docs'> ...And even the param names can be omitted.
-</td><td class='code'><pre><code class='language-swift'>reversed = sort(letters, { $0 &gt; $1 })
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'> </code></pre>
+      </td>
+    </tr>
 
-</code></pre></td></tr>
-<tr><td class='docs'> ...But why stop there? Greater-than is an operator function!
-</td><td class='code'><pre><code class='language-swift'>reversed = sort(letters, &gt;)
+    <tr>
+      <td class='docs'>
+         and write something more succinct...
 
-</code></pre></td></tr>
-<tr><td class='docs'> Closures, of course, have the ability to access the variables
-</td><td class='code'><pre><code class='language-swift'> </code></pre></td></tr>
-<tr><td class='docs'> in scope at the time the function is defined.
-</td><td class='code'><pre><code class='language-swift'>
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'>reversed = sort(letters, { a, b in return a &gt; b })
+
+</code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         ...And single-expression closures can even omit the return keyword.
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'>reversed = sort(letters, { a, b in a &gt; b })
+
+</code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         ...And even the param names can be omitted.
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'>reversed = sort(letters, { $0 &gt; $1 })
+
+</code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         ...But why stop there? Greater-than is an operator function!
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'>reversed = sort(letters, &gt;)
+
+</code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         Closures, of course, have the ability to access the variables
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'> </code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         in scope at the time the function is defined.
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'>
 func sizeOfLetters() -&gt; Int {
     return letters.count
 }
@@ -63,20 +132,47 @@ letters.append(&quot;e&quot;)
 
 println(String(sizeOfLetters()))              // 5
 
-</code></pre></td></tr>
-<tr><td class='docs'><h2> # Trailing Closures
-</h2></td><td class='code'><pre><code class='language-swift'> </code></pre></td></tr>
-<tr><td class='docs'> Similar to Ruby's blocks, if a function accepts a closure,
-</td><td class='code'><pre><code class='language-swift'> </code></pre></td></tr>
-<tr><td class='docs'> you can specify it after the function's parens.
-</td><td class='code'><pre><code class='language-swift'>
+</code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+        <h2> # Trailing Closures
+</h2>
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'> </code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         Similar to Ruby's blocks, if a function accepts a closure,
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'> </code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         you can specify it after the function's parens.
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'>
 reversed = sort(letters) { $0 &gt;  $1 }
 
 var uppercased = letters.map {
     (string: String) -&gt; String in
     return string.uppercaseString
 }
-</code></pre></td></tr>
+</code></pre>
+      </td>
+    </tr>
+
               </tbody>
             </table>
           </main>

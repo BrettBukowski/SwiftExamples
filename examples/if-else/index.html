@@ -15,11 +15,24 @@
           <main>
             <table>
               <tbody>
-                <tr><td class='docs'></td><td class='code'><pre><code class='language-swift'>let num = 9
+                    <tr>
+      <td class='docs'>
+        
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'>let num = 9
 
-</code></pre></td></tr>
-<tr><td class='docs'> Parens are optional.
-</td><td class='code'><pre><code class='language-swift'>if (num &lt; 0) {
+</code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         Parens are optional.
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'>if (num &lt; 0) {
     println(&quot;num is negative&quot;)
 } else if num &lt; 10 {
     println(&quot;num is single-digit&quot;) // num is single-digit
@@ -27,11 +40,27 @@
     println(&quot;num is multi-digit&quot;)
 }
 
-</code></pre></td></tr>
-<tr><td class='docs'> There are no 'truthy' conditionals.
-</td><td class='code'><pre><code class='language-swift'> </code></pre></td></tr>
-<tr><td class='docs'> The condition must be a boolean expression...
-</td><td class='code'><pre><code class='language-swift'>
+</code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         There are no 'truthy' conditionals.
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'> </code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         The condition must be a boolean expression...
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'>
 if 7 % 2 == 2 {
     println(&quot;7 is even&quot;)     // IDE helpfully notes, &quot;Will never be executed&quot;
 } else {
@@ -39,11 +68,27 @@ if 7 % 2 == 2 {
 }
 
 
-</code></pre></td></tr>
-<tr><td class='docs'> ...But optionals allow for shorthand
-</td><td class='code'><pre><code class='language-swift'> </code></pre></td></tr>
-<tr><td class='docs'> non-nil + assignment conditionals
-</td><td class='code'><pre><code class='language-swift'>
+</code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         ...But optionals allow for shorthand
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'> </code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         non-nil + assignment conditionals
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'>
 var optionalString:String? = &quot;Hello?&quot;
 
 if let a = optionalString {
@@ -57,7 +102,10 @@ if let b = optionalString {
 } else {
     println(&quot;nope&quot;)         // nope
 }
-</code></pre></td></tr>
+</code></pre>
+      </td>
+    </tr>
+
               </tbody>
             </table>
           </main>

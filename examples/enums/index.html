@@ -15,38 +15,115 @@
           <main>
             <table>
               <tbody>
-                <tr><td class='docs'></td><td class='code'><pre><code class='language-swift'>enum Example {
+                    <tr>
+      <td class='docs'>
+        
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'>enum Example {
     case A
     case B
     case C
     case D
 }
 
-</code></pre></td></tr>
-<tr><td class='docs'> Unlike enums in other languages, the named labels
-</td><td class='code'><pre><code class='language-swift'> </code></pre></td></tr>
-<tr><td class='docs'> do not implicitly map to 0, 1.. etc. enum members
-</td><td class='code'><pre><code class='language-swift'> </code></pre></td></tr>
-<tr><td class='docs'> are their own values of the type specified by the
-</td><td class='code'><pre><code class='language-swift'> </code></pre></td></tr>
-<tr><td class='docs'> enum's name.
-</td><td class='code'><pre><code class='language-swift'>
+</code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         Unlike enums in other languages, the named labels
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'> </code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         do not implicitly map to 0, 1.. etc. enum members
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'> </code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         are their own values of the type specified by the
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'> </code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         enum's name.
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'>
 var example = Example.A          // (Enum Value)
 
-</code></pre></td></tr>
-<tr><td class='docs'> Once you assign to an enum value, you can reassign
-</td><td class='code'><pre><code class='language-swift'> </code></pre></td></tr>
-<tr><td class='docs'> to another value without respecifying the the enum
-</td><td class='code'><pre><code class='language-swift'> </code></pre></td></tr>
-<tr><td class='docs'> name.
-</td><td class='code'><pre><code class='language-swift'>
+</code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         Once you assign to an enum value, you can reassign
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'> </code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         to another value without respecifying the the enum
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'> </code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         name.
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'>
 example = .B
 
-</code></pre></td></tr>
-<tr><td class='docs'> Switch statements must be exhaustive or declare
-</td><td class='code'><pre><code class='language-swift'> </code></pre></td></tr>
-<tr><td class='docs'> a default case.
-</td><td class='code'><pre><code class='language-swift'>
+</code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         Switch statements must be exhaustive or declare
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'> </code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         a default case.
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'>
 switch example {
 case .A:
     println(&quot;A&quot;)
@@ -58,69 +135,184 @@ case .D:
     println(&quot;D&quot;)
 }
 
-</code></pre></td></tr>
-<tr><td class='docs'> Enumerations can store values of any type, and
-</td><td class='code'><pre><code class='language-swift'> </code></pre></td></tr>
-<tr><td class='docs'> type values can be different for every enum member.
-</td><td class='code'><pre><code class='language-swift'>
+</code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         Enumerations can store values of any type, and
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'> </code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         type values can be different for every enum member.
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'>
 enum Types {
     case Str(String)
     case Num(Double)
 }
 
-</code></pre></td></tr>
-<tr><td class='docs'> A variable can be reassigned a different type of the
-</td><td class='code'><pre><code class='language-swift'> </code></pre></td></tr>
-<tr><td class='docs'> enum.
-</td><td class='code'><pre><code class='language-swift'>var a = Types.Str(&quot;hello&quot;)
+</code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         A variable can be reassigned a different type of the
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'> </code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         enum.
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'>var a = Types.Str(&quot;hello&quot;)
 a = .Num(1.0)
 
-</code></pre></td></tr>
-<tr><td class='docs'> Associated values can be extracted as part of a switch.
-</td><td class='code'><pre><code class='language-swift'>switch a {
+</code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         Associated values can be extracted as part of a switch.
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'>switch a {
 case .Str(let val):
     println(val)
 case .Num(let val):
     println(val)                             // 1.0
 }
 
-</code></pre></td></tr>
-<tr><td class='docs'><h2> # Raw Values
-</h2></td><td class='code'><pre><code class='language-swift'> </code></pre></td></tr>
-<tr><td class='docs'> Enums can prepopulate with "raw" values, similar to other
-</td><td class='code'><pre><code class='language-swift'> </code></pre></td></tr>
-<tr><td class='docs'> languages.
-</td><td class='code'><pre><code class='language-swift'>enum Letters: Character {
+</code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+        <h2> # Raw Values
+</h2>
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'> </code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         Enums can prepopulate with "raw" values, similar to other
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'> </code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         languages.
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'>enum Letters: Character {
     case a = &quot;A&quot;
     case b = &quot;B&quot;
     case c = &quot;C&quot;
 }
 
-</code></pre></td></tr>
-<tr><td class='docs'> When integers are used for raw values, they
-</td><td class='code'><pre><code class='language-swift'> </code></pre></td></tr>
-<tr><td class='docs'> auto-increment if no value is specified.
-</td><td class='code'><pre><code class='language-swift'>enum Numbers: Int {
+</code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         When integers are used for raw values, they
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'> </code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         auto-increment if no value is specified.
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'>enum Numbers: Int {
     case One = 1, Two, Three, Four, Five
 }
 
-</code></pre></td></tr>
-<tr><td class='docs'> Access raw values with `toRaw`
-</td><td class='code'><pre><code class='language-swift'>
+</code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         Access raw values with <code>toRaw</code>
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'>
 var five = Numbers.Five
 println(five.toRaw())                      // 5
 
-</code></pre></td></tr>
-<tr><td class='docs'> `fromRaw` tries to find an enum member with a raw value.
-</td><td class='code'><pre><code class='language-swift'> </code></pre></td></tr>
-<tr><td class='docs'> An optional is returned.
-</td><td class='code'><pre><code class='language-swift'>
+</code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         <code>fromRaw</code> tries to find an enum member with a raw value.
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'> </code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         An optional is returned.
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'>
 var possibleNum = Numbers.fromRaw(2)!
 println(possibleNum == Numbers.Two)       // true
 
-</code></pre></td></tr>
-<tr><td class='docs'> TK - type methods and mutating methods
-</td><td class='code'><pre><code class='language-swift'> </code></pre></td></tr>
+</code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         TK - type methods and mutating methods
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'> </code></pre>
+      </td>
+    </tr>
+
               </tbody>
             </table>
           </main>

@@ -15,7 +15,12 @@
           <main>
             <table>
               <tbody>
-                <tr><td class='docs'></td><td class='code'><pre><code class='language-swift'>class Genre {
+                    <tr>
+      <td class='docs'>
+        
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'>class Genre {
     var name: String
     init(name: String) { self.name = name }
 }
@@ -33,11 +38,27 @@ var collection = [
     Classical(name: &quot;Canon in D&quot;),
 ]
 
-</code></pre></td></tr>
-<tr><td class='docs'> The type of `collection` is inferred to be `Genre`
-</td><td class='code'><pre><code class='language-swift'> </code></pre></td></tr>
-<tr><td class='docs'> Use `is` to check instance of.
-</td><td class='code'><pre><code class='language-swift'>
+</code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         The type of <code>collection</code> is inferred to be <code>Genre</code>
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'> </code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         Use <code>is</code> to check instance of.
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'>
 for song in collection {
     if song is Classical {
         println(&quot;\(song.name) is classical!&quot;)
@@ -52,13 +73,37 @@ for song in collection {
 */
 
 
-</code></pre></td></tr>
-<tr><td class='docs'><h2> # Downcasting
-</h2></td><td class='code'><pre><code class='language-swift'> </code></pre></td></tr>
-<tr><td class='docs'> `as?` returns an optional (if you aren't sure the cast will succeed)
-</td><td class='code'><pre><code class='language-swift'> </code></pre></td></tr>
-<tr><td class='docs'> `as` throws a runtime error if the cast doesn't succeed
-</td><td class='code'><pre><code class='language-swift'>
+</code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+        <h2> # Downcasting
+</h2>
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'> </code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         <code>as?</code> returns an optional (if you aren't sure the cast will succeed)
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'> </code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         <code>as</code> throws a runtime error if the cast doesn't succeed
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'>
 for song in collection {
     if let popSong = song as? Pop {
         println(&quot;pop song&quot;)
@@ -72,17 +117,57 @@ for song in collection {
  classical song
 */
 
-</code></pre></td></tr>
-<tr><td class='docs'><h2> # AnyObject
-</h2></td><td class='code'><pre><code class='language-swift'> </code></pre></td></tr>
-<tr><td class='docs'> Tons of Cocoa APIs (dicts, arrays, etc.) return `AnyObject`, a generic
-</td><td class='code'><pre><code class='language-swift'> </code></pre></td></tr>
-<tr><td class='docs'> object wrapper. You have to use `as` to cast an `AnyObject` back to the
-</td><td class='code'><pre><code class='language-swift'> </code></pre></td></tr>
-<tr><td class='docs'> type you expect.
-</td><td class='code'><pre><code class='language-swift'> </code></pre></td></tr>
-<tr><td class='docs'> `AnyObject` doesn't allow primitives--only class-based objects.
-</td><td class='code'><pre><code class='language-swift'>
+</code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+        <h2> # AnyObject
+</h2>
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'> </code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         Tons of Cocoa APIs (dicts, arrays, etc.) return <code>AnyObject</code>, a generic
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'> </code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         object wrapper. You have to use <code>as</code> to cast an <code>AnyObject</code> back to the
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'> </code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         type you expect.
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'> </code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         <code>AnyObject</code> doesn't allow primitives--only class-based objects.
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'>
 var randomCollection: AnyObject[] = [
     Pop(name: &quot;Bishop Allen&quot;),
     Classical(name: &quot;Bach&quot;),
@@ -94,9 +179,17 @@ for item in randomCollection {
     println(&quot;\(songGenre.name)&quot;)
 }
 
-</code></pre></td></tr>
-<tr><td class='docs'> Every item can also be downcasted in the for-loop
-</td><td class='code'><pre><code class='language-swift'>
+</code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         Every item can also be downcasted in the for-loop
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'>
 for item in randomCollection as Genre[] {
     println(&quot;\(item.name)&quot;)
 }
@@ -106,11 +199,27 @@ for item in randomCollection as Genre[] {
  Bach
 */
 
-</code></pre></td></tr>
-<tr><td class='docs'><h2> # Any
-</h2></td><td class='code'><pre><code class='language-swift'> </code></pre></td></tr>
-<tr><td class='docs'> `Any` allows primitives and class-based objects.
-</td><td class='code'><pre><code class='language-swift'>
+</code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+        <h2> # Any
+</h2>
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'> </code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         <code>Any</code> allows primitives and class-based objects.
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'>
 var groups = Any[]()
 groups.append(1.0)
 groups.append(1)
@@ -138,7 +247,10 @@ for item in groups {
  string is a string
  C11lldb_expr_13Pop (has 1 child) is a Genre
 */
-</code></pre></td></tr>
+</code></pre>
+      </td>
+    </tr>
+
               </tbody>
             </table>
           </main>

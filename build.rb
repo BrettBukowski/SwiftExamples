@@ -59,7 +59,16 @@ class Example
 
   def to_html
     @code = ' ' if @code.strip.empty?
-    "<tr><td class='docs'>#{@explanation}</td><td class='code'><pre><code class='language-swift'>#{CGI.escapeHTML(@code)}</code></pre></td></tr>"
+    <<-HTML
+    <tr>
+      <td class='docs'>
+        #{@explanation.gsub(/(`)([a-zA-Z0-9\?]+)(`)/) {"<code>#{$2}</code>"}}
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'>#{CGI.escapeHTML(@code)}</code></pre>
+      </td>
+    </tr>
+    HTML
   end
 end
 

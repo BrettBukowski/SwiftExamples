@@ -15,11 +15,32 @@
           <main>
             <table>
               <tbody>
-                <tr><td class='docs'></td><td class='code'><pre><code class='language-swift'> </code></pre></td></tr>
-<tr><td class='docs'> Structs are copy by value, can't inherit, but can
-</td><td class='code'><pre><code class='language-swift'> </code></pre></td></tr>
-<tr><td class='docs'> conform to protocols
-</td><td class='code'><pre><code class='language-swift'>
+                    <tr>
+      <td class='docs'>
+        
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'> </code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         Structs are copy by value, can't inherit, but can
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'> </code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         conform to protocols
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'>
 struct Work {
   var location = &quot;&quot;
   var units = String[]()
@@ -30,21 +51,53 @@ struct Work {
   }
 }
 
-</code></pre></td></tr>
-<tr><td class='docs'> Structs have handy memberwise initializers.
-</td><td class='code'><pre><code class='language-swift'> </code></pre></td></tr>
-<tr><td class='docs'> All properties must be specified.
-</td><td class='code'><pre><code class='language-swift'>var work = Work(location: &quot;office&quot;, units: [&quot;answer phone&quot;, &quot;read book&quot;], length: 8)
+</code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         Structs have handy memberwise initializers.
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'> </code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         All properties must be specified.
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'>var work = Work(location: &quot;office&quot;, units: [&quot;answer phone&quot;, &quot;read book&quot;], length: 8)
 
 println(work.location)                // office
 println(work.units[0])                // answer phone
 println(work.last())                  // read book
 
-</code></pre></td></tr>
-<tr><td class='docs'><h2> # Type Properties
-</h2></td><td class='code'><pre><code class='language-swift'> </code></pre></td></tr>
-<tr><td class='docs'> AKA static variables
-</td><td class='code'><pre><code class='language-swift'>
+</code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+        <h2> # Type Properties
+</h2>
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'> </code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         AKA static variables
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'>
 struct Play {
     static var duration = 1
     static var name: String { // Read-only computed type property
@@ -63,9 +116,17 @@ println(Play.duration)               // 1
 println(Play.name)                   // named 2
 println(Play.activity)               // named 2stargaze
 
-</code></pre></td></tr>
-<tr><td class='docs'><h2> # Instance methods
-</h2></td><td class='code'><pre><code class='language-swift'>
+</code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+        <h2> # Instance methods
+</h2>
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'>
 struct Mansion {
     var rooms = 30
     var garageDoors = 5
@@ -80,11 +141,27 @@ var mansion = Mansion()
 mansion.addGarage(5)
 println(mansion.garageDoors)         // 10
 
-</code></pre></td></tr>
-<tr><td class='docs'><h2> # Type Methods
-</h2></td><td class='code'><pre><code class='language-swift'> </code></pre></td></tr>
-<tr><td class='docs'> AKA static methods
-</td><td class='code'><pre><code class='language-swift'>
+</code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+        <h2> # Type Methods
+</h2>
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'> </code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         AKA static methods
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'>
 struct Font {
     static var size = 12
     var typeface = &quot;&quot;
@@ -94,7 +171,10 @@ struct Font {
     }
 }
 println(Font.pointSize())            // 12pt
-</code></pre></td></tr>
+</code></pre>
+      </td>
+    </tr>
+
               </tbody>
             </table>
           </main>

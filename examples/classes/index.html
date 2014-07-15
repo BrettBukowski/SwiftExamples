@@ -15,7 +15,12 @@
           <main>
             <table>
               <tbody>
-                <tr><td class='docs'></td><td class='code'><pre><code class='language-swift'>class Example {
+                    <tr>
+      <td class='docs'>
+        
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'>class Example {
     var a = 0
     var b: String
 
@@ -25,20 +30,60 @@
     }
 }
 
-</code></pre></td></tr>
-<tr><td class='docs'> External param names are required here.
-</td><td class='code'><pre><code class='language-swift'>let eg = Example(a: 1)
+</code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         External param names are required here.
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'>let eg = Example(a: 1)
 println(eg.a)              // 1
 
-</code></pre></td></tr>
-<tr><td class='docs'><h2> # Lazy properties
-</h2></td><td class='code'><pre><code class='language-swift'> </code></pre></td></tr>
-<tr><td class='docs'> Lazy properties' initial value aren't
-</td><td class='code'><pre><code class='language-swift'> </code></pre></td></tr>
-<tr><td class='docs'> initialized until the first time the
-</td><td class='code'><pre><code class='language-swift'> </code></pre></td></tr>
-<tr><td class='docs'> property is accessed.
-</td><td class='code'><pre><code class='language-swift'>
+</code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+        <h2> # Lazy properties
+</h2>
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'> </code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         Lazy properties' initial value aren't
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'> </code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         initialized until the first time the
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'> </code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         property is accessed.
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'>
 class Podcast {
     @lazy var episode = Episode() // `var` declaration is required.
 }
@@ -50,13 +95,37 @@ class Episode {
 var podcast = Podcast()          // episode has not been initialized yet.
 println(podcast.episode.audio)   // somefile.mp3
 
-</code></pre></td></tr>
-<tr><td class='docs'><h2> # Computed properties
-</h2></td><td class='code'><pre><code class='language-swift'> </code></pre></td></tr>
-<tr><td class='docs'> Computed properties don't store a value. Instead, getters / setters
-</td><td class='code'><pre><code class='language-swift'> </code></pre></td></tr>
-<tr><td class='docs'> are provided to retrieve and set _other_ properties.
-</td><td class='code'><pre><code class='language-swift'>
+</code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+        <h2> # Computed properties
+</h2>
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'> </code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         Computed properties don't store a value. Instead, getters / setters
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'> </code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         are provided to retrieve and set _other_ properties.
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'>
 class Window {
     var x = 0.0, y = 0.0
     var width = 100.0, height = 100.0
@@ -79,19 +148,43 @@ win.center = (0.0, 10.0)
 println(win.x)                    // -50.0
 println(win.y)                    // -40.0
 
-</code></pre></td></tr>
-<tr><td class='docs'> The param to `set` can be omitted and a magic "newValue"
-</td><td class='code'><pre><code class='language-swift'> </code></pre></td></tr>
-<tr><td class='docs'> can be used to referenced the new value.
-</td><td class='code'><pre><code class='language-swift'>/*
+</code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         The param to <code>set</code> can be omitted and a magic "newValue"
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'> </code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         can be used to referenced the new value.
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'>/*
 set {
     x = newValue.0 - (width / 2)
 }
 */
 
-</code></pre></td></tr>
-<tr><td class='docs'><h2> # Ready-only computed properties
-</h2></td><td class='code'><pre><code class='language-swift'>
+</code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+        <h2> # Ready-only computed properties
+</h2>
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'>
 class Song {
     var title = &quot;&quot;
     var duration = 0.0
@@ -109,13 +202,37 @@ song.duration = 2.01
 println(song.metaInfo[&quot;title&quot;]!)    // Rootshine Revival
 println(song.metaInfo[&quot;duration&quot;]!) // 2.01
 
-</code></pre></td></tr>
-<tr><td class='docs'><h2> # Property Observers
-</h2></td><td class='code'><pre><code class='language-swift'> </code></pre></td></tr>
-<tr><td class='docs'> Property observers can be added onto any properties
-</td><td class='code'><pre><code class='language-swift'> </code></pre></td></tr>
-<tr><td class='docs'> (including inherited) except for lazy computed props.
-</td><td class='code'><pre><code class='language-swift'>
+</code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+        <h2> # Property Observers
+</h2>
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'> </code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         Property observers can be added onto any properties
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'> </code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         (including inherited) except for lazy computed props.
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'>
 class Website {
     var visitors: Int = 0 {             // An explicit type is required
     willSet(newVisitorCount) {          // Called before the prop is set
@@ -131,11 +248,27 @@ var site = Website()
 site.visitors = 1
 println(site.visitors)                 // 1
 
-</code></pre></td></tr>
-<tr><td class='docs'><h2> # Type Properties
-</h2></td><td class='code'><pre><code class='language-swift'> </code></pre></td></tr>
-<tr><td class='docs'> AKA class variables
-</td><td class='code'><pre><code class='language-swift'>class Body {
+</code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+        <h2> # Type Properties
+</h2>
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'> </code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         AKA class variables
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'>class Body {
     /*    class var age = 0                 // error: class variables not yet supported */
     // Computed type property
     class var size: Int {
@@ -144,11 +277,27 @@ println(site.visitors)                 // 1
 }
 println(Body.size)                     // 10
 
-</code></pre></td></tr>
-<tr><td class='docs'><h2> # Type Methods
-</h2></td><td class='code'><pre><code class='language-swift'> </code></pre></td></tr>
-<tr><td class='docs'> AKA class methods
-</td><td class='code'><pre><code class='language-swift'>class Banana {
+</code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+        <h2> # Type Methods
+</h2>
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'> </code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         AKA class methods
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'>class Banana {
     var color = &quot;green&quot;
     class func genus() -&gt; String {
         return &quot;Musa&quot;
@@ -156,9 +305,17 @@ println(Body.size)                     // 10
 }
 println(Banana.genus())                // Musa
 
-</code></pre></td></tr>
-<tr><td class='docs'><h2> # Instance methods
-</h2></td><td class='code'><pre><code class='language-swift'>
+</code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+        <h2> # Instance methods
+</h2>
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'>
 class Month {
     var name: String
 
@@ -172,11 +329,27 @@ class Month {
 }
 println(Month(name: &quot;January&quot;).shortened())    // Jan
 
-</code></pre></td></tr>
-<tr><td class='docs'><h2> # Inheritance
-</h2></td><td class='code'><pre><code class='language-swift'> </code></pre></td></tr>
-<tr><td class='docs'> Swift classes do not inherit from a universal base class.
-</td><td class='code'><pre><code class='language-swift'>
+</code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+        <h2> # Inheritance
+</h2>
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'> </code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         Swift classes do not inherit from a universal base class.
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'>
 class Bicycle {
     var tireWidth: Double
     var topSpeed: Double
@@ -236,15 +409,47 @@ println(mountainBike.topSpeed)                 // 2.0
 mountainBike.go(12.0)                          // Went 12.0 at a top speed of 10.0 in my mountain bike
                                                // Did 12.0 on a mountain bike
 
-</code></pre></td></tr>
-<tr><td class='docs'><h2> # Initializers
-</h2></td><td class='code'><pre><code class='language-swift'> </code></pre></td></tr>
-<tr><td class='docs'> 'Convenience' initializers overload empty
-</td><td class='code'><pre><code class='language-swift'> </code></pre></td></tr>
-<tr><td class='docs'> initializers that populate the params
-</td><td class='code'><pre><code class='language-swift'> </code></pre></td></tr>
-<tr><td class='docs'> in 'designated' initializers.
-</td><td class='code'><pre><code class='language-swift'>
+</code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+        <h2> # Initializers
+</h2>
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'> </code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         'Convenience' initializers overload empty
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'> </code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         initializers that populate the params
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'> </code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         in 'designated' initializers.
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'>
 class iOS {
     var version: String
 
@@ -260,23 +465,87 @@ class iOS {
 var os = iOS()
 println(os.version)                          // 8.0.0
 
-</code></pre></td></tr>
-<tr><td class='docs'><h2> # ARC and reference cycles
-</h2></td><td class='code'><pre><code class='language-swift'> </code></pre></td></tr>
-<tr><td class='docs'> Strong reference cycles happen when two objects
-</td><td class='code'><pre><code class='language-swift'> </code></pre></td></tr>
-<tr><td class='docs'> hold strong references to each other so that neither
-</td><td class='code'><pre><code class='language-swift'> </code></pre></td></tr>
-<tr><td class='docs'> can be deallocated (à la memory leaks in garbage collected langs)
-</td><td class='code'><pre><code class='language-swift'> </code></pre></td></tr>
-<tr><td class='docs'> Strong references can be resolved by declaring
-</td><td class='code'><pre><code class='language-swift'> </code></pre></td></tr>
-<tr><td class='docs'> references as `weak` or `unowned`
-</td><td class='code'><pre><code class='language-swift'> </code></pre></td></tr>
-<tr><td class='docs'> Use a weak reference whenever it's valid for the reference
-</td><td class='code'><pre><code class='language-swift'> </code></pre></td></tr>
-<tr><td class='docs'> to be nil at any point. These are optional types.
-</td><td class='code'><pre><code class='language-swift'>
+</code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+        <h2> # ARC and reference cycles
+</h2>
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'> </code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         Strong reference cycles happen when two objects
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'> </code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         hold strong references to each other so that neither
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'> </code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         can be deallocated (à la memory leaks in garbage collected langs)
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'> </code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         Strong references can be resolved by declaring
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'> </code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         references as <code>weak</code> or <code>unowned</code>
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'> </code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         Use a weak reference whenever it's valid for the reference
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'> </code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         to be nil at any point. These are optional types.
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'>
 class Driver {
     weak var car: Car? // Strong reference to car.
 
@@ -304,11 +573,27 @@ car!.driver = driver
 driver = nil               // No more strong references to driver.
 car = nil                  // No more strong references to car.
 
-</code></pre></td></tr>
-<tr><td class='docs'> Unowned references are like weak references except they always
-</td><td class='code'><pre><code class='language-swift'> </code></pre></td></tr>
-<tr><td class='docs'> refer to a value, so they're non-nil.
-</td><td class='code'><pre><code class='language-swift'>
+</code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         Unowned references are like weak references except they always
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'> </code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         refer to a value, so they're non-nil.
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'>
 class Artist {
     var instrument: Instrument?  // Strong reference to instrument.
 }
@@ -325,7 +610,10 @@ artist = Artist()
 artist!.instrument = Instrument(artist: artist!)
 
 artist = nil        // Both objects are deallocated since there are no more strong references.
-</code></pre></td></tr>
+</code></pre>
+      </td>
+    </tr>
+
               </tbody>
             </table>
           </main>

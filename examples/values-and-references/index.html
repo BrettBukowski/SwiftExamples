@@ -15,9 +15,22 @@
           <main>
             <table>
               <tbody>
-                <tr><td class='docs'></td><td class='code'><pre><code class='language-swift'> </code></pre></td></tr>
-<tr><td class='docs'><h2> # Classes are reference types
-</h2></td><td class='code'><pre><code class='language-swift'>
+                    <tr>
+      <td class='docs'>
+        
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'> </code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+        <h2> # Classes are reference types
+</h2>
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'>
 class Job {
     var title = &quot;&quot;
 }
@@ -27,24 +40,56 @@ var job2 = job1
 job1.title = &quot;singer&quot;
 println(job2.title)                   // singer
 
-</code></pre></td></tr>
-<tr><td class='docs'> Triple equals checks identity.
-</td><td class='code'><pre><code class='language-swift'>println(job1 === job2)                // true
+</code></pre>
+      </td>
+    </tr>
 
-</code></pre></td></tr>
-<tr><td class='docs'><h2> # Dictionaries are copied at the point of assignment
-</h2></td><td class='code'><pre><code class='language-swift'>
+    <tr>
+      <td class='docs'>
+         Triple equals checks identity.
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'>println(job1 === job2)                // true
+
+</code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+        <h2> # Dictionaries are copied at the point of assignment
+</h2>
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'>
 var band1 = [&quot;bob&quot;: &quot;singer&quot;, &quot;dan&quot;: &quot;guitarist&quot;]
 var band2 = band1
 
 band2[&quot;bob&quot;] = &quot;drummer&quot;
 println(band1[&quot;bob&quot;])                // singer
 
-</code></pre></td></tr>
-<tr><td class='docs'><h2> # Arrays
-</h2></td><td class='code'><pre><code class='language-swift'> </code></pre></td></tr>
-<tr><td class='docs'> Arrays are not copied immediately...
-</td><td class='code'><pre><code class='language-swift'>
+</code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+        <h2> # Arrays
+</h2>
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'> </code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         Arrays are not copied immediately...
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'>
 var bands1 = [&quot;radiohead&quot;, &quot;telekinesis&quot;, &quot;nada surf&quot;]
 var bands2 = bands1
 println(bands1 === bands2)          // true
@@ -52,15 +97,31 @@ println(bands1 === bands2)          // true
 bands1[0] = &quot;the orwells&quot;
 println(bands2[0])                  // the orwells
 
-</code></pre></td></tr>
-<tr><td class='docs'> ...Until one of the references modifies the length of the array
-</td><td class='code'><pre><code class='language-swift'>bands1.append(&quot;cut copy&quot;)
+</code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         ...Until one of the references modifies the length of the array
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'>bands1.append(&quot;cut copy&quot;)
 bands1[0] = &quot;carla morrison&quot;
 println(bands2[0])                  // the orwells
 
-</code></pre></td></tr>
-<tr><td class='docs'> Or the original reference can call `unshare`
-</td><td class='code'><pre><code class='language-swift'>var wiBands = [&quot;phox&quot;, &quot;bon iver&quot;]
+</code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         Or the original reference can call <code>unshare</code>
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'>var wiBands = [&quot;phox&quot;, &quot;bon iver&quot;]
 var coBands = wiBands
 
 wiBands.unshare()
@@ -72,14 +133,25 @@ coBands[1] = &quot;the lumineers&quot;
 println(wiBands)                   // [PHOX, bon iver]
 println(coBands)                   // [DeVotchKa, the lumineers]
 
-</code></pre></td></tr>
-<tr><td class='docs'> Or `copy` will create a copy
-</td><td class='code'><pre><code class='language-swift'>var otherCOBands = coBands.copy()
+</code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         Or <code>copy</code> will create a copy
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'>var otherCOBands = coBands.copy()
 otherCOBands[0] = &quot;paper bird&quot;
 
 println(otherCOBands[0])          // paper bird
 println(coBands[0])               // DeVotchKa
-</code></pre></td></tr>
+</code></pre>
+      </td>
+    </tr>
+
               </tbody>
             </table>
           </main>
