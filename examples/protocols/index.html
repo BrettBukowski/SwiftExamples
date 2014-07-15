@@ -1,0 +1,109 @@
+    <!doctype html>
+    <html lang="en">
+      <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
+        <title>Swift by example - protocols</title>
+        <link href='http://fonts.googleapis.com/css?family=Fira+Sans' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="../site.css"></link>
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.min.css"></link>
+        <link rel="shortcut icon" href="favicon.ico">
+      </head>
+      <body>
+        <div id="container">
+          <h1><a href='#'>Swift by example</a> <span class='topic'>protocols</span></h1>
+          <main>
+            <table>
+              <tbody>
+                    <tr>
+      <td class='docs'>
+        
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'> </code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         AKA Interfaces in other languages:
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'> </code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         abstract properties and methods that
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'> </code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         concrete classes implement.
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'>
+protocol Image {
+    // Protocol defines only a properties&#39;
+    // type and whether it&#39;s gettable or settable
+    var filename: String { get set }
+    var filesize: Double { get }
+    var mimetype: String { get }
+    var height: Double { get }
+    var width: Double { get }
+
+/*    class var someTypeProperty: Int { get set } */
+
+    func save ()
+
+    mutating func resize(width: Double, height: Double)
+}
+
+</code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         Structs can adopt protocols...
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'>
+struct Gif : Image {
+    var filename: String
+    var filesize: Double
+    var mimetype: String
+
+    func save() {
+
+    }
+
+    mutating func resize(width: Double, height: Double) {
+
+    }
+}
+</code></pre>
+      </td>
+    </tr>
+
+              </tbody>
+            </table>
+          </main>
+          <footer>
+            by <a href="https://twitter.com/BrettBukowski">@BrettBukowski</a>
+            <a href="https://github.com/BrettBukowski/SwiftExamples">source</a>
+          </footer>
+        </div>
+        <script async src="../site.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.min.js"></script>
+      </body>
+    </html>
