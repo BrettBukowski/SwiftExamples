@@ -29,8 +29,8 @@ for song in collection {
 }
 
 /*
- Hard Day's Night is poppy!
- Canon in D is classical!
+Hard Day's Night is poppy!
+Canon in D is classical!
 */
 
 
@@ -48,8 +48,8 @@ for song in collection {
 }
 
 /*
- pop song
- classical song
+pop song
+classical song
 */
 
 // # AnyObject
@@ -60,7 +60,7 @@ for song in collection {
 
 // `AnyObject` doesn't allow primitives--only class-based objects.
 
-var randomCollection: AnyObject[] = [
+var randomCollection: [AnyObject] = [
     Pop(name: "Bishop Allen"),
     Classical(name: "Bach"),
 ]
@@ -73,20 +73,20 @@ for item in randomCollection {
 
 // Every item can also be downcasted in the for-loop
 
-for item in randomCollection as Genre[] {
+for item in randomCollection as [Genre] {
     println("\(item.name)")
 }
 
 /*
- Bishop Allen
- Bach
+Bishop Allen
+Bach
 */
 
 // # Any
 
 // `Any` allows primitives and class-based objects.
 
-var groups = Any[]()
+var groups = [Any]()
 groups.append(1.0)
 groups.append(1)
 groups.append("string")
@@ -108,8 +108,8 @@ for item in groups {
 }
 
 /*
- 1.0 is a double
- 1 is an int
- string is a string
- C11lldb_expr_13Pop (has 1 child) is a Genre
+1.0 is a double
+1 is an int
+string is a string
+C11lldb_expr_13Pop (has 1 child) is a Genre
 */

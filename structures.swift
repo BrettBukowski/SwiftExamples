@@ -3,7 +3,7 @@
 
 struct Work {
   var location = ""
-  var units = String[]()
+  var units = [String]()
   let length: Int
 
   func last() -> String {

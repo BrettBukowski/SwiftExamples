@@ -3,7 +3,7 @@
       <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
-        <title>Swift by example - type-casting</title>
+        <title>Swift by example - type casting</title>
         <link href='http://fonts.googleapis.com/css?family=Fira+Sans' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="../site.css"></link>
         <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.min.css"></link>
@@ -11,7 +11,7 @@
       </head>
       <body>
         <div id="container">
-          <h1><a href='#'>Swift by example</a> <span class='topic'>type-casting</span></h1>
+          <h1><a href='#'>Swift by example</a> <span class='topic'>type casting</span></h1>
           <main>
             <table>
               <tbody>
@@ -68,8 +68,8 @@ for song in collection {
 }
 
 /*
- Hard Day&#39;s Night is poppy!
- Canon in D is classical!
+Hard Day&#39;s Night is poppy!
+Canon in D is classical!
 */
 
 
@@ -113,8 +113,8 @@ for song in collection {
 }
 
 /*
- pop song
- classical song
+pop song
+classical song
 */
 
 </code></pre>
@@ -168,7 +168,7 @@ for song in collection {
       </td>
       <td class='code'>
         <pre><code class='language-swift'>
-var randomCollection: AnyObject[] = [
+var randomCollection: [AnyObject] = [
     Pop(name: &quot;Bishop Allen&quot;),
     Classical(name: &quot;Bach&quot;),
 ]
@@ -190,13 +190,13 @@ for item in randomCollection {
       </td>
       <td class='code'>
         <pre><code class='language-swift'>
-for item in randomCollection as Genre[] {
+for item in randomCollection as [Genre] {
     println(&quot;\(item.name)&quot;)
 }
 
 /*
- Bishop Allen
- Bach
+Bishop Allen
+Bach
 */
 
 </code></pre>
@@ -220,7 +220,7 @@ for item in randomCollection as Genre[] {
       </td>
       <td class='code'>
         <pre><code class='language-swift'>
-var groups = Any[]()
+var groups = [Any]()
 groups.append(1.0)
 groups.append(1)
 groups.append(&quot;string&quot;)
@@ -242,10 +242,10 @@ for item in groups {
 }
 
 /*
- 1.0 is a double
- 1 is an int
- string is a string
- C11lldb_expr_13Pop (has 1 child) is a Genre
+1.0 is a double
+1 is an int
+string is a string
+C11lldb_expr_13Pop (has 1 child) is a Genre
 */
 </code></pre>
       </td>

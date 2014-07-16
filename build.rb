@@ -94,7 +94,7 @@ class ExampleFile
   end
 
   def to_html
-    HTML.template(@name, '../', collate)
+    HTML.template(@name.gsub('-', ' '), '../', collate)
   end
 
   private

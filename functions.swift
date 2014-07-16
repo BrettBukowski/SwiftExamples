@@ -10,7 +10,7 @@ func plus(a: Int, b: Int) ->Int {
     return a + b
 }
 
-func sum(numbers: Double[]) -> Double {
+func sum(numbers: [Double]) -> Double {
     var sum: Double = 0.0
     for num in numbers {
         sum += num
@@ -19,7 +19,7 @@ func sum(numbers: Double[]) -> Double {
 }
 
 // Functions can return tuples.
-func stats(numbers: Int[]) -> (min: Int, max: Int) {
+func stats(numbers: [Int]) -> (min: Int, max: Int) {
     var min = Int.max, max = Int.min
 
     for i in numbers {

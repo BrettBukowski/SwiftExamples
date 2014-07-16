@@ -41,7 +41,7 @@ simple()                                // hi
     return a + b
 }
 
-func sum(numbers: Double[]) -&gt; Double {
+func sum(numbers: [Double]) -&gt; Double {
     var sum: Double = 0.0
     for num in numbers {
         sum += num
@@ -59,7 +59,7 @@ func sum(numbers: Double[]) -&gt; Double {
 
       </td>
       <td class='code'>
-        <pre><code class='language-swift'>func stats(numbers: Int[]) -&gt; (min: Int, max: Int) {
+        <pre><code class='language-swift'>func stats(numbers: [Int]) -&gt; (min: Int, max: Int) {
     var min = Int.max, max = Int.min
 
     for i in numbers {
