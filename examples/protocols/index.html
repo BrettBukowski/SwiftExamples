@@ -81,7 +81,9 @@ protocol Image {
 struct Gif : Image {
     var filename: String
     var filesize: Double
-    var mimetype: String
+    var mimetype = &quot;image/gif&quot;
+    var height: Double
+    var width: Double
 
     func save() {
 
@@ -91,6 +93,280 @@ struct Gif : Image {
 
     }
 }
+
+</code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         ...or Classes can adopt protocols...
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'>
+class Png : Image {
+    var filename: String
+    var filesize: Double
+    var mimetype = &quot;image/png&quot;
+    var height: Double
+    var width: Double
+
+    init(filename: String, filesize: Double, width: Double, height: Double) {
+        self.filename = filename
+        self.filesize = filesize
+        self.width = width
+        self.height = height
+    }
+
+    func save() {
+
+    }
+
+    // `mutating` is not required when the protocol already
+    // declares it as such.
+    func resize(width: Double, height: Double) {
+
+    }
+}
+
+var gif = Gif(filename: &quot;rainbow.gif&quot;, filesize: 2.3, mimetype: &quot;image&quot;, height: 50, width: 50)
+var png = Png(filename: &quot;carry.png&quot;, filesize: 3.4, width: 100, height: 54)
+
+
+</code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         Protocols are full-fledged types
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'>
+func resizeImage (var img: Image) {
+    img.resize(50.0, height: 50.0)
+}
+
+</code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         Protocols are heavily used as part of the delegate pattern
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'> </code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         so that classes can call delegates' hook methods during certain
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'> </code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         lifecycle events.
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'> </code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+        <h2> # Protocol Composition
+</h2>
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'> </code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         A type can be composed of multiple protocols.
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'>
+protocol Video {
+    var framerate: Int { get }
+    var resolution: Double { get }
+}
+
+
+struct Media: Image, Video {
+    var filename: String
+    var filesize: Double
+    var mimetype: String
+    var height: Double
+    var width: Double
+    var framerate: Int
+    var resolution: Double
+
+    func save() {
+
+    }
+
+    func resize(width: Double, height: Double) {
+
+    }
+}
+
+</code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         Each protocol is comma-separated within brackets.
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'>func save(media: protocol&lt;Image, Video&gt;) {
+    media.save()
+}
+
+</code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+        <h2> # Protocol Checking
+</h2>
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'> </code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         <code>is</code> and <code>as</code> work as on any other type.
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'> </code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+        <h2> # Optional Protocol Requirements
+</h2>
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'> </code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         Denoted with <code>@optional</code>.
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'> </code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         This feature requires protocols be marked
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'> </code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         with <code>@objc</code>, which exposes the protocol
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'> </code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         to Objective-C code.
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'>@objc protocol Time {
+    var day: Int { get }
+    var month: Int { get }
+    var year: Int { get }
+    @optional var hour: Int { get }
+    @optional var minute: Int { get }
+    @optional var second: Int { get }
+
+    func toString () -&gt; String
+}
+
+class ShortDate : Time {
+    var day: Int
+    var month: Int
+    var year: Int
+
+    init(day: Int, month: Int, year: Int) {
+        self.day = day
+        self.month = month
+        self.year = year
+    }
+
+    func toString () -&gt; String {
+        return &quot;\(day)/\(month)/\(year)&quot;
+    }
+}
+
+class LongDate : ShortDate {
+    var hour: Int = 0
+    var minute: Int = 0
+    var second: Int = 0
+
+    convenience init(day: Int, month: Int, year: Int, hour: Int, minute: Int, second: Int) {
+        self.init(day: day, month: month, year: year)
+        self.hour = hour
+        self.minute = minute
+        self.second = second
+    }
+
+    override func toString() -&gt; String {
+        return super.toString() + &quot; \(hour):\(minute):\(second)&quot;
+    }
+}
+
+var dates: [AnyObject] = [
+    ShortDate(day: 5, month: 5, year: 2016),
+    LongDate(day: 5, month: 5, year: 2016, hour:10, minute:1, second: 0)
+]
+
+for item in dates {
+    let date = item as Time
+
+    println(&quot;\(date.toString())&quot;)                              // 5/5/2016 5/5/2016 10:1:0
+
+    if let hours = date.hour? {
+        println(&quot;Hour of the day: \(hours)&quot;)                  // Hour of the day: 10
+    }
+}
+
 </code></pre>
       </td>
     </tr>

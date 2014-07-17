@@ -62,7 +62,7 @@ class Example
     <<-HTML
     <tr>
       <td class='docs'>
-        #{@explanation.gsub(/(`)([a-zA-Z0-9\?]+)(`)/) {"<code>#{$2}</code>"}}
+        #{@explanation.gsub(/(`)([a-zA-Z0-9\?@]+)(`)/) {"<code>#{$2}</code>"}}
       </td>
       <td class='code'>
         <pre><code class='language-swift'>#{CGI.escapeHTML(@code)}</code></pre>
