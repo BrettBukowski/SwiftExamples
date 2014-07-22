@@ -2,7 +2,7 @@
 var strings = ["a", "b", "c"]
 
 // Declare the type of contained elements.
-var strings2: String[] = ["d", "e", "f"]
+var strings2: [String] = ["d", "e", "f"]
 
 // Declare an empty array.
 var strings3 = [String]()

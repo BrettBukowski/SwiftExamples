@@ -146,14 +146,14 @@ choose("mean")(1.0, 2.0)           // 1.5
 
 func summer(var num: Double) -> (Double...) -> Double {
     // Closure: the nested function is able to close over `num`.
-    func internal (numbers: Double...) -> Double {
+    func internalFunc (numbers: Double...) -> Double {
         for i in numbers {
             num += i
         }
         return num
     }
 
-    return internal
+    return internalFunc
 }
 
 summer(1.0)(2.0, 3.0)              // 6.0

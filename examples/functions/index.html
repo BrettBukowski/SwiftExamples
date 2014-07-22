@@ -468,14 +468,14 @@ choose(&quot;mean&quot;)(1.0, 2.0)           // 1.5
         <pre><code class='language-swift'>
 func summer(var num: Double) -&gt; (Double...) -&gt; Double {
     // Closure: the nested function is able to close over `num`.
-    func internal (numbers: Double...) -&gt; Double {
+    func internalFunc (numbers: Double...) -&gt; Double {
         for i in numbers {
             num += i
         }
         return num
     }
 
-    return internal
+    return internalFunc
 }
 
 summer(1.0)(2.0, 3.0)              // 6.0

@@ -85,7 +85,7 @@ println(eg.a)              // 1
       <td class='code'>
         <pre><code class='language-swift'>
 class Podcast {
-    @lazy var episode = Episode() // `var` declaration is required.
+    lazy var episode = Episode() // `var` declaration is required.
 }
 
 class Episode {
@@ -356,7 +356,7 @@ class Bicycle {
     var name: String
     var gears: Int
     // Marking a method/property with `@final` prevents it from being overridden
-    @final var color = &quot;green&quot;
+    final var color = &quot;green&quot;
 
     init() {
         tireWidth = 30.5

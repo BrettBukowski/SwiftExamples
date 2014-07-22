@@ -125,9 +125,9 @@ func save(media: protocol<Image, Video>) {
     var day: Int { get }
     var month: Int { get }
     var year: Int { get }
-    @optional var hour: Int { get }
-    @optional var minute: Int { get }
-    @optional var second: Int { get }
+    optional var hour: Int { get }
+    optional var minute: Int { get }
+    optional var second: Int { get }
 
     func toString () -> String
 }

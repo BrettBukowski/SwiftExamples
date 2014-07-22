@@ -19,7 +19,7 @@ println(eg.a)              // 1
 // property is accessed.
 
 class Podcast {
-    @lazy var episode = Episode() // `var` declaration is required.
+    lazy var episode = Episode() // `var` declaration is required.
 }
 
 class Episode {
@@ -149,7 +149,7 @@ class Bicycle {
     var name: String
     var gears: Int
     // Marking a method/property with `@final` prevents it from being overridden
-    @final var color = "green"
+    final var color = "green"
 
     init() {
         tireWidth = 30.5
