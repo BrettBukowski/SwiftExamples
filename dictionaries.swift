@@ -1,5 +1,6 @@
 var emptyDictionary = Dictionary<String, Float>()
-
+// Shorthand sugar for the same thing.
+var anotherEmptyDict = [String:Float]
 // Type inference allows you to initialize without declaring types:
 var strings = [
     "a": "A",

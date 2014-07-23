@@ -1,3 +1,5 @@
+import Foundation
+
 class Example {
     var a = 0
     var b: String
@@ -60,19 +62,19 @@ println(win.y)                    // -40.0
 // can be used to referenced the new value.
 /*
 set {
-    x = newValue.0 - (width / 2)
+x = newValue.0 - (width / 2)
 }
 */
 
-// # Ready-only computed properties
+// # Read-only computed properties
 
 class Song {
     var title = ""
     var duration = 0.0
-    var metaInfo: Dictionary<String, String> {
+    var metaInfo: [String:String] {
         return [
-            "title": title,
-            "duration": String(duration),
+            "title": self.title,
+            "duration": NSString(format: "%.2f", self.duration),
         ]
     }
 }
@@ -109,7 +111,7 @@ class Body {
     /*    class var age = 0                 // error: class variables not yet supported */
     // Computed type property
     class var size: Int {
-        return 10
+    return 10
     }
 }
 println(Body.size)                     // 10
@@ -134,7 +136,7 @@ class Month {
     }
 
     func shortened() -> String {
-        return name.substringToIndex(3)
+        return name[name.startIndex..<advance(name.startIndex, 3)]
     }
 }
 println(Month(name: "January").shortened())    // Jan
@@ -200,7 +202,7 @@ var mountainBike = MountainBike()              // Gears was changed to 12
 mountainBike.topSpeed = 6.0
 println(mountainBike.topSpeed)                 // 2.0
 mountainBike.go(12.0)                          // Went 12.0 at a top speed of 10.0 in my mountain bike
-                                               // Did 12.0 on a mountain bike
+// Did 12.0 on a mountain bike
 
 // # Initializers
 
@@ -281,3 +283,43 @@ artist = Artist()
 artist!.instrument = Instrument(artist: artist!)
 
 artist = nil        // Both objects are deallocated since there are no more strong references.
+
+// # Access control
+
+// Access control in Swift is very much package-based.
+// `private`: Can only be accessed from the same source file that it's defined
+// `internal`: Can be accessed anywhere in the target it's defined
+// `public`: Accessible anywhere in the target and anywhere its module is imported
+
+internal class Image { // Accessible in the same target
+    public var name : String
+
+    private var mime : String {     // Accessible only in this file. Never settable.
+    get {
+        return "image/\(name.pathExtension)"
+    }
+    }
+
+    init(name: String) {
+        self.name = name
+    }
+}
+var img = Image(name: "foo.png")
+
+public class Webpage {
+    public var title : String
+    public var created : NSDate
+    private(set) var images : [Image] // Readable within the same target but only writable in this file
+    var slug : String {
+        return created.description + title
+    }
+
+    init(title: String) {
+        self.title = title
+        self.created = NSDate()
+        self.images = []
+    }
+}
+
+var webPage = Webpage(title: "blog post")
+webPage.images.append(Image(name:"panda.gif"))
