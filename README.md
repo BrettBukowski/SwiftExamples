@@ -23,3 +23,4 @@ Learning Swift by Example.
 17. Type Casting
 18. Class Extensions
 19. Protocols
+20. Generics
