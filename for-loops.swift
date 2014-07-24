@@ -1,7 +1,7 @@
 // # Half-Closed range operator
 // Defines a range that doesn't
 // include the last number.
-for index in 1..5 {
+for index in 1..<5 {
     println(index)           // 1 2 3 4
 }
 
