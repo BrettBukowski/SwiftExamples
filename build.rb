@@ -1,43 +1,15 @@
 #!/usr/bin/ruby
 
+require 'erb'
 require 'cgi'
+require 'ostruct'
 require 'fileutils'
 
-class HTML
-  def self.template(name, path, content)
-    topic = "<span class='topic'>#{name}</span>" unless name.empty?
-    <<-HTML
-    <!doctype html>
-    <html lang="en">
-      <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
-        <title>Swift by example - #{name}</title>
-        <link href='http://fonts.googleapis.com/css?family=Fira+Sans' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" href="#{path}site.css"></link>
-        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.min.css"></link>
-        <link rel="shortcut icon" href="favicon.ico">
-      </head>
-      <body>
-        <div id="container">
-          <h1><a href='#'>Swift by example</a> #{topic}</h1>
-          <main>
-            <table>
-              <tbody>
-                #{content}
-              </tbody>
-            </table>
-          </main>
-          <footer>
-            by <a href="https://twitter.com/BrettBukowski">@BrettBukowski</a>
-            <a href="https://github.com/BrettBukowski/SwiftExamples">source</a>
-          </footer>
-        </div>
-        <script async src="#{path}site.js"></script>
-        <script src="//cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.min.js"></script>
-      </body>
-    </html>
-    HTML
+class HTML < OpenStruct
+  @@template = ERB.new(File.read('template.html.erb'))
+
+  def render
+    @@template.result(binding)
   end
 end
 
@@ -73,6 +45,8 @@ class Example
 end
 
 class ExampleFile
+  attr_accessor :nxt, :prev
+
   def initialize(path)
     @name = File.basename(path, '.swift')
     @examples = [Example.new]
@@ -83,6 +57,7 @@ class ExampleFile
   end
 
   def feed(line)
+    return if line == ''
     new_example if line.start_with? '//'
     @examples.last.add(line)
   end
@@ -94,7 +69,7 @@ class ExampleFile
   end
 
   def to_html
-    HTML.template(@name.gsub('-', ' '), '../', collate)
+    HTML.new({name: @name.gsub('-', ' '), path: '../', content: collate, nxt: nxt, prev: prev}).render
   end
 
   private
@@ -116,12 +91,18 @@ class IndexFile
   end
 
   def to_html
-    html = "<ol>" + steps_from_readme.map do |step|
+    html = "<ol>" + steps.map do |step|
       "<li><a href='#{@docs_path}/#{step[:slug]}'>#{step[:title]}</a></li>"
     end.join("\n") + "</ol>"
 
-    HTML.template('', 'examples/', html)
+    HTML.new({name: '', path: 'examples/', content: html}).render
   end
+
+  def steps
+    @steps ||= steps_from_readme
+  end
+
+  private
 
   def steps_from_readme
     readme = File.open('README.md', 'r')
@@ -131,10 +112,18 @@ class IndexFile
 
       next if step_match.nil?
 
+      slug = step_match[2].downcase.gsub(/[\/ ]/, '-')
+
       steps << {
         title: step_match[2],
-        slug: step_match[2].downcase.gsub(/[\/ ]/, '-'),
+        slug: slug,
+        file: "#{slug}.swift",
       }
+    end
+
+    [nil, *steps, nil].each_cons(3) do |prev, current, nxt|
+      current[:prev] = prev.dup unless prev.nil?
+      current[:nxt] = nxt.dup unless nxt.nil?
     end
 
     steps
@@ -142,25 +131,27 @@ class IndexFile
 end
 
 class Builder
-  def initialize(output_dir)
+  def initialize(index, output_dir)
+    @index = index
     @output_dir = output_dir
   end
 
-  def build!(files)
-    files.each do |swift_file_path|
+  def build!
+    @index.steps.each do |step|
+      swift_file_path = step[:file]
       example_file = ExampleFile.new(swift_file_path)
-      swift_file = File.open(swift_file_path, 'r')
+      example_file.nxt = step[:nxt]
+      example_file.prev = step[:prev]
 
-      swift_file.each_line do |line|
-        next if line == ''
+      File.open(swift_file_path, 'r').each_line do |line|
         example_file.feed(line)
       end
 
       example_file.write!(@output_dir)
     end
-
-    IndexFile.new(@output_dir).write!
   end
 end
 
-Builder.new('examples').build!(Dir["*.swift"])
+index = IndexFile.new('examples')
+index.write!
+Builder.new(index, 'examples').build!

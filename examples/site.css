@@ -13,8 +13,10 @@ body {
   background: #ebeef1;
 }
 table {
+  border: 1px solid #EEE;
   border-spacing: 0;
   margin-bottom: 2em;
+  width: 100%;
 }
 a {
   color: #1594e0;
@@ -68,9 +70,6 @@ pre {
   margin: 0;
   padding: 0 4px;
 }
-table {
-  border: 1px solid #EEE;
-}
 tbody tr:last-child td:first-child {
   border-bottom-left-radius: 3px;
 }
@@ -103,6 +102,22 @@ tr:first-child .code {
 }
 tr:last-child .code {
   padding-bottom: 1em;
+}
+nav {
+  margin-bottom: 2em;
+  overflow: hidden;
+}
+.prev {
+  float: left;
+}
+.prev:before {
+  content: "←";
+}
+.next {
+  float: right;
+}
+.next:after {
+  content: "→";
 }
 @media screen and (max-width: 1090px) {
   footer, main {

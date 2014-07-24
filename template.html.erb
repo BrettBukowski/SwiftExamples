@@ -3,9 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
-    <title>Swift by example - switch</title>
+    <title>Swift by example <%= "- #{name}" %></title>
     <link href='http://fonts.googleapis.com/css?family=Fira+Sans' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="../site.css"></link>
+    <link rel="stylesheet" href="<%= path %>site.css"></link>
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.min.css"></link>
     <link rel="shortcut icon" href="favicon.ico">
   </head>
@@ -13,45 +13,23 @@
     <div id="container">
       <h1>
         <a href='#'>Swift by example</a>
-        
-        <span class="topic">switch</span>
-        
+        <% if name %>
+        <span class="topic"><%= name %></span>
+        <% end %>
       </h1>
       <main>
         <table>
           <tbody>
-                <tr>
-      <td class='docs'>
-        
-      </td>
-      <td class='code'>
-        <pre><code class='language-swift'>let i = 2
-
-switch i {
-case 1:
-    println(&quot;one&quot;)
-case 2:
-    println(&quot;two&quot;)
-case 3, 4:
-    // Comma-separate multiple expressions in the same case statement.
-    println(&quot;three or four&quot;)
-default:
-    // Default is required.
-    println(&quot;huh&quot;)
-}
-</code></pre>
-      </td>
-    </tr>
-
+            <%= content %>
           </tbody>
         </table>
         <nav>
-          
-          <a href="../if-else" class="prev" rel="prev">If/Else</a>
-          
-          
-          <a href="../arrays" class="next" rel="next">Arrays</a>
-          
+          <% if prev %>
+          <a href="../<%= prev[:slug] %>" class="prev" rel="prev"><%= prev[:title] %></a>
+          <% end %>
+          <% if nxt %>
+          <a href="../<%= nxt[:slug] %>" class="next" rel="next"><%= nxt[:title] %></a>
+          <% end %>
         </nav>
       </main>
       <footer>
@@ -59,7 +37,7 @@ default:
         <a href="https://github.com/BrettBukowski/SwiftExamples">source</a>
       </footer>
     </div>
-    <script async src="../site.js"></script>
+    <script async src="<%= path %>site.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.min.js"></script>
   </body>
 </html>
