@@ -1,7 +1,7 @@
 import Foundation
 
-// Generic functions can operate on any type
-
+// Generic functions can operate on any type.
+//
 // Type parameters specify a placeholder type
 // in brackets after the function name.
 // Thereafter, that placeholder can be used

@@ -172,3 +172,8 @@ nav {
     white-space: pre-line;
   }
 }
+@media screen and (max-width: 400px) {
+  li {
+    float: none;
+  }
+}
