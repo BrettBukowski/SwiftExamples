@@ -93,6 +93,212 @@
 
 log(&quot;les filles&quot;)
 log(1)
+
+</code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+        <h2> # Generic Types
+</h2>
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'> </code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         Generic types are your own structs, classes,
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'> </code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         and enums that work with any type.
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'> </code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         This is how all of Swift's built-in types work.
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'>
+struct Bucket&lt;Bucketable&gt; {
+    var items = [Bucketable]()
+
+    mutating func add(item: Bucketable) {
+        items.append(item)
+    }
+
+    mutating func remove() {
+        items = []
+    }
+}
+
+var bucket = Bucket&lt;Int&gt;()
+bucket.add(1)
+
+var bucket2 = Bucket&lt;String&gt;()
+bucket2.add(&quot;special&quot;)
+
+class Basket&lt;Basketable&gt; {
+    var items = [Basketable]()
+
+    func add(item: Basketable) {
+        items.append(item)
+    }
+
+    func remove() {
+        items = []
+    }
+}
+
+var basket = Basket&lt;Int&gt;()
+basket.add(1)
+
+var basket2 = Basket&lt;String&gt;()
+basket2.add(&quot;control&quot;)
+
+</code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+        <h2> # Type Constraints
+</h2>
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'> </code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         You can ensure that a generic type
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'> </code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         conforms to a protocol or is a subclass
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'> </code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         of a specific type.
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'> </code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         Without adding the <code>Equatable</code> type constraint,
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'> </code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         the compiler doesn't know whether `==` will work
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'> </code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         and thus won't compile this func.
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'>func equal&lt;T: Equatable&gt;(a: T, b: T) -&gt; Bool {
+    return a == b
+}
+
+</code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+        <h2> # Associated Types
+</h2>
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'> </code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         Protocols can define placeholder names (aliases)
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'> </code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         to types that are used as part of the protocol.
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'>
+protocol Vase {
+    typealias Plant
+    mutating func add(item: Plant)
+    var size: Int { get set }
+    mutating func remove() -&gt; Plant
+}
+
+class GrecianUrn : Vase {
+    typealias Plant = String
+
+    var size = 10
+    var plantName = &quot;&quot;
+
+    func add(item: String) {
+        plantName = item
+    }
+
+    func remove() -&gt; String {
+        var name = plantName
+        plantName = &quot;&quot;
+        return name
+    }
+}
 </code></pre>
       </td>
     </tr>
