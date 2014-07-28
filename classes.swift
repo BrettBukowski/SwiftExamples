@@ -291,6 +291,8 @@ artist = nil        // Both objects are deallocated since there are no more stro
 // `internal`: Can be accessed anywhere in the target it's defined
 // `public`: Accessible anywhere in the target and anywhere its module is imported
 
+// Defaults to `internal` if not explicitly declared.
+
 internal class Image { // Accessible in the same target
     public var name : String
 
