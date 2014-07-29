@@ -25,7 +25,119 @@
         
       </td>
       <td class='code'>
+        <pre><code class='language-swift'>import Foundation
+
+</code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         <code>Generator</code> is a type of <code>Sequence</code>.
+
+      </td>
+      <td class='code'>
         <pre><code class='language-swift'> </code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         In order to conform, set the Element
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'> </code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         typealias and implement the <code>next</code>
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'> </code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         method.
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'>
+class Incrementing : Generator {
+    typealias Element = Int
+    var counter = 0
+
+    func next() -&gt; Element? {
+        return counter++
+    }
+}
+
+var count = Incrementing()
+count.next()!                         // 0
+count.next()!                         // 1
+
+
+</code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         <code>for</code> loops work with any <code>Sequence</code> type.
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'> </code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         A <code>Sequence</code> has a <code>generate</code> method that
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'> </code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         returns a <code>Generator</code>.
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'>
+class Fibonacci : Sequence {
+    func generate() -&gt; GeneratorOf&lt;Int&gt; {
+        var current = 0
+        var next = 1
+
+        return GeneratorOf&lt;Int&gt; {
+            var returnVal = current
+            current = next
+            next += returnVal
+
+            return returnVal
+        }
+    }
+}
+
+var fibSequence = Fibonacci()
+
+for i in fibSequence {
+    if i &gt; 50 {
+        break
+    }
+
+    print(&quot;\(i) &quot;)                // 0 1 1 2 3 5 8 13 21 34
+}
+</code></pre>
       </td>
     </tr>
 
