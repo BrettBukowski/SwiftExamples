@@ -24,3 +24,4 @@ Learning Swift by Example.
 18. Class Extensions
 19. Protocols
 20. Generics
+21. Advanced Operators
