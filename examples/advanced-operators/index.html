@@ -25,7 +25,297 @@
         
       </td>
       <td class='code'>
+        <pre><code class='language-swift'>import Foundation
+
+</code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+        <h2> # Bitwise Operators
+</h2>
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'>
+var a: UInt8 = 0b00001111
+var b: UInt8 = 0b11110000
+
+</code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         <code>NOT</code>
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'>println(~a == b)                   // true
+
+</code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         <code>AND</code>
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'>println(a &amp; b == 0)                // true
+
+</code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         <code>OR</code>
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'>println(a | b == 0b11111111)       // true
+
+</code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         <code>XOR</code>
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'>println(a ^ b == a | b)            // true
+
+</code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         Shifts (unsigned)
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'>println(a &lt;&lt; 1 == 0b00011110)
+println(a &gt;&gt; 1 == 0b00000111)
+
+</code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+        <h2> # Overflow Operators
+</h2>
+      </td>
+      <td class='code'>
         <pre><code class='language-swift'> </code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         Normally Swift will error when and over/under
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'> </code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         flow occurs.
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'>
+var num = UInt8.max
+</code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         error: arithmetic operation results in an overflow
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'>/* var zero = num + 1 */
+
+</code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         But prefixing the operator with "&" tells Swift
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'> </code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         that you want this behavior.
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'>var zero = num &amp;+ 1
+println(zero == 0)                 // true
+
+</code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+        <h2> # Operator Functions
+</h2>
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'> </code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         Operator overloading is a supported language feature,
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'> </code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         but it isn't a best practice in most cases.
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'>
+struct Trip {
+    var distance = 0.0, duration = 0.0
+}
+
+</code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         Defines an 'infix' + operator that handles two args.
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'>@infix func + (left: Trip, right: Trip) -&gt; Trip {
+    return Trip(distance: left.distance + right.distance,
+        duration: left.duration + right.duration)
+}
+</code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         Defines a 'prefix' - operator that handles a single arg.
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'>@prefix func - (trip: Trip) -&gt; Trip {
+    return Trip(distance: trip.distance * -1.0, duration: trip.duration * -1.0)
+}
+
+</code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         Compound assignments are also supported.
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'>
+@assignment func += (inout left: Trip, right: Trip) {
+    left = left + right
+}
+
+</code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         As well as assignment expressions.
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'>@assignment @prefix func ++ (inout trip: Trip) -&gt; Trip {
+    trip += Trip(distance: 1.0, duration: 1.0)
+    return trip
+}
+
+var tripA = Trip(distance: 100.0, duration: 2.0)
+var tripB = Trip(distance: 250.0, duration: 5.0)
+
+var combined = tripA + tripB
+
+println(&quot;Went \(combined.distance) in \(combined.duration)&quot;)        // Went 350.0 in 7.0
+
+var disaster = -tripA
+
+println(&quot;Went \(disaster.distance) in \(disaster.duration)&quot;)        // Went -100.0 in -2.0
+
+tripA += tripB
+tripA += tripB
+
+println(&quot;Went \(tripA.distance) in \(tripA.duration)&quot;)        // Went 600.0 in 12.0
+
+++tripA
+
+println(&quot;Went \(tripA.distance) in \(tripA.duration)&quot;)        // Went 601.0 in 13.0
+
+
+</code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         You can also define your own bananas custom operators with
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'> </code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         / = - + * % < > ! & | ^ . ~
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'>
+operator postfix -=- {}
+
+@postfix func -=- (inout trip: Trip) -&gt; Trip {
+    trip = Trip(distance: Double(Int(trip.distance) * random()),
+        duration: Double(Int(trip.duration) * random()))
+    return trip
+}
+
+tripA-=-
+
+println(&quot;Went \(tripA.distance) in \(tripA.duration)&quot;)        // Went 602222301.0 in 1311110111.0
+</code></pre>
       </td>
     </tr>
 
