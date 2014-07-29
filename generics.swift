@@ -97,3 +97,48 @@ class GrecianUrn : Vase {
         return name
     }
 }
+
+// # Where clauses
+
+// You can impose more rigorous conformance between types using
+// a `where` clause after the list of type params within the brackets.
+
+var a = ["a"]
+println(a.dynamicType)
+println(object_getClassName(a))
+
+protocol Container {
+    typealias Thing
+    func size() -> Int
+    func add(thing: Thing)
+}
+
+class Crate<Thing> : Container {
+    var items = [Thing]()
+
+    func size() -> Int {
+        return items.count
+    }
+
+    func add(thing: Thing) {
+        items.append(thing)
+    }
+}
+
+func similarCrates<C1: Container, C2: Container where C1.Thing == C2.Thing> (crate1: C1, crate2: C2) -> Bool {
+    return crate1.size() == crate2.size()
+}
+
+var stringCrate = Crate<String>()
+stringCrate.add("stickers")
+
+var intCrate = Crate<Int>()
+intCrate.add(22)
+
+// This fails: 'String' is not identical to 'Int'
+/* similarCrates(stringCrate, intCrate) */
+
+var anotherStringCrate = Crate<String>()
+similarCrates(stringCrate, anotherStringCrate)                 // false
+anotherStringCrate.add("goo")
+similarCrates(stringCrate, anotherStringCrate)                 // true

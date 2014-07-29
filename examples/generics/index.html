@@ -299,6 +299,86 @@ class GrecianUrn : Vase {
         return name
     }
 }
+
+</code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+        <h2> # Where clauses
+</h2>
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'> </code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         You can impose more rigorous conformance between types using
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'> </code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         a <code>where</code> clause after the list of type params within the brackets.
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'>
+var a = [&quot;a&quot;]
+println(a.dynamicType)
+println(object_getClassName(a))
+
+protocol Container {
+    typealias Thing
+    func size() -&gt; Int
+    func add(thing: Thing)
+}
+
+class Crate&lt;Thing&gt; : Container {
+    var items = [Thing]()
+
+    func size() -&gt; Int {
+        return items.count
+    }
+
+    func add(thing: Thing) {
+        items.append(thing)
+    }
+}
+
+func similarCrates&lt;C1: Container, C2: Container where C1.Thing == C2.Thing&gt; (crate1: C1, crate2: C2) -&gt; Bool {
+    return crate1.size() == crate2.size()
+}
+
+var stringCrate = Crate&lt;String&gt;()
+stringCrate.add(&quot;stickers&quot;)
+
+var intCrate = Crate&lt;Int&gt;()
+intCrate.add(22)
+
+</code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         This fails: 'String' is not identical to 'Int'
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'>/* similarCrates(stringCrate, intCrate) */
+
+var anotherStringCrate = Crate&lt;String&gt;()
+similarCrates(stringCrate, anotherStringCrate)                 // false
+anotherStringCrate.add(&quot;goo&quot;)
+similarCrates(stringCrate, anotherStringCrate)                 // true
 </code></pre>
       </td>
     </tr>
