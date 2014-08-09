@@ -25,7 +25,9 @@
         
       </td>
       <td class='code'>
-        <pre><code class='language-swift'> </code></pre>
+        <pre><code class='language-swift'>import Foundation
+
+</code></pre>
       </td>
     </tr>
 
@@ -94,7 +96,7 @@
 
       </td>
       <td class='code'>
-        <pre><code class='language-swift'>strings += &quot;d&quot;
+        <pre><code class='language-swift'>strings += [&quot;d&quot;]
 strings.append(&quot;e&quot;)
 strings += [&quot;f&quot;, &quot;g&quot;]
 
@@ -134,7 +136,9 @@ strings += [&quot;f&quot;, &quot;g&quot;]
       <td class='code'>
         <pre><code class='language-swift'>
 println(strings[0])                         // a
+println(strings.first!)                     // a
 println(strings[strings.endIndex - 1])      // g
+println(strings.last!)                      // g
 
 </code></pre>
       </td>
@@ -186,7 +190,7 @@ println(strings.removeAtIndex(0))          // a
 strings.map({
     (str: String) -&gt; String in
     return str + &quot;0&quot;
-    })                                         // [&quot;a0&quot;, &quot;b0&quot;, &quot;c0&quot;, &quot;d0&quot;, &quot;e0&quot;, &quot;f0&quot;, &quot;g0&quot;]
+})                                         // [&quot;a0&quot;, &quot;b0&quot;, &quot;c0&quot;, &quot;d0&quot;, &quot;e0&quot;, &quot;f0&quot;, &quot;g0&quot;]
 strings.removeLast()
 
 </code></pre>

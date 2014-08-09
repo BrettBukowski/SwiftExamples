@@ -45,23 +45,23 @@ struct Trip {
 }
 
 // Defines an 'infix' + operator that handles two args.
-@infix func + (left: Trip, right: Trip) -> Trip {
+func + (left: Trip, right: Trip) -> Trip {
     return Trip(distance: left.distance + right.distance,
         duration: left.duration + right.duration)
 }
 // Defines a 'prefix' - operator that handles a single arg.
-@prefix func - (trip: Trip) -> Trip {
+prefix func - (trip: Trip) -> Trip {
     return Trip(distance: trip.distance * -1.0, duration: trip.duration * -1.0)
 }
 
 // Compound assignments are also supported.
 
-@assignment func += (inout left: Trip, right: Trip) {
+func += (inout left: Trip, right: Trip) {
     left = left + right
 }
 
 // As well as assignment expressions.
-@assignment @prefix func ++ (inout trip: Trip) -> Trip {
+prefix func ++ (inout trip: Trip) -> Trip {
     trip += Trip(distance: 1.0, duration: 1.0)
     return trip
 }
@@ -90,9 +90,9 @@ println("Went \(tripA.distance) in \(tripA.duration)")        // Went 601.0 in 1
 // You can also define your own bananas custom operators with
 // / = - + * % < > ! & | ^ . ~
 
-operator postfix -=- {}
+postfix operator -=- {}
 
-@postfix func -=- (inout trip: Trip) -> Trip {
+postfix func -=- (inout trip: Trip) -> Trip {
     trip = Trip(distance: Double(Int(trip.distance) * random()),
         duration: Double(Int(trip.duration) * random()))
     return trip

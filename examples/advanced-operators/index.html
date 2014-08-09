@@ -214,7 +214,7 @@ struct Trip {
 
       </td>
       <td class='code'>
-        <pre><code class='language-swift'>@infix func + (left: Trip, right: Trip) -&gt; Trip {
+        <pre><code class='language-swift'>func + (left: Trip, right: Trip) -&gt; Trip {
     return Trip(distance: left.distance + right.distance,
         duration: left.duration + right.duration)
 }
@@ -228,7 +228,7 @@ struct Trip {
 
       </td>
       <td class='code'>
-        <pre><code class='language-swift'>@prefix func - (trip: Trip) -&gt; Trip {
+        <pre><code class='language-swift'>prefix func - (trip: Trip) -&gt; Trip {
     return Trip(distance: trip.distance * -1.0, duration: trip.duration * -1.0)
 }
 
@@ -243,7 +243,7 @@ struct Trip {
       </td>
       <td class='code'>
         <pre><code class='language-swift'>
-@assignment func += (inout left: Trip, right: Trip) {
+func += (inout left: Trip, right: Trip) {
     left = left + right
 }
 
@@ -257,7 +257,7 @@ struct Trip {
 
       </td>
       <td class='code'>
-        <pre><code class='language-swift'>@assignment @prefix func ++ (inout trip: Trip) -&gt; Trip {
+        <pre><code class='language-swift'>prefix func ++ (inout trip: Trip) -&gt; Trip {
     trip += Trip(distance: 1.0, duration: 1.0)
     return trip
 }
@@ -304,9 +304,9 @@ println(&quot;Went \(tripA.distance) in \(tripA.duration)&quot;)        // Went 
       </td>
       <td class='code'>
         <pre><code class='language-swift'>
-operator postfix -=- {}
+postfix operator -=- {}
 
-@postfix func -=- (inout trip: Trip) -&gt; Trip {
+postfix func -=- (inout trip: Trip) -&gt; Trip {
     trip = Trip(distance: Double(Int(trip.distance) * random()),
         duration: Double(Int(trip.duration) * random()))
     return trip

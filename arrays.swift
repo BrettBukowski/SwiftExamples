@@ -1,3 +1,5 @@
+import Foundation
+
 // Type inference FTW.
 var strings = ["a", "b", "c"]
 
@@ -14,7 +16,7 @@ var strings4 = [String](count: 3, repeatedValue: "hey")
 // Arrays must contain values of a single type.
 
 // Appending.
-strings += "d"
+strings += ["d"]
 strings.append("e")
 strings += ["f", "g"]
 
@@ -27,7 +29,9 @@ println(strings.count)                      // 7
 // # Accessing elements
 
 println(strings[0])                         // a
+println(strings.first!)                     // a
 println(strings[strings.endIndex - 1])      // g
+println(strings.last!)                      // g
 
 // # Assigning elements
 
@@ -52,7 +56,7 @@ println(strings.removeAtIndex(0))          // a
 strings.map({
     (str: String) -> String in
     return str + "0"
-    })                                         // ["a0", "b0", "c0", "d0", "e0", "f0", "g0"]
+})                                         // ["a0", "b0", "c0", "d0", "e0", "f0", "g0"]
 strings.removeLast()
 
 // # Clearing
