@@ -25,7 +25,9 @@
         
       </td>
       <td class='code'>
-        <pre><code class='language-swift'> </code></pre>
+        <pre><code class='language-swift'>import Foundation
+
+</code></pre>
       </td>
     </tr>
 
@@ -89,15 +91,15 @@ var intVal = one.toInt()
 
       </td>
       <td class='code'>
-        <pre><code class='language-swift'>if intVal {
+        <pre><code class='language-swift'>if let intVal = one.toInt() {
     // And then access the underlying value with !
-    println(intVal!)                                             // 1
+    println(intVal)                                              // 1
 }
 
 var nope = &quot;please&quot;
 var nopeIntVal = nope.toInt()
 
-if !nopeIntVal {
+if nopeIntVal == nil {
     println(&quot;Couldn&#39;t convert the string to an int&quot;)
 }
 

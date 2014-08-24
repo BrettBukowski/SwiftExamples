@@ -1,3 +1,4 @@
+import Foundation
 // Closures have the syntax of:
 
 /*
@@ -6,46 +7,46 @@ body
 }
 */
 
-var letters = ["a", "b", "c", "d"]
+var numbers = [1, 2, 3, 4]
 
-var reversed = sort(letters, {(a: String, b: String) -> Bool in
+var reversed = sorted(numbers, {(a: Int, b: Int) -> Bool in
     return a > b;
-    })
+})
 
 // But type inference allows us to omit the types
 // and write something more succinct...
-reversed = sort(letters, { a, b in return a > b })
+reversed = sorted(numbers, { a, b in return a > b })
 
 // ...And single-expression closures can even omit the return keyword.
-reversed = sort(letters, { a, b in a > b })
+reversed = sorted(numbers, { a, b in a > b })
 
 // ...And even the param names can be omitted.
-reversed = sort(letters, { $0 > $1 })
+reversed = sorted(numbers, { $0 > $1 })
 
 // ...But why stop there? Greater-than is an operator function!
-reversed = sort(letters, >)
+reversed = sorted(numbers, >)
 
 // Closures, of course, have the ability to access the variables
 // in scope at the time the function is defined.
 
-func sizeOfLetters() -> Int {
-    return letters.count
+func sizeOfNumbers() -> Int {
+    return numbers.count
 }
 
-println(String(sizeOfLetters()))              // 4
+println(String(sizeOfNumbers()))              // 4
 
-letters.append("e")
+numbers.append(5)
 
-println(String(sizeOfLetters()))              // 5
+println(String(sizeOfNumbers()))              // 5
 
 // # Trailing Closures
 
 // Similar to Ruby's blocks, if a function accepts a closure,
 // you can specify it after the function's parens.
 
-reversed = sort(letters) { $0 >  $1 }
+reversed = sorted(numbers) { $0 >  $1 }
 
-var uppercased = letters.map {
-    (string: String) -> String in
-    return string.uppercaseString
+var toStringed = numbers.map {
+    (num: Int) -> String in
+    return String(num)
 }

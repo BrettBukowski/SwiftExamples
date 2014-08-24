@@ -10,9 +10,27 @@ class Example {
     }
 }
 
-// External param names are required here.
+// External param names are required...
 let eg = Example(a: 1)
 println(eg.a)              // 1
+
+
+// ...Unless the params are declared with leading underscores.
+
+class Example2 {
+    var a = 0
+    var b = 0
+
+    init(_ a: Int, _ b: Int) {
+        self.a = a
+        self.b = b
+    }
+}
+
+let eg2 = Example2(1, 2)
+println(eg2.a)            // 1
+println(eg2.b)            // 2
+
 
 // # Lazy properties
 
@@ -41,14 +59,14 @@ class Window {
     var width = 100.0, height = 100.0
 
     var center: (Double, Double) {
-    get {
-        return (width / 2, height / 2)
-    }
+        get {
+            return (width / 2, height / 2)
+        }
 
-    set(newVal) {
-        x = newVal.0 - (width / 2)
-        y = newVal.1 - (height / 2)
-    }
+        set(newVal) {
+            x = newVal.0 - (width / 2)
+            y = newVal.1 - (height / 2)
+        }
     }
 }
 
@@ -75,7 +93,7 @@ class Song {
         return [
             "title": self.title,
             "duration": NSString(format: "%.2f", self.duration),
-        ]
+            ]
     }
 }
 
@@ -92,12 +110,12 @@ println(song.metaInfo["duration"]!) // 2.01
 
 class Website {
     var visitors: Int = 0 {             // An explicit type is required
-    willSet(newVisitorCount) {          // Called before the prop is set
-        visitors = newVisitorCount + 1  // Warning. Can't set within its own willSet
-    }
-    didSet {                            // Called after a new val is set
-        println(visitors - oldValue)    // oldValue is magically defined
-    }
+        willSet(newVisitorCount) {          // Called before the prop is set
+            visitors = newVisitorCount + 1  // Warning. Can't set within its own willSet
+        }
+        didSet {                            // Called after a new val is set
+            println(visitors - oldValue)    // oldValue is magically defined
+        }
     }
 }
 
@@ -167,7 +185,7 @@ class Bicycle {
 
 class MountainBike : Bicycle {
     /* var tireWidth = 64.0 // Cannot override property in the declaration */
-    init() {
+    override init() {
         super.init()
 
         tireWidth = 64.0
@@ -182,19 +200,19 @@ class MountainBike : Bicycle {
 
     // A getter/setter override can _any_ inherited property.
     override var topSpeed: Double {
-    get {
-        return super.topSpeed - 4.0
-    }
-    set {
-        super.topSpeed = newValue
-    }
+        get {
+            return super.topSpeed - 4.0
+        }
+        set {
+            super.topSpeed = newValue
+        }
     }
 
     // Property observer
     override var gears: Int {
-    didSet {
-        println("Gears was changed to \(gears)")
-    }
+        didSet {
+            println("Gears was changed to \(gears)")
+        }
     }
 }
 
@@ -294,12 +312,12 @@ artist = nil        // Both objects are deallocated since there are no more stro
 // Defaults to `internal` if not explicitly declared.
 
 internal class Image { // Accessible in the same target
-    public var name : String
+    internal var name : String
 
     private var mime : String {     // Accessible only in this file. Never settable.
-    get {
-        return "image/\(name.pathExtension)"
-    }
+        get {
+            return "image/\(name.pathExtension)"
+        }
     }
 
     init(name: String) {

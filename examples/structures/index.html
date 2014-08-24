@@ -106,13 +106,13 @@ println(work.last())                  // read book
 struct Play {
     static var duration = 1
     static var name: String { // Read-only computed type property
-        return String(&quot;named \(duration + 1)&quot;)
+    return String(seq:&quot;named \(duration + 1)&quot;)
     }
     static var activity: String {
         get {
             return name + &quot;stargaze&quot;
         }
-        mutating set {
+        set {
             duration = 2
         }
     }

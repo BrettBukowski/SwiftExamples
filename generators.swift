@@ -1,11 +1,11 @@
 import Foundation
 
-// `Generator` is a type of `Sequence`.
+// `GeneratorType` is a type of `SequenceType`.
 // In order to conform, set the Element
 // typealias and implement the `next`
 // method.
 
-class Incrementing : Generator {
+class Incrementing : GeneratorType {
     typealias Element = Int
     var counter = 0
 
@@ -19,11 +19,11 @@ count.next()!                         // 0
 count.next()!                         // 1
 
 
-// `for` loops work with any `Sequence` type.
-// A `Sequence` has a `generate` method that
-// returns a `Generator`.
+// `for` loops work with any `SequenceType` type.
+// A `SequenceType` has a `generate` method that
+// returns a `GeneratorType`.
 
-class Fibonacci : Sequence {
+class Fibonacci : SequenceType {
     func generate() -> GeneratorOf<Int> {
         var current = 0
         var next = 1

@@ -25,7 +25,8 @@
         
       </td>
       <td class='code'>
-        <pre><code class='language-swift'> </code></pre>
+        <pre><code class='language-swift'>import Foundation
+</code></pre>
       </td>
     </tr>
 
@@ -42,11 +43,11 @@ body
 }
 */
 
-var letters = [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;]
+var numbers = [1, 2, 3, 4]
 
-var reversed = sort(letters, {(a: String, b: String) -&gt; Bool in
+var reversed = sorted(numbers, {(a: Int, b: Int) -&gt; Bool in
     return a &gt; b;
-    })
+})
 
 </code></pre>
       </td>
@@ -68,7 +69,7 @@ var reversed = sort(letters, {(a: String, b: String) -&gt; Bool in
 
       </td>
       <td class='code'>
-        <pre><code class='language-swift'>reversed = sort(letters, { a, b in return a &gt; b })
+        <pre><code class='language-swift'>reversed = sorted(numbers, { a, b in return a &gt; b })
 
 </code></pre>
       </td>
@@ -80,7 +81,7 @@ var reversed = sort(letters, {(a: String, b: String) -&gt; Bool in
 
       </td>
       <td class='code'>
-        <pre><code class='language-swift'>reversed = sort(letters, { a, b in a &gt; b })
+        <pre><code class='language-swift'>reversed = sorted(numbers, { a, b in a &gt; b })
 
 </code></pre>
       </td>
@@ -92,7 +93,7 @@ var reversed = sort(letters, {(a: String, b: String) -&gt; Bool in
 
       </td>
       <td class='code'>
-        <pre><code class='language-swift'>reversed = sort(letters, { $0 &gt; $1 })
+        <pre><code class='language-swift'>reversed = sorted(numbers, { $0 &gt; $1 })
 
 </code></pre>
       </td>
@@ -104,7 +105,7 @@ var reversed = sort(letters, {(a: String, b: String) -&gt; Bool in
 
       </td>
       <td class='code'>
-        <pre><code class='language-swift'>reversed = sort(letters, &gt;)
+        <pre><code class='language-swift'>reversed = sorted(numbers, &gt;)
 
 </code></pre>
       </td>
@@ -127,15 +128,15 @@ var reversed = sort(letters, {(a: String, b: String) -&gt; Bool in
       </td>
       <td class='code'>
         <pre><code class='language-swift'>
-func sizeOfLetters() -&gt; Int {
-    return letters.count
+func sizeOfNumbers() -&gt; Int {
+    return numbers.count
 }
 
-println(String(sizeOfLetters()))              // 4
+println(String(sizeOfNumbers()))              // 4
 
-letters.append(&quot;e&quot;)
+numbers.append(5)
 
-println(String(sizeOfLetters()))              // 5
+println(String(sizeOfNumbers()))              // 5
 
 </code></pre>
       </td>
@@ -168,11 +169,11 @@ println(String(sizeOfLetters()))              // 5
       </td>
       <td class='code'>
         <pre><code class='language-swift'>
-reversed = sort(letters) { $0 &gt;  $1 }
+reversed = sorted(numbers) { $0 &gt;  $1 }
 
-var uppercased = letters.map {
-    (string: String) -&gt; String in
-    return string.uppercaseString
+var toStringed = numbers.map {
+    (num: Int) -&gt; String in
+    return String(num)
 }
 </code></pre>
       </td>

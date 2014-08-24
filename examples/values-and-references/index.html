@@ -80,7 +80,7 @@ println(band1[&quot;bob&quot;])                // singer
 
     <tr>
       <td class='docs'>
-        <h2> # Arrays
+        <h2> # Arrays, Strings, and Dictionaries
 </h2>
       </td>
       <td class='code'>
@@ -90,69 +90,47 @@ println(band1[&quot;bob&quot;])                // singer
 
     <tr>
       <td class='docs'>
-         Arrays are not copied immediately...
+         Arrays, Strings, and Dictionaries are implemented as structs,
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'> </code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         so they're copied when they're assigned to a new constant or
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'> </code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         variable, or when they'e passed to a function / method
 
       </td>
       <td class='code'>
         <pre><code class='language-swift'>
 var bands1 = [&quot;radiohead&quot;, &quot;telekinesis&quot;, &quot;nada surf&quot;]
 var bands2 = bands1
-println(bands1 === bands2)          // true
+println(bands1 == bands2)           // true
 
 bands1[0] = &quot;the orwells&quot;
-println(bands2[0])                  // the orwells
-
 </code></pre>
       </td>
     </tr>
 
     <tr>
       <td class='docs'>
-         ...Until one of the references modifies the length of the array
+         Now <code>bands2</code> is a separate copy.
 
       </td>
       <td class='code'>
-        <pre><code class='language-swift'>bands1.append(&quot;cut copy&quot;)
-bands1[0] = &quot;carla morrison&quot;
-println(bands2[0])                  // the orwells
-
-</code></pre>
-      </td>
-    </tr>
-
-    <tr>
-      <td class='docs'>
-         Or the original reference can call <code>unshare</code>
-
-      </td>
-      <td class='code'>
-        <pre><code class='language-swift'>var wiBands = [&quot;phox&quot;, &quot;bon iver&quot;]
-var coBands = wiBands
-
-wiBands.unshare()
-
-wiBands[0] = &quot;PHOX&quot;
-coBands[0] = &quot;DeVotchKa&quot;
-coBands[1] = &quot;the lumineers&quot;
-
-println(wiBands)                   // [PHOX, bon iver]
-println(coBands)                   // [DeVotchKa, the lumineers]
-
-</code></pre>
-      </td>
-    </tr>
-
-    <tr>
-      <td class='docs'>
-         Or <code>copy</code> will create a copy
-
-      </td>
-      <td class='code'>
-        <pre><code class='language-swift'>var otherCOBands = coBands.copy()
-otherCOBands[0] = &quot;paper bird&quot;
-
-println(otherCOBands[0])          // paper bird
-println(coBands[0])               // DeVotchKa
+        <pre><code class='language-swift'>println(bands2[0])                  // radiohead
 </code></pre>
       </td>
     </tr>

@@ -33,7 +33,7 @@
 
     <tr>
       <td class='docs'>
-         <code>Generator</code> is a type of <code>Sequence</code>.
+         <code>GeneratorType</code> is a type of <code>SequenceType</code>.
 
       </td>
       <td class='code'>
@@ -68,7 +68,7 @@
       </td>
       <td class='code'>
         <pre><code class='language-swift'>
-class Incrementing : Generator {
+class Incrementing : GeneratorType {
     typealias Element = Int
     var counter = 0
 
@@ -88,7 +88,7 @@ count.next()!                         // 1
 
     <tr>
       <td class='docs'>
-         <code>for</code> loops work with any <code>Sequence</code> type.
+         <code>for</code> loops work with any <code>SequenceType</code> type.
 
       </td>
       <td class='code'>
@@ -98,7 +98,7 @@ count.next()!                         // 1
 
     <tr>
       <td class='docs'>
-         A <code>Sequence</code> has a <code>generate</code> method that
+         A <code>SequenceType</code> has a <code>generate</code> method that
 
       </td>
       <td class='code'>
@@ -108,12 +108,12 @@ count.next()!                         // 1
 
     <tr>
       <td class='docs'>
-         returns a <code>Generator</code>.
+         returns a <code>GeneratorType</code>.
 
       </td>
       <td class='code'>
         <pre><code class='language-swift'>
-class Fibonacci : Sequence {
+class Fibonacci : SequenceType {
     func generate() -&gt; GeneratorOf&lt;Int&gt; {
         var current = 0
         var next = 1

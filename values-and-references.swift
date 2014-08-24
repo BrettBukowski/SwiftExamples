@@ -20,38 +20,16 @@ var band2 = band1
 band2["bob"] = "drummer"
 println(band1["bob"])                // singer
 
-// # Arrays
+// # Arrays, Strings, and Dictionaries
 
-// Arrays are not copied immediately...
+// Arrays, Strings, and Dictionaries are implemented as structs,
+// so they're copied when they're assigned to a new constant or
+// variable, or when they'e passed to a function / method
 
 var bands1 = ["radiohead", "telekinesis", "nada surf"]
 var bands2 = bands1
-println(bands1 === bands2)          // true
+println(bands1 == bands2)           // true
 
 bands1[0] = "the orwells"
-println(bands2[0])                  // the orwells
-
-// ...Until one of the references modifies the length of the array
-bands1.append("cut copy")
-bands1[0] = "carla morrison"
-println(bands2[0])                  // the orwells
-
-// Or the original reference can call `unshare`
-var wiBands = ["phox", "bon iver"]
-var coBands = wiBands
-
-wiBands.unshare()
-
-wiBands[0] = "PHOX"
-coBands[0] = "DeVotchKa"
-coBands[1] = "the lumineers"
-
-println(wiBands)                   // [PHOX, bon iver]
-println(coBands)                   // [DeVotchKa, the lumineers]
-
-// Or `copy` will create a copy
-var otherCOBands = coBands.copy()
-otherCOBands[0] = "paper bird"
-
-println(otherCOBands[0])          // paper bird
-println(coBands[0])               // DeVotchKa
+// Now `bands2` is a separate copy.
+println(bands2[0])                  // radiohead
