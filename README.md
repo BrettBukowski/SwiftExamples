@@ -7,22 +7,23 @@ Learning Swift by Example.
 2. Values
 3. Variables
 4. Constants
-5. For Loops
-6. If/Else
-7. Switch
-8. Arrays
-9. Dictionaries
-10. Tuples
-11. Optionals
-12. Functions
-13. Closures
-14. Enums
-15. Classes
-16. Structures
-15. Values and References
-17. Type Casting
-18. Class Extensions
-19. Protocols
-20. Generics
-21. Advanced Operators
-22. Generators
+5. Strings
+6. For Loops
+7. If/Else
+8. Switch
+9. Arrays
+10. Dictionaries
+11. Tuples
+12. Optionals
+13. Functions
+14. Closures
+15. Enums
+16. Classes
+17. Structures
+18. Values and References
+19. Type Casting
+20. Class Extensions
+21. Protocols
+22. Generics
+23. Advanced Operators
+24. Generators

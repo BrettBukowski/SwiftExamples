@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
+    <title>Swift by example - strings</title>
+    <link href='http://fonts.googleapis.com/css?family=Fira+Sans' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="../site.css"></link>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.min.css"></link>
+    <link rel="shortcut icon" href="../favicon.ico">
+  </head>
+  <body>
+    <div id="container">
+      <h1>
+        <a href='#'>Swift by example</a>
+        
+        <span class="topic">strings</span>
+        
+      </h1>
+      <main>
+        <table>
+          <tbody>
+                <tr>
+      <td class='docs'>
+        
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'> </code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         Swift's way of representing strings as encoding-independent
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'> </code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         Unicode characters means that programmers don't have to worry
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'> </code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         as much about encoding issues (like Ruby, Python, etc.), but
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'> </code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         common operations can be a bit tedious as a result, since you
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'> </code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         can't directly index into a string without using a Range
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'> </code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         abstraction.
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'>
+import UIKit
+
+</code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+        <h2> # Concatenation
+</h2>
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'>
+var str = &quot;Hello&quot;
+var smile = &quot;😄&quot;
+var combined = str + &quot; &quot; + smile
+
+</code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+        <h2> # Common Operations
+</h2>
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'>
+var length = countElements(combined) // 7
+println(combined.lowercaseString)
+println(combined.uppercaseString)
+
+</code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+        <h2> # Working with Characters
+</h2>
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'>
+for char in combined {
+    println(char)
+}
+
+</code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+        <h2> # Substrings
+</h2>
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'>
+var trail = combined.substringWithRange(Range&lt;String.Index&gt;(start: str.endIndex, end: combined.endIndex))  // &quot; 😄&quot;
+
+</code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+        <h2> # Contains
+</h2>
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'>
+if let range = str.rangeOfString(&quot;ello&quot;) {
+    println(&quot;ello&quot;)                           // ello
+} else {
+    println(&quot;nope&quot;)
+}
+
+</code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         Swift has many string methods, most inherited
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'> </code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         from the rich NSString API. But (spoiler alert)
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'> </code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         you can add your own too.
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'>
+extension String {
+    func beginsWith (str: String) -&gt; Bool {
+        if let range = self.rangeOfString(str) {
+            return range.startIndex == self.startIndex
+        }
+        return false
+    }
+
+    func endsWith (str: String) -&gt; Bool {
+        if let range = self.rangeOfString(str) {
+            return range.endIndex == self.endIndex
+        }
+        return false
+    }
+}
+
+println(&quot;find&quot;.beginsWith(&quot;f&quot;))       // true
+println(&quot;find&quot;.beginsWith(&quot;fi&quot;))      // true
+println(&quot;find&quot;.beginsWith(&quot;fin&quot;))     // true
+println(&quot;find&quot;.beginsWith(&quot;find&quot;))    // true
+println(&quot;find&quot;.beginsWith(&quot;finder&quot;))  // false
+
+println(&quot;find&quot;.endsWith(&quot;d&quot;))         // true
+println(&quot;find&quot;.endsWith(&quot;nd&quot;))        // true
+println(&quot;find&quot;.endsWith(&quot;ind&quot;))       // true
+println(&quot;find&quot;.endsWith(&quot;find&quot;))      // true
+println(&quot;find&quot;.endsWith(&quot;&quot;))          // false
+
+</code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+        <h2> # Mutating
+</h2>
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'>
+combined.splice(&quot;🐈&quot;, atIndex: combined.rangeOfString(smile)!.startIndex)
+combined.removeAtIndex(combined.rangeOfString(smile)!.startIndex)
+</code></pre>
+      </td>
+    </tr>
+
+          </tbody>
+        </table>
+        <nav>
+          
+          <a href="../constants" class="prev" rel="prev">Constants</a>
+          
+          
+          <a href="../for-loops" class="next" rel="next">For Loops</a>
+          
+        </nav>
+      </main>
+      <footer>
+        by <a href="https://twitter.com/BrettBukowski">@BrettBukowski</a>
+        <a href="https://github.com/BrettBukowski/SwiftExamples">source</a>
+      </footer>
+    </div>
+    <script async src="../site.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.min.js"></script>
+  </body>
+</html>
