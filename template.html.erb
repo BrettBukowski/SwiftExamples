@@ -6,7 +6,7 @@
     <title>Swift by example <%= name.empty? ? '' : "- #{name}" %></title>
     <link href='http://fonts.googleapis.com/css?family=Fira+Sans' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="<%= path %>site.css"></link>
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.min.css"></link>
+    <link rel="stylesheet" href="<%= path %>prism.css"></link>
     <link rel="shortcut icon" href="<%= path %>favicon.ico">
   </head>
   <body>
@@ -38,6 +38,6 @@
       </footer>
     </div>
     <script async src="<%= path %>site.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.min.js"></script>
+    <script src="<%= path %>prism.js"></script>
   </body>
 </html>

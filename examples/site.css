@@ -38,6 +38,7 @@ footer {
   position: absolute;
   padding: 0 10%;
   width: 100%;
+  font-size: small;
 }
 footer a:after {
   content: "|";
