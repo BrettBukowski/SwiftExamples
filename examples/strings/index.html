@@ -213,7 +213,7 @@ if let range = str.rangeOfString(&quot;ello&quot;) {
     }
 
     func endsWith (str: String) -&gt; Bool {
-        if let range = self.rangeOfString(str) {
+        if let range = self.rangeOfString(str, options:NSStringCompareOptions.BackwardsSearch) {
             return range.endIndex == self.endIndex
         }
         return false

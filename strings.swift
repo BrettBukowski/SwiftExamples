@@ -51,7 +51,7 @@ extension String {
     }
 
     func endsWith (str: String) -> Bool {
-        if let range = self.rangeOfString(str) {
+        if let range = self.rangeOfString(str, options:NSStringCompareOptions.BackwardsSearch) {
             return range.endIndex == self.endIndex
         }
         return false
