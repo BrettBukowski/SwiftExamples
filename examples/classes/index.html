@@ -48,7 +48,7 @@ class Example {
       </td>
       <td class='code'>
         <pre><code class='language-swift'>let eg = Example(a: 1)
-println(eg.a)              // 1
+print(eg.a)              // 1
 
 
 </code></pre>
@@ -73,8 +73,8 @@ class Example2 {
 }
 
 let eg2 = Example2(1, 2)
-println(eg2.a)            // 1
-println(eg2.b)            // 2
+print(eg2.a)            // 1
+print(eg2.b)            // 2
 
 
 </code></pre>
@@ -127,7 +127,7 @@ class Episode {
 }
 
 var podcast = Podcast()          // episode has not been initialized yet.
-println(podcast.episode.audio)   // somefile.mp3
+print(podcast.episode.audio)   // somefile.mp3
 
 </code></pre>
       </td>
@@ -177,10 +177,10 @@ class Window {
 }
 
 var win = Window()
-println(win.center)               // (50.0, 50.0)
+print(win.center)               // (50.0, 50.0)
 win.center = (0.0, 10.0)
-println(win.x)                    // -50.0
-println(win.y)                    // -40.0
+print(win.x)                    // -50.0
+print(win.y)                    // -40.0
 
 </code></pre>
       </td>
@@ -225,16 +225,16 @@ class Song {
     var metaInfo: [String:String] {
         return [
             &quot;title&quot;: self.title,
-            &quot;duration&quot;: NSString(format: &quot;%.2f&quot;, self.duration),
-            ]
+            &quot;duration&quot;: NSString(format: &quot;%.2f&quot;, self.duration) as String,
+        ]
     }
 }
 
 var song = Song()
 song.title = &quot;Rootshine Revival&quot;
 song.duration = 2.01
-println(song.metaInfo[&quot;title&quot;]!)    // Rootshine Revival
-println(song.metaInfo[&quot;duration&quot;]!) // 2.01
+print(song.metaInfo[&quot;title&quot;]!)    // Rootshine Revival
+print(song.metaInfo[&quot;duration&quot;]!) // 2.01
 
 </code></pre>
       </td>
@@ -273,14 +273,14 @@ class Website {
             visitors = newVisitorCount + 1  // Warning. Can&#39;t set within its own willSet
         }
         didSet {                            // Called after a new val is set
-            println(visitors - oldValue)    // oldValue is magically defined
+            print(visitors - oldValue)    // oldValue is magically defined
         }
     }
 }
 
 var site = Website()
 site.visitors = 1
-println(site.visitors)                 // 1
+print(site.visitors)                 // 1
 
 </code></pre>
       </td>
@@ -306,10 +306,10 @@ println(site.visitors)                 // 1
     /*    class var age = 0                 // error: class variables not yet supported */
     // Computed type property
     class var size: Int {
-    return 10
+        return 10
     }
 }
-println(Body.size)                     // 10
+print(Body.size)                     // 10
 
 </code></pre>
       </td>
@@ -337,7 +337,7 @@ println(Body.size)                     // 10
         return &quot;Musa&quot;
     }
 }
-println(Banana.genus())                // Musa
+print(Banana.genus())                // Musa
 
 </code></pre>
       </td>
@@ -361,7 +361,7 @@ class Month {
         return name[name.startIndex..&lt;advance(name.startIndex, 3)]
     }
 }
-println(Month(name: &quot;January&quot;).shortened())    // Jan
+print(Month(name: &quot;January&quot;).shortened())    // Jan
 
 </code></pre>
       </td>
@@ -400,7 +400,7 @@ class Bicycle {
     }
 
     func go(distance: Double) {
-        println(&quot;Went \(distance) at a top speed of \(topSpeed) in my \(name)&quot;)
+        print(&quot;Went \(distance) at a top speed of \(topSpeed) in my \(name)&quot;)
     }
 }
 
@@ -416,7 +416,7 @@ class MountainBike : Bicycle {
     // Override parent&#39;s methods via `override` keyword
     override func go(distance: Double) {
         super.go(distance)
-        println(&quot;Did \(distance) on a mountain bike&quot;)
+        print(&quot;Did \(distance) on a mountain bike&quot;)
     }
 
     // A getter/setter override can _any_ inherited property.
@@ -432,14 +432,14 @@ class MountainBike : Bicycle {
     // Property observer
     override var gears: Int {
         didSet {
-            println(&quot;Gears was changed to \(gears)&quot;)
+            print(&quot;Gears was changed to \(gears)&quot;)
         }
     }
 }
 
 var mountainBike = MountainBike()              // Gears was changed to 12
 mountainBike.topSpeed = 6.0
-println(mountainBike.topSpeed)                 // 2.0
+print(mountainBike.topSpeed)                 // 2.0
 mountainBike.go(12.0)                          // Went 12.0 at a top speed of 10.0 in my mountain bike
 </code></pre>
       </td>
@@ -505,7 +505,7 @@ class iOS {
 }
 
 var os = iOS()
-println(os.version)                          // 8.0.0
+print(os.version)                          // 8.0.0
 
 </code></pre>
       </td>
@@ -592,7 +592,7 @@ class Driver {
     weak var car: Car? // Strong reference to car.
 
     deinit {
-        println(&quot;Driver deinitialized&quot;)
+        print(&quot;Driver deinitialized&quot;)
     }
 }
 
@@ -600,7 +600,7 @@ class Car {
     weak var driver: Driver? // Weak reference to driver.
 
     deinit {
-        println(&quot;Car deinitialized&quot;)
+        print(&quot;Car deinitialized&quot;)
     }
 }
 

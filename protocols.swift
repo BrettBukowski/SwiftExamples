@@ -2,6 +2,8 @@
 // abstract properties and methods that
 // concrete classes implement.
 
+import Foundation
+
 protocol Image {
     // Protocol defines only a properties'
     // type and whether it's gettable or settable
@@ -11,7 +13,7 @@ protocol Image {
     var height: Double { get }
     var width: Double { get }
 
-/*    class var someTypeProperty: Int { get set } */
+    /*    class var someTypeProperty: Int { get set } */
 
     func save ()
 
@@ -133,9 +135,9 @@ func save(media: protocol<Image, Video>) {
 }
 
 class ShortDate : Time {
-    var day: Int
-    var month: Int
-    var year: Int
+    @objc var day: Int
+    @objc var month: Int
+    @objc var year: Int
 
     init(day: Int, month: Int, year: Int) {
         self.day = day
@@ -143,7 +145,7 @@ class ShortDate : Time {
         self.year = year
     }
 
-    func toString () -> String {
+    @objc func toString () -> String {
         return "\(day)/\(month)/\(year)"
     }
 }
@@ -171,12 +173,12 @@ var dates: [AnyObject] = [
 ]
 
 for item in dates {
-    let date = item as Time
+    let date = item as! Time
 
-    println("\(date.toString())")                              // 5/5/2016 5/5/2016 10:1:0
+    print("\(date.toString())")                              // 5/5/2016 5/5/2016 10:1:0
 
-    if let hours = date.hour? {
-        println("Hour of the day: \(hours)")                  // Hour of the day: 10
+    if let hours = date.hour {
+        print("Hour of the day: \(hours)")                  // Hour of the day: 10
     }
 }
 

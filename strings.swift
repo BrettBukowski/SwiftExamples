@@ -15,14 +15,15 @@ var combined = str + " " + smile
 
 // # Common Operations
 
-var length = countElements(combined) // 7
-println(combined.lowercaseString)
-println(combined.uppercaseString)
+var length = combined.characters.count // 7
+print(combined.lowercaseString)
+print(combined.uppercaseString)
 
 // # Working with Characters
 
-for char in combined {
-    println(char)
+for char in combined.characters {
+    // Loops seven times
+    print(char)
 }
 
 // # Substrings
@@ -32,15 +33,15 @@ var trail = combined.substringWithRange(Range<String.Index>(start: str.endIndex,
 // # Contains
 
 if let range = str.rangeOfString("ello") {
-    println("ello")                           // ello
+    print("ello")                           // ello
 } else {
-    println("nope")
+    print("nope")
 }
 
-// Swift has many string methods, most inherited
-// from the rich NSString API. But (spoiler alert)
-// you can add your own too.
-
+//// Swift has many string methods, most inherited
+//// from the rich NSString API. But (spoiler alert)
+//// you can add your own too.
+//
 extension String {
     func beginsWith (str: String) -> Bool {
         if let range = self.rangeOfString(str) {
@@ -57,19 +58,19 @@ extension String {
     }
 }
 
-println("find".beginsWith("f"))       // true
-println("find".beginsWith("fi"))      // true
-println("find".beginsWith("fin"))     // true
-println("find".beginsWith("find"))    // true
-println("find".beginsWith("finder"))  // false
+print("find".beginsWith("f"))       // true
+print("find".beginsWith("fi"))      // true
+print("find".beginsWith("fin"))     // true
+print("find".beginsWith("find"))    // true
+print("find".beginsWith("finder"))  // false
 
-println("find".endsWith("d"))         // true
-println("find".endsWith("nd"))        // true
-println("find".endsWith("ind"))       // true
-println("find".endsWith("find"))      // true
-println("find".endsWith(""))          // false
+print("find".endsWith("d"))         // true
+print("find".endsWith("nd"))        // true
+print("find".endsWith("ind"))       // true
+print("find".endsWith("find"))      // true
+print("find".endsWith(""))          // false
 
 // # Mutating
-
-combined.splice("🐈", atIndex: combined.rangeOfString(smile)!.startIndex)
+combined.splice("🐈".characters, atIndex: combined.rangeOfString(smile)!.startIndex)
 combined.removeAtIndex(combined.rangeOfString(smile)!.startIndex)
+print(combined)                    // Hello 🐈

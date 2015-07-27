@@ -45,7 +45,7 @@ body
 
 var numbers = [1, 2, 3, 4]
 
-var reversed = sorted(numbers, {(a: Int, b: Int) -&gt; Bool in
+var reversed = numbers.sort({(a: Int, b: Int) -&gt; Bool in
     return a &gt; b;
 })
 
@@ -69,7 +69,7 @@ var reversed = sorted(numbers, {(a: Int, b: Int) -&gt; Bool in
 
       </td>
       <td class='code'>
-        <pre><code class='language-swift'>reversed = sorted(numbers, { a, b in return a &gt; b })
+        <pre><code class='language-swift'>reversed = numbers.sort({ a, b in return a &gt; b })
 
 </code></pre>
       </td>
@@ -81,7 +81,7 @@ var reversed = sorted(numbers, {(a: Int, b: Int) -&gt; Bool in
 
       </td>
       <td class='code'>
-        <pre><code class='language-swift'>reversed = sorted(numbers, { a, b in a &gt; b })
+        <pre><code class='language-swift'>reversed = numbers.sort({ a, b in a &gt; b })
 
 </code></pre>
       </td>
@@ -93,7 +93,7 @@ var reversed = sorted(numbers, {(a: Int, b: Int) -&gt; Bool in
 
       </td>
       <td class='code'>
-        <pre><code class='language-swift'>reversed = sorted(numbers, { $0 &gt; $1 })
+        <pre><code class='language-swift'>reversed = numbers.sort({ $0 &gt; $1 })
 
 </code></pre>
       </td>
@@ -105,7 +105,7 @@ var reversed = sorted(numbers, {(a: Int, b: Int) -&gt; Bool in
 
       </td>
       <td class='code'>
-        <pre><code class='language-swift'>reversed = sorted(numbers, &gt;)
+        <pre><code class='language-swift'>reversed = numbers.sort(&gt;)
 
 </code></pre>
       </td>
@@ -132,11 +132,11 @@ func sizeOfNumbers() -&gt; Int {
     return numbers.count
 }
 
-println(String(sizeOfNumbers()))              // 4
+print(String(sizeOfNumbers()))              // 4
 
 numbers.append(5)
 
-println(String(sizeOfNumbers()))              // 5
+print(String(sizeOfNumbers()))              // 5
 
 </code></pre>
       </td>
@@ -169,7 +169,7 @@ println(String(sizeOfNumbers()))              // 5
       </td>
       <td class='code'>
         <pre><code class='language-swift'>
-reversed = sorted(numbers) { $0 &gt;  $1 }
+reversed = numbers.sort { $0 &gt;  $1 }
 
 var toStringed = numbers.map {
     (num: Int) -&gt; String in

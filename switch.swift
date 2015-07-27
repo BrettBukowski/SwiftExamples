@@ -2,13 +2,13 @@ let i = 2
 
 switch i {
 case 1:
-    println("one")
+    print("one")
 case 2:
-    println("two")
+    print("two")
 case 3, 4:
     // Comma-separate multiple expressions in the same case statement.
-    println("three or four")
+    print("three or four")
 default:
     // Default is required.
-    println("huh")
+    print("huh")
 }

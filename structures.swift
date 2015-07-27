@@ -2,22 +2,22 @@
 // conform to protocols
 
 struct Work {
-  var location = ""
-  var units = [String]()
-  let length: Int
+    var location = ""
+    var units = [String]()
+    let length: Int
 
-  func last() -> String {
-    return units[units.count - 1]
-  }
+    func last() -> String {
+        return units[units.count - 1]
+    }
 }
 
 // Structs have handy memberwise initializers.
 // All properties must be specified.
 var work = Work(location: "office", units: ["answer phone", "read book"], length: 8)
 
-println(work.location)                // office
-println(work.units[0])                // answer phone
-println(work.last())                  // read book
+print(work.location)                // office
+print(work.units[0])                // answer phone
+print(work.last())                  // read book
 
 // # Type Properties
 // AKA static variables
@@ -25,20 +25,20 @@ println(work.last())                  // read book
 struct Play {
     static var duration = 1
     static var name: String { // Read-only computed type property
-    return String(seq:"named \(duration + 1)")
+        return String("named \(duration + 1)")
     }
     static var activity: String {
         get {
-            return name + "stargaze"
+        return name + "stargaze"
         }
         set {
             duration = 2
         }
     }
 }
-println(Play.duration)               // 1
-println(Play.name)                   // named 2
-println(Play.activity)               // named 2stargaze
+print(Play.duration)               // 1
+print(Play.name)                   // named 2
+print(Play.activity)               // named 2stargaze
 
 // # Instance methods
 
@@ -54,7 +54,7 @@ struct Mansion {
 }
 var mansion = Mansion()
 mansion.addGarage(5)
-println(mansion.garageDoors)         // 10
+print(mansion.garageDoors)         // 10
 
 // # Type Methods
 // AKA static methods
@@ -67,4 +67,4 @@ struct Font {
         return "\(size)pt"
     }
 }
-println(Font.pointSize())            // 12pt
+print(Font.pointSize())            // 12pt

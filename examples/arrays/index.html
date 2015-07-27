@@ -122,7 +122,7 @@ strings += [&quot;f&quot;, &quot;g&quot;]
 
       </td>
       <td class='code'>
-        <pre><code class='language-swift'>println(strings.count)                      // 7
+        <pre><code class='language-swift'>print(strings.count)                      // 7
 
 </code></pre>
       </td>
@@ -135,10 +135,10 @@ strings += [&quot;f&quot;, &quot;g&quot;]
       </td>
       <td class='code'>
         <pre><code class='language-swift'>
-println(strings[0])                         // a
-println(strings.first!)                     // a
-println(strings[strings.endIndex - 1])      // g
-println(strings.last!)                      // g
+print(strings[0])                         // a
+print(strings.first!)                     // a
+print(strings[strings.endIndex - 1])      // g
+print(strings.last!)                      // g
 
 </code></pre>
       </td>
@@ -181,12 +181,12 @@ strings[0..&lt;strings.endIndex]                // [&quot;a&quot;, &quot;b&quot;
       <td class='code'>
         <pre><code class='language-swift'>
 if strings.isEmpty {
-    println(&quot;empty&quot;)
+    print(&quot;empty&quot;)
 } else {
-    println(&quot;populated&quot;)                   // populated
+    print(&quot;populated&quot;)                   // populated
 }
 strings.insert(&quot;a&quot;, atIndex: 0)            // Insert, not replace
-println(strings.removeAtIndex(0))          // a
+print(strings.removeAtIndex(0))          // a
 strings.map({
     (str: String) -&gt; String in
     return str + &quot;0&quot;

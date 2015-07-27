@@ -7,10 +7,10 @@ class Job {
 var job1 = Job()
 var job2 = job1
 job1.title = "singer"
-println(job2.title)                   // singer
+print(job2.title)                   // singer
 
 // Triple equals checks identity.
-println(job1 === job2)                // true
+print(job1 === job2)                // true
 
 // # Dictionaries are copied at the point of assignment
 
@@ -18,7 +18,7 @@ var band1 = ["bob": "singer", "dan": "guitarist"]
 var band2 = band1
 
 band2["bob"] = "drummer"
-println(band1["bob"])                // singer
+print(band1["bob"])                // singer
 
 // # Arrays, Strings, and Dictionaries
 
@@ -28,8 +28,8 @@ println(band1["bob"])                // singer
 
 var bands1 = ["radiohead", "telekinesis", "nada surf"]
 var bands2 = bands1
-println(bands1 == bands2)           // true
+print(bands1 == bands2)           // true
 
 bands1[0] = "the orwells"
 // Now `bands2` is a separate copy.
-println(bands2[0])                  // radiohead
+print(bands2[0])                  // radiohead

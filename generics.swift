@@ -7,7 +7,7 @@ import Foundation
 // Thereafter, that placeholder can be used
 // as a type parameter or within the function.
 func log<ToBeLogged>(a: ToBeLogged) {
-    println(a)
+    print(a)
 }
 
 log("les filles")
@@ -92,7 +92,7 @@ class GrecianUrn : Vase {
     }
 
     func remove() -> String {
-        var name = plantName
+        let name = plantName
         plantName = ""
         return name
     }
@@ -104,8 +104,8 @@ class GrecianUrn : Vase {
 // a `where` clause after the list of type params within the brackets.
 
 var a = ["a"]
-println(a.dynamicType)
-println(object_getClassName(a))
+print(a.dynamicType)
+print(object_getClassName(a))
 
 protocol Container {
     typealias Thing
@@ -139,6 +139,6 @@ intCrate.add(22)
 /* similarCrates(stringCrate, intCrate) */
 
 var anotherStringCrate = Crate<String>()
-similarCrates(stringCrate, anotherStringCrate)                 // false
+similarCrates(stringCrate, crate2: anotherStringCrate)                 // false
 anotherStringCrate.add("goo")
-similarCrates(stringCrate, anotherStringCrate)                 // true
+similarCrates(stringCrate, crate2: anotherStringCrate)                 // true

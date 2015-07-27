@@ -51,7 +51,7 @@ var b: UInt8 = 0b11110000
 
       </td>
       <td class='code'>
-        <pre><code class='language-swift'>println(~a == b)                   // true
+        <pre><code class='language-swift'>print(~a == b)                   // true
 
 </code></pre>
       </td>
@@ -63,7 +63,7 @@ var b: UInt8 = 0b11110000
 
       </td>
       <td class='code'>
-        <pre><code class='language-swift'>println(a &amp; b == 0)                // true
+        <pre><code class='language-swift'>print(a &amp; b == 0)                // true
 
 </code></pre>
       </td>
@@ -75,7 +75,7 @@ var b: UInt8 = 0b11110000
 
       </td>
       <td class='code'>
-        <pre><code class='language-swift'>println(a | b == 0b11111111)       // true
+        <pre><code class='language-swift'>print(a | b == 0b11111111)       // true
 
 </code></pre>
       </td>
@@ -87,7 +87,7 @@ var b: UInt8 = 0b11110000
 
       </td>
       <td class='code'>
-        <pre><code class='language-swift'>println(a ^ b == a | b)            // true
+        <pre><code class='language-swift'>print(a ^ b == a | b)            // true
 
 </code></pre>
       </td>
@@ -99,8 +99,8 @@ var b: UInt8 = 0b11110000
 
       </td>
       <td class='code'>
-        <pre><code class='language-swift'>println(a &lt;&lt; 1 == 0b00011110)
-println(a &gt;&gt; 1 == 0b00000111)
+        <pre><code class='language-swift'>print(a &lt;&lt; 1 == 0b00011110)
+print(a &gt;&gt; 1 == 0b00000111)
 
 </code></pre>
       </td>
@@ -167,7 +167,7 @@ var num = UInt8.max
       </td>
       <td class='code'>
         <pre><code class='language-swift'>var zero = num &amp;+ 1
-println(zero == 0)                 // true
+print(zero == 0)                 // true
 
 </code></pre>
       </td>
@@ -267,20 +267,20 @@ var tripB = Trip(distance: 250.0, duration: 5.0)
 
 var combined = tripA + tripB
 
-println(&quot;Went \(combined.distance) in \(combined.duration)&quot;)        // Went 350.0 in 7.0
+print(&quot;Went \(combined.distance) in \(combined.duration)&quot;)        // Went 350.0 in 7.0
 
 var disaster = -tripA
 
-println(&quot;Went \(disaster.distance) in \(disaster.duration)&quot;)        // Went -100.0 in -2.0
+print(&quot;Went \(disaster.distance) in \(disaster.duration)&quot;)        // Went -100.0 in -2.0
 
 tripA += tripB
 tripA += tripB
 
-println(&quot;Went \(tripA.distance) in \(tripA.duration)&quot;)        // Went 600.0 in 12.0
+print(&quot;Went \(tripA.distance) in \(tripA.duration)&quot;)        // Went 600.0 in 12.0
 
 ++tripA
 
-println(&quot;Went \(tripA.distance) in \(tripA.duration)&quot;)        // Went 601.0 in 13.0
+print(&quot;Went \(tripA.distance) in \(tripA.duration)&quot;)        // Went 601.0 in 13.0
 
 
 </code></pre>
@@ -314,7 +314,7 @@ postfix func -=- (inout trip: Trip) -&gt; Trip {
 
 tripA-=-
 
-println(&quot;Went \(tripA.distance) in \(tripA.duration)&quot;)        // Went 602222301.0 in 1311110111.0
+print(&quot;Went \(tripA.distance) in \(tripA.duration)&quot;)        // Went 602222301.0 in 1311110111.0
 </code></pre>
       </td>
     </tr>

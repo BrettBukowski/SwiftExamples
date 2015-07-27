@@ -56,6 +56,8 @@
       </td>
       <td class='code'>
         <pre><code class='language-swift'>
+import Foundation
+
 protocol Image {
     // Protocol defines only a properties&#39;
     // type and whether it&#39;s gettable or settable
@@ -65,7 +67,7 @@ protocol Image {
     var height: Double { get }
     var width: Double { get }
 
-/*    class var someTypeProperty: Int { get set } */
+    /*    class var someTypeProperty: Int { get set } */
 
     func save ()
 
@@ -325,9 +327,9 @@ struct Media: Image, Video {
 }
 
 class ShortDate : Time {
-    var day: Int
-    var month: Int
-    var year: Int
+    @objc var day: Int
+    @objc var month: Int
+    @objc var year: Int
 
     init(day: Int, month: Int, year: Int) {
         self.day = day
@@ -335,7 +337,7 @@ class ShortDate : Time {
         self.year = year
     }
 
-    func toString () -&gt; String {
+    @objc func toString () -&gt; String {
         return &quot;\(day)/\(month)/\(year)&quot;
     }
 }
@@ -363,12 +365,12 @@ var dates: [AnyObject] = [
 ]
 
 for item in dates {
-    let date = item as Time
+    let date = item as! Time
 
-    println(&quot;\(date.toString())&quot;)                              // 5/5/2016 5/5/2016 10:1:0
+    print(&quot;\(date.toString())&quot;)                              // 5/5/2016 5/5/2016 10:1:0
 
-    if let hours = date.hour? {
-        println(&quot;Hour of the day: \(hours)&quot;)                  // Hour of the day: 10
+    if let hours = date.hour {
+        print(&quot;Hour of the day: \(hours)&quot;)                  // Hour of the day: 10
     }
 }
 

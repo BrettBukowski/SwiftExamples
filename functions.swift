@@ -1,5 +1,5 @@
 func simple() {
-    println("hi")
+    print("hi")
 }
 
 simple()                                // hi
@@ -40,8 +40,8 @@ func noop(){}
 noop()
 
 var result = stats([1, 2, 4])
-println(result.min)                      // 1
-println(result.max)                      // 4
+print(result.min)                      // 1
+print(result.max)                      // 4
 
 // Named parameters use an 'external' name before the 'internal' name.
 // Kind of a kludgy holdover from Obj-C selectors...
@@ -49,15 +49,14 @@ func increment(number: Int, by incrementer: Int) -> Int {
     return number + incrementer
 }
 
-println(increment(1, by: 10))           // 11
+print(increment(1, by: 10))           // 11
 
 // ...So fortunately there's a shorthand for re-using the same name.
-// (unfortunately it's ugly)
-func incrementTakeTwo(number: Int, #by: Int) -> Int {
+func incrementTakeTwo(number: Int, by: Int) -> Int {
     return number + by
 }
 
-println(increment(1, by: 10))           // 11
+print(increment(1, by: 10))           // 11
 
 // Parameter values aren't modifiable by default.
 // But you can declare that you want to change a parameter
@@ -77,8 +76,8 @@ func incrementTakeThree(number: Int, by: Int = 3) -> Int {
     return number + by
 }
 
-println(incrementTakeThree(1))         // 4
-println(incrementTakeThree(1, by:1))   // 2
+print(incrementTakeThree(1))         // 4
+print(incrementTakeThree(1, by:1))   // 2
 
 
 // # Variadic parameters
@@ -110,7 +109,7 @@ func addOneSideEffect(inout num: Int) {
 var num = 1
 // Use an & before the var's name.
 addOneSideEffect(&num)
-println(num)                         // 2
+print(num)                         // 2
 
 // # Function Types
 
@@ -127,7 +126,7 @@ mean(1.0, 4.0)                      // 2.5
 func skewedMean(mean: (Double...) -> Double, num1: Double, num2: Double) -> Double {
     return mean(num1, num2) + 1.0
 }
-skewedMean(mean, 1.0, 4.0)          // 3.5
+skewedMean(mean, num1: 1.0, num2: 4.0)          // 3.5
 
 // Function types can be returned from functions.
 func choose(which: String) -> (Double...) -> Double {

@@ -26,7 +26,7 @@
       </td>
       <td class='code'>
         <pre><code class='language-swift'>func simple() {
-    println(&quot;hi&quot;)
+    print(&quot;hi&quot;)
 }
 
 simple()                                // hi
@@ -103,8 +103,8 @@ func sum(numbers: [Double]) -&gt; Double {
 noop()
 
 var result = stats([1, 2, 4])
-println(result.min)                      // 1
-println(result.max)                      // 4
+print(result.min)                      // 1
+print(result.max)                      // 4
 
 </code></pre>
       </td>
@@ -130,7 +130,7 @@ println(result.max)                      // 4
     return number + incrementer
 }
 
-println(increment(1, by: 10))           // 11
+print(increment(1, by: 10))           // 11
 
 </code></pre>
       </td>
@@ -142,21 +142,11 @@ println(increment(1, by: 10))           // 11
 
       </td>
       <td class='code'>
-        <pre><code class='language-swift'> </code></pre>
-      </td>
-    </tr>
-
-    <tr>
-      <td class='docs'>
-         (unfortunately it's ugly)
-
-      </td>
-      <td class='code'>
-        <pre><code class='language-swift'>func incrementTakeTwo(number: Int, #by: Int) -&gt; Int {
+        <pre><code class='language-swift'>func incrementTakeTwo(number: Int, by: Int) -&gt; Int {
     return number + by
 }
 
-println(increment(1, by: 10))           // 11
+print(increment(1, by: 10))           // 11
 
 </code></pre>
       </td>
@@ -238,8 +228,8 @@ addOne(1)                             // 2
     return number + by
 }
 
-println(incrementTakeThree(1))         // 4
-println(incrementTakeThree(1, by:1))   // 2
+print(incrementTakeThree(1))         // 4
+print(incrementTakeThree(1, by:1))   // 2
 
 
 </code></pre>
@@ -350,7 +340,7 @@ average(1.0, 2.0, 3.0, 4.0)            // 2.5
       </td>
       <td class='code'>
         <pre><code class='language-swift'>addOneSideEffect(&amp;num)
-println(num)                         // 2
+print(num)                         // 2
 
 </code></pre>
       </td>
@@ -428,7 +418,7 @@ mean(1.0, 4.0)                      // 2.5
         <pre><code class='language-swift'>func skewedMean(mean: (Double...) -&gt; Double, num1: Double, num2: Double) -&gt; Double {
     return mean(num1, num2) + 1.0
 }
-skewedMean(mean, 1.0, 4.0)          // 3.5
+skewedMean(mean, num1: 1.0, num2: 4.0)          // 3.5
 
 </code></pre>
       </td>

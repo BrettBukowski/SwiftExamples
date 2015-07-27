@@ -24,14 +24,14 @@ strings += ["f", "g"]
 strings3 = strings + strings2
 
 // Checking length.
-println(strings.count)                      // 7
+print(strings.count)                      // 7
 
 // # Accessing elements
 
-println(strings[0])                         // a
-println(strings.first!)                     // a
-println(strings[strings.endIndex - 1])      // g
-println(strings.last!)                      // g
+print(strings[0])                         // a
+print(strings.first!)                     // a
+print(strings[strings.endIndex - 1])      // g
+print(strings.last!)                      // g
 
 // # Assigning elements
 
@@ -47,12 +47,12 @@ strings[0..<strings.endIndex]                // ["a", "b", "c", "d", "e", "f", "
 // # Methods
 
 if strings.isEmpty {
-    println("empty")
+    print("empty")
 } else {
-    println("populated")                   // populated
+    print("populated")                   // populated
 }
 strings.insert("a", atIndex: 0)            // Insert, not replace
-println(strings.removeAtIndex(0))          // a
+print(strings.removeAtIndex(0))          // a
 strings.map({
     (str: String) -> String in
     return str + "0"

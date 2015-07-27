@@ -2,20 +2,20 @@ let num = 9
 
 // Parens are optional.
 if (num < 0) {
-    println("num is negative")
+    print("num is negative")
 } else if num < 10 {
-    println("num is single-digit") // num is single-digit
+    print("num is single-digit") // num is single-digit
 } else {
-    println("num is multi-digit")
+    print("num is multi-digit")
 }
 
 // There are no 'truthy' conditionals.
 // The condition must be a boolean expression...
 
 if 7 % 2 == 2 {
-    println("7 is even")     // IDE helpfully notes, "Will never be executed"
+    print("7 is even")     // IDE helpfully notes, "Will never be executed"
 } else {
-    println("7 is odd")      // 7 is odd
+    print("7 is odd")      // 7 is odd
 }
 
 
@@ -25,13 +25,13 @@ if 7 % 2 == 2 {
 var optionalString:String? = "Hello?"
 
 if let a = optionalString {
-    println(a)               // Hello?
+    print(a)               // Hello?
 }
 
 optionalString = nil
 
 if let b = optionalString {
-    println("yep")
+    print("yep")
 } else {
-    println("nope")         // nope
+    print("nope")         // nope
 }

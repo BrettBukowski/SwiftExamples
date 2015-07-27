@@ -38,11 +38,11 @@
       </td>
       <td class='code'>
         <pre><code class='language-swift'>if (num &lt; 0) {
-    println(&quot;num is negative&quot;)
+    print(&quot;num is negative&quot;)
 } else if num &lt; 10 {
-    println(&quot;num is single-digit&quot;) // num is single-digit
+    print(&quot;num is single-digit&quot;) // num is single-digit
 } else {
-    println(&quot;num is multi-digit&quot;)
+    print(&quot;num is multi-digit&quot;)
 }
 
 </code></pre>
@@ -67,9 +67,9 @@
       <td class='code'>
         <pre><code class='language-swift'>
 if 7 % 2 == 2 {
-    println(&quot;7 is even&quot;)     // IDE helpfully notes, &quot;Will never be executed&quot;
+    print(&quot;7 is even&quot;)     // IDE helpfully notes, &quot;Will never be executed&quot;
 } else {
-    println(&quot;7 is odd&quot;)      // 7 is odd
+    print(&quot;7 is odd&quot;)      // 7 is odd
 }
 
 
@@ -97,15 +97,15 @@ if 7 % 2 == 2 {
 var optionalString:String? = &quot;Hello?&quot;
 
 if let a = optionalString {
-    println(a)               // Hello?
+    print(a)               // Hello?
 }
 
 optionalString = nil
 
 if let b = optionalString {
-    println(&quot;yep&quot;)
+    print(&quot;yep&quot;)
 } else {
-    println(&quot;nope&quot;)         // nope
+    print(&quot;nope&quot;)         // nope
 }
 </code></pre>
       </td>

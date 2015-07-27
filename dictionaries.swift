@@ -9,13 +9,13 @@ var strings = [
 ]
 
 // # Accessing and assigning elements
-println(strings["a"])                           // A
+print(strings["a"])                           // A
 strings["a"] = "AZ"                             // Returns an optional string (new value that was assigned)
 strings.updateValue("AX", forKey: "a")          // Returns an optional string (old value that was overwritten)
 
 // Optionals are returned for accessing keys.
 if let a = strings["a"] {
-    println(a)                                  // AX
+    print(a)                                  // AX
 }
 
 // # Removing
@@ -34,11 +34,11 @@ strings["a"] = "A"
 // # Iterating
 
 for (key, val) in strings {
-    println("\(key): \(val)")
+    print("\(key): \(val)")
 }
 
 for key in strings.keys {
-    println("KEY: \(key)")
+    print("KEY: \(key)")
 }
 
 for val in strings.values {
@@ -54,4 +54,4 @@ let vals = Array(strings.values)
 
 strings = [:]
 
-println(strings.count)                         // 0
+print(strings.count)                         // 0

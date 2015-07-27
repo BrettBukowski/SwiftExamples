@@ -66,9 +66,9 @@ var collection = [
         <pre><code class='language-swift'>
 for song in collection {
     if song is Classical {
-        println(&quot;\(song.name) is classical!&quot;)
+        print(&quot;\(song.name) is classical!&quot;)
     } else if song is Pop {
-        println(&quot;\(song.name) is poppy!&quot;)
+        print(&quot;\(song.name) is poppy!&quot;)
     }
 }
 
@@ -111,9 +111,9 @@ Canon in D is classical!
         <pre><code class='language-swift'>
 for song in collection {
     if let popSong = song as? Pop {
-        println(&quot;pop song&quot;)
+        print(&quot;pop song&quot;)
     } else if let classicalSong = song as? Classical {
-        println(&quot;classical song&quot;)
+        print(&quot;classical song&quot;)
     }
 }
 
@@ -179,9 +179,9 @@ var randomCollection: [AnyObject] = [
 ]
 
 for item in randomCollection {
-    let songGenre = item as Genre
-    println(&quot;\(songGenre.self)&quot;)       // C11lldb_expr_03Pop (has 1 child) // C11lldb_expr_09Classical
-    println(&quot;\(songGenre.name)&quot;)
+    let songGenre = item as! Genre
+    print(&quot;\(songGenre.self)&quot;)       // C11lldb_expr_03Pop (has 1 child) // C11lldb_expr_09Classical
+    print(&quot;\(songGenre.name)&quot;)
 }
 
 </code></pre>
@@ -195,8 +195,8 @@ for item in randomCollection {
       </td>
       <td class='code'>
         <pre><code class='language-swift'>
-for item in randomCollection as [Genre] {
-    println(&quot;\(item.name)&quot;)
+for item in randomCollection as! [Genre] {
+    print(&quot;\(item.name)&quot;)
 }
 
 /*
@@ -234,15 +234,15 @@ groups.append(Pop(name: &quot;Long Winters&quot;))
 for item in groups {
     switch item {
     case let anInt as Int:
-        println(&quot;\(item) is an int&quot;)
+        print(&quot;\(item) is an int&quot;)
     case let aDouble as Double:
-        println(&quot;\(item) is a double&quot;)
+        print(&quot;\(item) is a double&quot;)
     case let aString as String:
-        println(&quot;\(item) is a string&quot;)
+        print(&quot;\(item) is a string&quot;)
     case let aGenre as Genre:
-        println(&quot;\(item) is a Genre&quot;)
+        print(&quot;\(item) is a Genre&quot;)
     default:
-        println(&quot;dunno&quot;)
+        print(&quot;dunno&quot;)
     }
 }
 

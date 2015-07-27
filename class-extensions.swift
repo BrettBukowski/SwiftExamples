@@ -21,9 +21,9 @@ extension Int {
     }
 }
 
-println(someInt.isOdd())                 // true
-println(2.isEven())                      // true
+print(someInt.isOdd())                 // true
+print(2.isEven())                      // true
 
 2.times({(Int i) in
-    println(i)                           // 0, 1
+    print(i)                           // 0, 1
 })

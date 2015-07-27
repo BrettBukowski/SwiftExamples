@@ -23,13 +23,13 @@ example = .B
 
 switch example {
 case .A:
-    println("A")
+    print("A")
 case .B:
-    println("B")                               // B
+    print("B")                               // B
 case .C:
-    println("C")
+    print("C")
 case .D:
-    println("D")
+    print("D")
 }
 
 // Enumerations can store values of any type, and
@@ -48,9 +48,9 @@ a = .Num(1.0)
 // Associated values can be extracted as part of a switch.
 switch a {
 case .Str(let val):
-    println(val)
+    print(val)
 case .Num(let val):
-    println(val)                             // 1.0
+    print(val)                             // 1.0
 }
 
 // # Raw Values
@@ -72,12 +72,12 @@ enum Numbers: Int {
 // Access raw values with `toRaw`
 
 var five = Numbers.Five
-println(five.toRaw())                      // 5
+print(five.rawValue)                      // 5
 
 // `fromRaw` tries to find an enum member with a raw value.
 // An optional is returned.
 
-var possibleNum = Numbers.fromRaw(2)!
-println(possibleNum == Numbers.Two)       // true
+var possibleNum = Numbers(rawValue: 2)!
+print(possibleNum == Numbers.Two)       // true
 
 // TK - type methods and mutating methods

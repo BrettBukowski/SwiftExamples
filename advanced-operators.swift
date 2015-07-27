@@ -6,20 +6,20 @@ var a: UInt8 = 0b00001111
 var b: UInt8 = 0b11110000
 
 // `NOT`
-println(~a == b)                   // true
+print(~a == b)                   // true
 
 // `AND`
-println(a & b == 0)                // true
+print(a & b == 0)                // true
 
 // `OR`
-println(a | b == 0b11111111)       // true
+print(a | b == 0b11111111)       // true
 
 // `XOR`
-println(a ^ b == a | b)            // true
+print(a ^ b == a | b)            // true
 
 // Shifts (unsigned)
-println(a << 1 == 0b00011110)
-println(a >> 1 == 0b00000111)
+print(a << 1 == 0b00011110)
+print(a >> 1 == 0b00000111)
 
 // # Overflow Operators
 
@@ -33,7 +33,7 @@ var num = UInt8.max
 // But prefixing the operator with "&" tells Swift
 // that you want this behavior.
 var zero = num &+ 1
-println(zero == 0)                 // true
+print(zero == 0)                 // true
 
 // # Operator Functions
 
@@ -71,20 +71,20 @@ var tripB = Trip(distance: 250.0, duration: 5.0)
 
 var combined = tripA + tripB
 
-println("Went \(combined.distance) in \(combined.duration)")        // Went 350.0 in 7.0
+print("Went \(combined.distance) in \(combined.duration)")        // Went 350.0 in 7.0
 
 var disaster = -tripA
 
-println("Went \(disaster.distance) in \(disaster.duration)")        // Went -100.0 in -2.0
+print("Went \(disaster.distance) in \(disaster.duration)")        // Went -100.0 in -2.0
 
 tripA += tripB
 tripA += tripB
 
-println("Went \(tripA.distance) in \(tripA.duration)")        // Went 600.0 in 12.0
+print("Went \(tripA.distance) in \(tripA.duration)")        // Went 600.0 in 12.0
 
 ++tripA
 
-println("Went \(tripA.distance) in \(tripA.duration)")        // Went 601.0 in 13.0
+print("Went \(tripA.distance) in \(tripA.duration)")        // Went 601.0 in 13.0
 
 
 // You can also define your own bananas custom operators with
@@ -100,4 +100,4 @@ postfix func -=- (inout trip: Trip) -> Trip {
 
 tripA-=-
 
-println("Went \(tripA.distance) in \(tripA.duration)")        // Went 602222301.0 in 1311110111.0
+print("Went \(tripA.distance) in \(tripA.duration)")        // Went 602222301.0 in 1311110111.0

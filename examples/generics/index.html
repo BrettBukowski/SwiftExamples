@@ -88,7 +88,7 @@
       </td>
       <td class='code'>
         <pre><code class='language-swift'>func log&lt;ToBeLogged&gt;(a: ToBeLogged) {
-    println(a)
+    print(a)
 }
 
 log(&quot;les filles&quot;)
@@ -294,7 +294,7 @@ class GrecianUrn : Vase {
     }
 
     func remove() -&gt; String {
-        var name = plantName
+        let name = plantName
         plantName = &quot;&quot;
         return name
     }
@@ -332,8 +332,8 @@ class GrecianUrn : Vase {
       <td class='code'>
         <pre><code class='language-swift'>
 var a = [&quot;a&quot;]
-println(a.dynamicType)
-println(object_getClassName(a))
+print(a.dynamicType)
+print(object_getClassName(a))
 
 protocol Container {
     typealias Thing
@@ -376,9 +376,9 @@ intCrate.add(22)
         <pre><code class='language-swift'>/* similarCrates(stringCrate, intCrate) */
 
 var anotherStringCrate = Crate&lt;String&gt;()
-similarCrates(stringCrate, anotherStringCrate)                 // false
+similarCrates(stringCrate, crate2: anotherStringCrate)                 // false
 anotherStringCrate.add(&quot;goo&quot;)
-similarCrates(stringCrate, anotherStringCrate)                 // true
+similarCrates(stringCrate, crate2: anotherStringCrate)                 // true
 </code></pre>
       </td>
     </tr>

@@ -131,13 +131,13 @@ example = .B
         <pre><code class='language-swift'>
 switch example {
 case .A:
-    println(&quot;A&quot;)
+    print(&quot;A&quot;)
 case .B:
-    println(&quot;B&quot;)                               // B
+    print(&quot;B&quot;)                               // B
 case .C:
-    println(&quot;C&quot;)
+    print(&quot;C&quot;)
 case .D:
-    println(&quot;D&quot;)
+    print(&quot;D&quot;)
 }
 
 </code></pre>
@@ -201,9 +201,9 @@ a = .Num(1.0)
       <td class='code'>
         <pre><code class='language-swift'>switch a {
 case .Str(let val):
-    println(val)
+    print(val)
 case .Num(let val):
-    println(val)                             // 1.0
+    print(val)                             // 1.0
 }
 
 </code></pre>
@@ -278,7 +278,7 @@ case .Num(let val):
       <td class='code'>
         <pre><code class='language-swift'>
 var five = Numbers.Five
-println(five.toRaw())                      // 5
+print(five.rawValue)                      // 5
 
 </code></pre>
       </td>
@@ -301,8 +301,8 @@ println(five.toRaw())                      // 5
       </td>
       <td class='code'>
         <pre><code class='language-swift'>
-var possibleNum = Numbers.fromRaw(2)!
-println(possibleNum == Numbers.Two)       // true
+var possibleNum = Numbers(rawValue: 2)!
+print(possibleNum == Numbers.Two)       // true
 
 </code></pre>
       </td>

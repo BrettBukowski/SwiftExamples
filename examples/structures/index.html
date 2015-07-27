@@ -47,13 +47,13 @@
       <td class='code'>
         <pre><code class='language-swift'>
 struct Work {
-  var location = &quot;&quot;
-  var units = [String]()
-  let length: Int
+    var location = &quot;&quot;
+    var units = [String]()
+    let length: Int
 
-  func last() -&gt; String {
-    return units[units.count - 1]
-  }
+    func last() -&gt; String {
+        return units[units.count - 1]
+    }
 }
 
 </code></pre>
@@ -78,9 +78,9 @@ struct Work {
       <td class='code'>
         <pre><code class='language-swift'>var work = Work(location: &quot;office&quot;, units: [&quot;answer phone&quot;, &quot;read book&quot;], length: 8)
 
-println(work.location)                // office
-println(work.units[0])                // answer phone
-println(work.last())                  // read book
+print(work.location)                // office
+print(work.units[0])                // answer phone
+print(work.last())                  // read book
 
 </code></pre>
       </td>
@@ -106,20 +106,20 @@ println(work.last())                  // read book
 struct Play {
     static var duration = 1
     static var name: String { // Read-only computed type property
-    return String(seq:&quot;named \(duration + 1)&quot;)
+        return String(&quot;named \(duration + 1)&quot;)
     }
     static var activity: String {
         get {
-            return name + &quot;stargaze&quot;
+        return name + &quot;stargaze&quot;
         }
         set {
             duration = 2
         }
     }
 }
-println(Play.duration)               // 1
-println(Play.name)                   // named 2
-println(Play.activity)               // named 2stargaze
+print(Play.duration)               // 1
+print(Play.name)                   // named 2
+print(Play.activity)               // named 2stargaze
 
 </code></pre>
       </td>
@@ -144,7 +144,7 @@ struct Mansion {
 }
 var mansion = Mansion()
 mansion.addGarage(5)
-println(mansion.garageDoors)         // 10
+print(mansion.garageDoors)         // 10
 
 </code></pre>
       </td>
@@ -175,7 +175,7 @@ struct Font {
         return &quot;\(size)pt&quot;
     }
 }
-println(Font.pointSize())            // 12pt
+print(Font.pointSize())            // 12pt
 </code></pre>
       </td>
     </tr>

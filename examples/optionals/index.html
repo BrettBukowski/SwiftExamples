@@ -79,7 +79,7 @@
       <td class='code'>
         <pre><code class='language-swift'>
 var one = &quot;1&quot;
-var intVal = one.toInt()
+var intVal = Int(one)
 
 </code></pre>
       </td>
@@ -91,16 +91,16 @@ var intVal = one.toInt()
 
       </td>
       <td class='code'>
-        <pre><code class='language-swift'>if let intVal = one.toInt() {
+        <pre><code class='language-swift'>if let intVal = Int(one) {
     // And then access the underlying value with !
-    println(intVal)                                              // 1
+    print(intVal)                                              // 1
 }
 
 var nope = &quot;please&quot;
-var nopeIntVal = nope.toInt()
+var nopeIntVal = Int(nope)
 
 if nopeIntVal == nil {
-    println(&quot;Couldn&#39;t convert the string to an int&quot;)
+    print(&quot;Couldn&#39;t convert the string to an int&quot;)
 }
 
 </code></pre>
@@ -115,12 +115,12 @@ if nopeIntVal == nil {
       <td class='code'>
         <pre><code class='language-swift'>var maybe:String? = nil
 
-println(maybe)                                                  // nil
-println(maybe == nil)                                           // true
+print(maybe)                                                  // nil
+print(maybe == nil)                                           // true
 
 maybe = &quot;yep&quot;
 
-println(maybe)                                                  // yep
+print(maybe)                                                  // yep
 </code></pre>
       </td>
     </tr>

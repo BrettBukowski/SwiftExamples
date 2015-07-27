@@ -22,9 +22,9 @@ var collection = [
 
 for song in collection {
     if song is Classical {
-        println("\(song.name) is classical!")
+        print("\(song.name) is classical!")
     } else if song is Pop {
-        println("\(song.name) is poppy!")
+        print("\(song.name) is poppy!")
     }
 }
 
@@ -41,9 +41,9 @@ Canon in D is classical!
 
 for song in collection {
     if let popSong = song as? Pop {
-        println("pop song")
+        print("pop song")
     } else if let classicalSong = song as? Classical {
-        println("classical song")
+        print("classical song")
     }
 }
 
@@ -66,15 +66,15 @@ var randomCollection: [AnyObject] = [
 ]
 
 for item in randomCollection {
-    let songGenre = item as Genre
-    println("\(songGenre.self)")       // C11lldb_expr_03Pop (has 1 child) // C11lldb_expr_09Classical
-    println("\(songGenre.name)")
+    let songGenre = item as! Genre
+    print("\(songGenre.self)")       // C11lldb_expr_03Pop (has 1 child) // C11lldb_expr_09Classical
+    print("\(songGenre.name)")
 }
 
 // Every item can also be downcasted in the for-loop
 
-for item in randomCollection as [Genre] {
-    println("\(item.name)")
+for item in randomCollection as! [Genre] {
+    print("\(item.name)")
 }
 
 /*
@@ -95,15 +95,15 @@ groups.append(Pop(name: "Long Winters"))
 for item in groups {
     switch item {
     case let anInt as Int:
-        println("\(item) is an int")
+        print("\(item) is an int")
     case let aDouble as Double:
-        println("\(item) is a double")
+        print("\(item) is a double")
     case let aString as String:
-        println("\(item) is a string")
+        print("\(item) is a string")
     case let aGenre as Genre:
-        println("\(item) is a Genre")
+        print("\(item) is a Genre")
     default:
-        println("dunno")
+        print("dunno")
     }
 }
 

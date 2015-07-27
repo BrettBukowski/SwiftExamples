@@ -114,9 +114,9 @@ var combined = str + &quot; &quot; + smile
       </td>
       <td class='code'>
         <pre><code class='language-swift'>
-var length = countElements(combined) // 7
-println(combined.lowercaseString)
-println(combined.uppercaseString)
+var length = combined.characters.count // 7
+print(combined.lowercaseString)
+print(combined.uppercaseString)
 
 </code></pre>
       </td>
@@ -129,8 +129,9 @@ println(combined.uppercaseString)
       </td>
       <td class='code'>
         <pre><code class='language-swift'>
-for char in combined {
-    println(char)
+for char in combined.characters {
+    // Loops seven times
+    print(char)
 }
 
 </code></pre>
@@ -158,9 +159,9 @@ var trail = combined.substringWithRange(Range&lt;String.Index&gt;(start: str.end
       <td class='code'>
         <pre><code class='language-swift'>
 if let range = str.rangeOfString(&quot;ello&quot;) {
-    println(&quot;ello&quot;)                           // ello
+    print(&quot;ello&quot;)                           // ello
 } else {
-    println(&quot;nope&quot;)
+    print(&quot;nope&quot;)
 }
 
 </code></pre>
@@ -193,8 +194,17 @@ if let range = str.rangeOfString(&quot;ello&quot;) {
 
       </td>
       <td class='code'>
-        <pre><code class='language-swift'>
-extension String {
+        <pre><code class='language-swift'> </code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+        
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'>extension String {
     func beginsWith (str: String) -&gt; Bool {
         if let range = self.rangeOfString(str) {
             return range.startIndex == self.startIndex
@@ -210,17 +220,17 @@ extension String {
     }
 }
 
-println(&quot;find&quot;.beginsWith(&quot;f&quot;))       // true
-println(&quot;find&quot;.beginsWith(&quot;fi&quot;))      // true
-println(&quot;find&quot;.beginsWith(&quot;fin&quot;))     // true
-println(&quot;find&quot;.beginsWith(&quot;find&quot;))    // true
-println(&quot;find&quot;.beginsWith(&quot;finder&quot;))  // false
+print(&quot;find&quot;.beginsWith(&quot;f&quot;))       // true
+print(&quot;find&quot;.beginsWith(&quot;fi&quot;))      // true
+print(&quot;find&quot;.beginsWith(&quot;fin&quot;))     // true
+print(&quot;find&quot;.beginsWith(&quot;find&quot;))    // true
+print(&quot;find&quot;.beginsWith(&quot;finder&quot;))  // false
 
-println(&quot;find&quot;.endsWith(&quot;d&quot;))         // true
-println(&quot;find&quot;.endsWith(&quot;nd&quot;))        // true
-println(&quot;find&quot;.endsWith(&quot;ind&quot;))       // true
-println(&quot;find&quot;.endsWith(&quot;find&quot;))      // true
-println(&quot;find&quot;.endsWith(&quot;&quot;))          // false
+print(&quot;find&quot;.endsWith(&quot;d&quot;))         // true
+print(&quot;find&quot;.endsWith(&quot;nd&quot;))        // true
+print(&quot;find&quot;.endsWith(&quot;ind&quot;))       // true
+print(&quot;find&quot;.endsWith(&quot;find&quot;))      // true
+print(&quot;find&quot;.endsWith(&quot;&quot;))          // false
 
 </code></pre>
       </td>
@@ -232,9 +242,9 @@ println(&quot;find&quot;.endsWith(&quot;&quot;))          // false
 </h2>
       </td>
       <td class='code'>
-        <pre><code class='language-swift'>
-combined.splice(&quot;🐈&quot;, atIndex: combined.rangeOfString(smile)!.startIndex)
+        <pre><code class='language-swift'>combined.splice(&quot;🐈&quot;.characters, atIndex: combined.rangeOfString(smile)!.startIndex)
 combined.removeAtIndex(combined.rangeOfString(smile)!.startIndex)
+print(combined)                    // Hello 🐈
 </code></pre>
       </td>
     </tr>

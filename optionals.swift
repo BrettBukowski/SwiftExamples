@@ -7,27 +7,27 @@ import Foundation
 // Maybe monad, without the FP hoity-toity.
 
 var one = "1"
-var intVal = one.toInt()
+var intVal = Int(one)
 
 // Use a if-check to determine if there's an underlying value.
-if let intVal = one.toInt() {
+if let intVal = Int(one) {
     // And then access the underlying value with !
-    println(intVal)                                              // 1
+    print(intVal)                                              // 1
 }
 
 var nope = "please"
-var nopeIntVal = nope.toInt()
+var nopeIntVal = Int(nope)
 
 if nopeIntVal == nil {
-    println("Couldn't convert the string to an int")
+    print("Couldn't convert the string to an int")
 }
 
 // Creating optionals.
 var maybe:String? = nil
 
-println(maybe)                                                  // nil
-println(maybe == nil)                                           // true
+print(maybe)                                                  // nil
+print(maybe == nil)                                           // true
 
 maybe = "yep"
 
-println(maybe)                                                  // yep
+print(maybe)                                                  // yep

@@ -63,7 +63,7 @@ var emptyDictionary = Dictionary&lt;String, Float&gt;()
 </h2>
       </td>
       <td class='code'>
-        <pre><code class='language-swift'>println(strings[&quot;a&quot;])                           // A
+        <pre><code class='language-swift'>print(strings[&quot;a&quot;])                           // A
 strings[&quot;a&quot;] = &quot;AZ&quot;                             // Returns an optional string (new value that was assigned)
 strings.updateValue(&quot;AX&quot;, forKey: &quot;a&quot;)          // Returns an optional string (old value that was overwritten)
 
@@ -78,7 +78,7 @@ strings.updateValue(&quot;AX&quot;, forKey: &quot;a&quot;)          // Returns a
       </td>
       <td class='code'>
         <pre><code class='language-swift'>if let a = strings[&quot;a&quot;] {
-    println(a)                                  // AX
+    print(a)                                  // AX
 }
 
 </code></pre>
@@ -159,11 +159,11 @@ strings[&quot;a&quot;] = &quot;A&quot;
       <td class='code'>
         <pre><code class='language-swift'>
 for (key, val) in strings {
-    println(&quot;\(key): \(val)&quot;)
+    print(&quot;\(key): \(val)&quot;)
 }
 
 for key in strings.keys {
-    println(&quot;KEY: \(key)&quot;)
+    print(&quot;KEY: \(key)&quot;)
 }
 
 for val in strings.values {
@@ -197,7 +197,7 @@ let vals = Array(strings.values)
         <pre><code class='language-swift'>
 strings = [:]
 
-println(strings.count)                         // 0
+print(strings.count)                         // 0
 </code></pre>
       </td>
     </tr>
