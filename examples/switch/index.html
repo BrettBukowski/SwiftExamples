@@ -25,7 +25,7 @@
         
       </td>
       <td class='code'>
-        <pre><code class='language-swift'>let i = 2
+        <pre><code class='language-swift'>let i = 7
 
 switch i {
 case 1:
@@ -35,9 +35,31 @@ case 2:
 case 3, 4:
     // Comma-separate multiple expressions in the same case statement.
     print(&quot;three or four&quot;)
+case _ where i &gt; 5:
+    print(&quot;greater than 5&quot;)
 default:
     // Default is required.
-    print(&quot;huh&quot;)
+    print(&quot;less than 1&quot;)
+}
+
+</code></pre>
+      </td>
+    </tr>
+
+    <tr>
+      <td class='docs'>
+         Switch on the result of a function.
+
+      </td>
+      <td class='code'>
+        <pre><code class='language-swift'>
+func isEven (int: Int) -&gt; Bool {
+    return int % 2 == 0
+}
+
+switch isEven(i) {
+    case true: print(&quot;Even&quot;)
+    case false: print(&quot;Odd&quot;)
 }
 </code></pre>
       </td>
