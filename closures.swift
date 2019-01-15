@@ -9,22 +9,22 @@ body
 
 var numbers = [1, 2, 3, 4]
 
-var reversed = numbers.sort({(a: Int, b: Int) -> Bool in
-    return a > b;
+var reversed = numbers.sorted(by: {(a: Int, b: Int) -> Bool in
+    return a > b
 })
 
 // But type inference allows us to omit the types
 // and write something more succinct...
-reversed = numbers.sort({ a, b in return a > b })
+reversed = numbers.sorted(by: { a, b in return a > b })
 
 // ...And single-expression closures can even omit the return keyword.
-reversed = numbers.sort({ a, b in a > b })
+reversed = numbers.sorted(by: { a, b in a > b })
 
 // ...And even the param names can be omitted.
-reversed = numbers.sort({ $0 > $1 })
+reversed = numbers.sorted(by: { $0 > $1 })
 
 // ...But why stop there? Greater-than is an operator function!
-reversed = numbers.sort(>)
+reversed = numbers.sorted(by: >)
 
 // Closures, of course, have the ability to access the variables
 // in scope at the time the function is defined.
