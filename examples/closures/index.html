@@ -45,8 +45,8 @@ body
 
 var numbers = [1, 2, 3, 4]
 
-var reversed = numbers.sort({(a: Int, b: Int) -&gt; Bool in
-    return a &gt; b;
+var reversed = numbers.sorted(by: {(a: Int, b: Int) -&gt; Bool in
+    return a &gt; b
 })
 
 </code></pre>
@@ -69,7 +69,7 @@ var reversed = numbers.sort({(a: Int, b: Int) -&gt; Bool in
 
       </td>
       <td class='code'>
-        <pre><code class='language-swift'>reversed = numbers.sort({ a, b in return a &gt; b })
+        <pre><code class='language-swift'>reversed = numbers.sorted(by: { a, b in return a &gt; b })
 
 </code></pre>
       </td>
@@ -81,7 +81,7 @@ var reversed = numbers.sort({(a: Int, b: Int) -&gt; Bool in
 
       </td>
       <td class='code'>
-        <pre><code class='language-swift'>reversed = numbers.sort({ a, b in a &gt; b })
+        <pre><code class='language-swift'>reversed = numbers.sorted(by: { a, b in a &gt; b })
 
 </code></pre>
       </td>
@@ -93,7 +93,7 @@ var reversed = numbers.sort({(a: Int, b: Int) -&gt; Bool in
 
       </td>
       <td class='code'>
-        <pre><code class='language-swift'>reversed = numbers.sort({ $0 &gt; $1 })
+        <pre><code class='language-swift'>reversed = numbers.sorted(by: { $0 &gt; $1 })
 
 </code></pre>
       </td>
@@ -105,7 +105,7 @@ var reversed = numbers.sort({(a: Int, b: Int) -&gt; Bool in
 
       </td>
       <td class='code'>
-        <pre><code class='language-swift'>reversed = numbers.sort(&gt;)
+        <pre><code class='language-swift'>reversed = numbers.sorted(by: &gt;)
 
 </code></pre>
       </td>
